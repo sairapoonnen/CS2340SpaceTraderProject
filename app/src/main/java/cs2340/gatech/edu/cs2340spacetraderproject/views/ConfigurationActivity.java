@@ -44,7 +44,7 @@ public class ConfigurationActivity extends AppCompatActivity{
     }
 
     /*Button handler for the Create Player button*/
-    public void onCreatePress(View view) {
+    public void onCreatePressed(View view) {
         player.setName(nameField.getText().toString());
         player.setGameDifficulty((String) difficultySpinner.getSelectedItem());
     }

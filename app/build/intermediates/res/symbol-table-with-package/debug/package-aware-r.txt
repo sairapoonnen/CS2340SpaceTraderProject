@@ -670,6 +670,7 @@ id action_text
 id actions
 id activity_chooser_view_content
 id add
+id add_button
 id alertTitle
 id all
 id always
@@ -694,6 +695,7 @@ id custom
 id customPanel
 id decor_content_parent
 id default_activity_button
+id difficultySpinner
 id dimensions
 id direct
 id disableHome
@@ -705,6 +707,7 @@ id fill
 id fill_horizontal
 id fill_vertical
 id forever
+id game_difficulty
 id gone
 id group_divider
 id groups
@@ -725,7 +728,9 @@ id list_item
 id message
 id middle
 id multiply
+id name_header
 id never
+id new_player
 id none
 id normal
 id notification_background
@@ -735,6 +740,7 @@ id packed
 id parent
 id parentPanel
 id percent
+id player_name
 id progress_circular
 id progress_horizontal
 id radio
@@ -824,6 +830,7 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_configuration
 layout activity_main
 layout notification_action
 layout notification_action_tombstone

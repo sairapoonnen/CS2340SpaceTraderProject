@@ -11,6 +11,42 @@
     >
 
 
+    <TextView
+        android:id="@+id/traderSkill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Trader"
+        android:textSize="16sp"
+        app:fontFamily="@font/alegreya_sans_sc"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="365dp" />
+
+    <TextView
+        android:id="@+id/engineerSkill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Engineer"
+        android:textSize="16sp"
+        app:fontFamily="@font/alegreya_sans_sc"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="423dp" />
+
+    <TextView
+        android:id="@+id/fighterSkill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Fighter"
+        android:textSize="16sp"
+        app:fontFamily="@font/alegreya_sans_sc"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="308dp" />
+
     <EditText
         android:id="@+id/player_name"
         android:layout_width="match_parent"
@@ -61,19 +97,19 @@
 
     <TextView
         android:id="@+id/game_difficulty"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="407dp"
+        android:layout_height="24dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
+        android:background="@color/Honeydew"
         android:gravity="center"
         android:text="Choose Game Difficulty"
         android:textColor="@android:color/black"
         android:textSize="18sp"
-        android:background="@color/Honeydew"
         app:fontFamily="@font/alegreya_sans_sc_bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -113,7 +149,7 @@
         app:fontFamily="@font/alegreya_sans_sc"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="221dp" />
+        tools:layout_editor_absoluteY="249dp" />
 
     <TextView
         android:id="@+id/skill_header"
@@ -132,5 +168,16 @@
         app:layout_constraintVertical_bias="0.178"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="0dp" />
+
+    <TextView
+        android:id="@+id/totalSkill"
+        android:layout_width="276dp"
+        android:layout_height="21dp"
+        android:gravity="center"
+        android:text="Total Remaining Skill Points"
+        android:textSize="16sp"
+        app:fontFamily="@font/alegreya_sans_sc_medium"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="179dp" />
 
 </android.support.constraint.ConstraintLayout>

@@ -2,9 +2,11 @@
 
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/white"
     tools:context=".views.ConfigurationActivity"
     >
 
@@ -14,33 +16,70 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/name_header"
+        android:gravity="center"
+        android:singleLine="true"
         android:text="Input Character Name"
+        android:textColor="@android:color/black"
+        android:textSize="14sp"
+        android:typeface="monospace"
+        tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="35dp" />
+        tools:layout_editor_absoluteY="47dp" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/name_header"
-        android:text="Character Name"
+        android:layout_width="410dp"
+        android:layout_height="24dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
-        />
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/Honeydew"
+        android:gravity="center"
+        android:text="Character Name"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:fontFamily="@font/alegreya_sans_sc_bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.011" />
 
     <Spinner
         android:id="@+id/difficultySpinner"
-        android:layout_width="395dp"
-        android:layout_height="50dp"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="431dp" />
+        android:layout_width="396dp"
+        android:layout_height="33dp"
+        tools:layout_editor_absoluteX="7dp"
+        tools:layout_editor_absoluteY="564dp"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/game_difficulty"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center"
         android:text="Choose Game Difficulty"
-        tools:layout_editor_absoluteX="141dp"
-        tools:layout_editor_absoluteY="405dp" />
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:background="@color/Honeydew"
+        app:fontFamily="@font/alegreya_sans_sc_bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.747" />
 
     <Button
         android:id="@+id/add_button"
@@ -49,9 +88,49 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="16dp"
         android:onClick="onCreatePressed"
         android:text="Create"
-        tools:layout_editor_absoluteX="161dp"
-        tools:layout_editor_absoluteY="656dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.981" />
+
+    <TextView
+        android:id="@+id/pilotSkill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Pilot"
+        android:textSize="16sp"
+        app:fontFamily="@font/alegreya_sans_sc"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="221dp" />
+
+    <TextView
+        android:id="@+id/skill_header"
+        android:layout_width="416dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/Honeydew"
+        android:gravity="center"
+        android:text="Distribute Skill Points"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:fontFamily="@font/alegreya_sans_sc_bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.178"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp" />
 
 </android.support.constraint.ConstraintLayout>

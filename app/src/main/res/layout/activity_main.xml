@@ -8,19 +8,20 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="412dp"
-        android:layout_height="46dp"
-        android:layout_marginTop="684dp"
+        android:layout_width="416dp"
+        android:layout_height="154dp"
+        android:layout_marginTop="608dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@color/colorAccent" />
 
     <TextView
-        android:layout_width="195dp"
-        android:layout_height="50dp"
+        android:layout_width="255dp"
+        android:layout_height="74dp"
+        android:background="@color/Beige"
+        android:gravity="center"
         android:text="Space Trader"
         android:textSize="85px"
-        android:gravity="center"
         app:fontFamily="@font/alegreya_sans_sc"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.51"
@@ -50,11 +51,11 @@
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="411dp"
-        android:layout_height="46dp"
-        android:layout_marginBottom="684dp"
+        android:layout_height="145dp"
+        android:layout_marginBottom="600dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:srcCompat="@color/colorAccent"
-        tools:layout_editor_absoluteX="1dp"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="1dp" />
 
 </android.support.constraint.ConstraintLayout>

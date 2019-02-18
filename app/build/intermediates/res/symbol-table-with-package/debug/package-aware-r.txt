@@ -737,10 +737,6 @@ id image
 id imageView2
 id imageView3
 id info
-id integer_engineer
-id integer_fighter
-id integer_pilot
-id integer_trader
 id invisible
 id italic
 id left
@@ -819,7 +815,6 @@ id title_template
 id top
 id topPanel
 id totalSkill
-id total_points
 id trader_header
 id trader_minus
 id trader_plus

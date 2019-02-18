@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/sophiah/Desktop/CS2340/CS2340SpaceTraderProject/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-land/values-land.xml",
+            "outputFile": "/Users/linajkim/cs2340/CS2340SpaceTraderProject/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-land/values-land.xml",
             "map": [
                 {
-                    "source": "/Users/sophiah/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/2e1cc3e275f31c0a6662d092a6726d08/res/values-land/values-land.xml",
+                    "source": "/Users/linajkim/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/c9da8e2c15e6653eb7774b3f147a708a/res/values-land/values-land.xml",
                     "from": {
                         "startLines": "2,3,4",
                         "startColumns": "4,4,4",

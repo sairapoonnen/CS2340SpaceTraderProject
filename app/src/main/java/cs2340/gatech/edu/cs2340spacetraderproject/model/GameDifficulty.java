@@ -7,7 +7,7 @@ public enum GameDifficulty {
 
     private String difficulty;
 
-    public String getDifficulty() { return this.difficulty; }
+    public String toString() { return this.difficulty; }
 
     private GameDifficulty(String difficulty) { this.difficulty = difficulty; }
 

@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/engineerSkill"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
-    tools:context=".views.ConfigurationActivity"
-    >
+    tools:context=".views.ConfigurationActivity">
 
 
     <Button
@@ -23,6 +22,7 @@
         android:layout_marginBottom="8dp"
         android:background="@color/LemonChiffon"
         android:gravity="center"
+        android:onClick="onPlusPilotPressed"
         android:text="+"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -44,6 +44,7 @@
         android:layout_marginBottom="8dp"
         android:background="@color/LemonChiffon"
         android:gravity="center"
+        android:onClick="onPlusFighterPressed"
         android:text="+"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -65,6 +66,7 @@
         android:layout_marginBottom="8dp"
         android:background="@color/LemonChiffon"
         android:gravity="center"
+        android:onClick="onMinusFighterPressed"
         android:text="-"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -87,6 +89,7 @@
         android:layout_marginBottom="8dp"
         android:background="@color/LemonChiffon"
         android:gravity="center"
+        android:onClick="onMinusPilotPressed"
         android:text="-"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -109,6 +112,7 @@
         android:layout_marginBottom="8dp"
         android:background="@color/LemonChiffon"
         android:gravity="center"
+        android:onClick="onPlusEngineerPressed"
         android:text="+"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -130,6 +134,7 @@
         android:layout_marginBottom="8dp"
         android:background="@color/LemonChiffon"
         android:gravity="center"
+        android:onClick="onMinusEngineerPressed"
         android:text="-"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -152,6 +157,7 @@
         android:layout_marginBottom="8dp"
         android:background="@color/LemonChiffon"
         android:gravity="center"
+        android:onClick="onPlusTraderPressed"
         android:text="+"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -396,7 +402,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.248" />
+        app:layout_constraintVertical_bias="0.247" />
 
     <Button
         android:id="@+id/trader_minus"
@@ -410,6 +416,7 @@
         android:layout_marginBottom="8dp"
         android:background="@color/LemonChiffon"
         android:gravity="center"
+        android:onClick="onMinusTraderPressed"
         android:text="-"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -419,5 +426,96 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.52" />
+
+    <TextView
+        android:id="@+id/pilotSkillPoint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.806"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.347" />
+
+    <TextView
+        android:id="@+id/fighterSkillPoint"
+        android:layout_width="wrap_content"
+        android:layout_height="19dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.806"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.433" />
+
+    <TextView
+        android:id="@+id/traderSkillPoint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/skill_header"
+        app:layout_constraintHorizontal_bias="0.795"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.518" />
+
+    <TextView
+        android:id="@+id/engineerSkillPoint"
+        android:layout_width="8dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.806"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.606" />
+
+    <TextView
+        android:id="@+id/totalSkillPoint"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="16"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.691"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.247" />
 
 </android.support.constraint.ConstraintLayout>

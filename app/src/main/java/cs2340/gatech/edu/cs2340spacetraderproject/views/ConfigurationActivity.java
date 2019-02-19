@@ -63,11 +63,10 @@ public class ConfigurationActivity extends AppCompatActivity {
         if (totalSkill == 16) {
             player.setName(nameField.getText().toString());
             player.setGameDifficulty(difficultySpinner.getSelectedItem().toString());
+            finish();
         } else {
             Toast.makeText(getApplicationContext(), "Must allocate all skill points before creation.", Toast.LENGTH_SHORT).show();
         }
-
-        finish();
     }
 
     public void onPlusPilotPressed(View view) {

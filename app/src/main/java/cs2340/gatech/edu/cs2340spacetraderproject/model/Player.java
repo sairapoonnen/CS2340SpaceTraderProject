@@ -33,21 +33,15 @@ public class Player {
         this.gameDifficulty = null;
     }
 
-    public String getName() {
-        return this.name;
-    }
+    public String getName() { return this.name; }
 
-    public int getPilotSkill() {
-        return this.pilotSkill;
-    }
+    public int getPilotSkill() { return this.pilotSkill; }
 
     public int getFighterSkill() {
         return this.fighterSkill;
     }
 
-    public int getTraderSkill() {
-        return this.traderSkill;
-    }
+    public int getTraderSkill() { return this.traderSkill; }
 
     public int getEngineerSkill() {
         return this.engineerSkill;

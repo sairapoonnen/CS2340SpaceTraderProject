@@ -1,6 +1,7 @@
 package cs2340.gatech.edu.cs2340spacetraderproject.model;
 
 public class Spaceship {
+    private String name;
     private int hullStrength;
     private int cargoBays;
     private int weaponSlots;
@@ -9,7 +10,8 @@ public class Spaceship {
     private int crewQuarters;
     private int distance;
 
-    public Spaceship(int hullStrength, int cargoBays, int weaponSlots, int gadgetSlots, int shieldSlots, int crewQuarters, int distance) {
+    public Spaceship(String name, int hullStrength, int cargoBays, int weaponSlots, int gadgetSlots, int shieldSlots, int crewQuarters, int distance) {
+        this.name = name;
         this.hullStrength = hullStrength;
         this.cargoBays = cargoBays;
         this.weaponSlots = weaponSlots;
@@ -18,6 +20,8 @@ public class Spaceship {
         this.crewQuarters = crewQuarters;
         this.distance = distance;
     }
+
+    public String getName() { return name; }
 
     public int getHullStrength() {
         return hullStrength;

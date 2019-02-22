@@ -61,8 +61,19 @@ public class ConfigurationActivity extends AppCompatActivity {
     /*Button handler for the Create Player button*/
     public void onCreatePressed(View view) {
         if (totalSkill == 16) {
+            String TAG = "PlayerInfo";
+
             player.setName(nameField.getText().toString());
             player.setGameDifficulty(difficultySpinner.getSelectedItem().toString());
+
+            Log.i(TAG, "Player Name: " + player.getName());
+            Log.i(TAG, "Credits: " + player.getCredits());
+            Log.i(TAG, "Spaceship: " + player.getSpaceship().getName());
+            Log.i(TAG, "Pilot Skill: " + Integer.toString(player.getPilotSkill()));
+            Log.i(TAG, "Fighter Skill: " + Integer.toString(player.getFighterSkill()));
+            Log.i(TAG, "Trader Skill: " + Integer.toString(player.getTraderSkill()));
+            Log.i(TAG, "Engineer Skill: " + Integer.toString(player.getEngineerSkill()));
+            Log.i(TAG, "Game Difficulty: " + player.getGameDifficulty());
             finish();
         } else {
             Toast.makeText(getApplicationContext(), "Must allocate all skill points before creation.", Toast.LENGTH_SHORT).show();

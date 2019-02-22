@@ -2,4 +2,7 @@
     <string name="app_name">CS 2340 Space Trader Project</string>
     <color name="Honeydew">#F0FFF0</color>
     <color name="White">#FFFFFF</color>
+    <color name="LavenderBlush">#FFF0F5</color>
+    <color name="LemonChiffon">#FFFACD</color>
+    <string name="title_activity_main2">Main2Activity</string>
 </resources>

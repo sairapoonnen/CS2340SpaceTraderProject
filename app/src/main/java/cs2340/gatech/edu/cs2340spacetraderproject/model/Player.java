@@ -11,15 +11,26 @@ public class Player {
     private Spaceship spaceship;
     private String gameDifficulty;
 
-    public Player(String name, int pilotSkill, int traderSkill, int engineerSkill, int credits, Spaceship spaceship, String gameDifficulty) {
+    public Player(String name, int pilotSkill, int fighterSkill, int traderSkill, int engineerSkill, String gameDifficulty) {
         this.name = name;
         this.pilotSkill = pilotSkill;
         this.fighterSkill = fighterSkill;
         this.traderSkill = traderSkill;
         this.engineerSkill = engineerSkill;
-        this.credits = credits;
-        this.spaceship = spaceship;
+        this.credits = 1000;
+        this.spaceship = new Gnat();
         this.gameDifficulty = gameDifficulty;
+    }
+
+    public Player() {
+        this.name = "";
+        this.pilotSkill = 0;
+        this.fighterSkill = 0;
+        this.traderSkill = 0;
+        this.engineerSkill = 0;
+        this.credits = 1000;
+        this.spaceship = new Gnat();
+        this.gameDifficulty = null;
     }
 
     public String getName() {

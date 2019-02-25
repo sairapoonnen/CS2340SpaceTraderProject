@@ -168,6 +168,8 @@ public class ConfigurationActivity extends AppCompatActivity {
 
             universe.addSolarSystem(new SolarSystem("Gypsophil", 23, 75, rand.nextInt(8), rand.nextInt(13)));
             universe.addSolarSystem(new SolarSystem("Tuzi", 44, 110, rand.nextInt(8), rand.nextInt(13)));
+            universe.addSolarSystem(new SolarSystem("Nix", 32, 80, rand.nextInt(8), rand.nextInt(13)));
+            universe.addSolarSystem(new SolarSystem("Hades", 50, 70, rand.nextInt(8), rand.nextInt(13)));
 
             String TAG = "UniverseInfo";
             Log.i(TAG, "Universe: ");

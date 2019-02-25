@@ -245,7 +245,7 @@
         android:layout_marginBottom="8dp"
         android:gravity="center"
         android:singleLine="true"
-        android:text="Input Character Name"
+        android:text="Name"
         android:textColor="@android:color/black"
         android:textSize="14sp"
         android:typeface="monospace"
@@ -517,5 +517,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.247" />
+
+    <Button
+        android:id="@+id/generateUniverse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Generate Universe"
+        android:onClick="onGeneratePressed"/>
 
 </android.support.constraint.ConstraintLayout>

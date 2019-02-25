@@ -18,6 +18,10 @@ import cs2340.gatech.edu.cs2340spacetraderproject.viewmodels.ConfigurationViewMo
 import cs2340.gatech.edu.cs2340spacetraderproject.model.Player;
 import cs2340.gatech.edu.cs2340spacetraderproject.model.Spaceship;
 import cs2340.gatech.edu.cs2340spacetraderproject.model.GameDifficulty;
+import cs2340.gatech.edu.cs2340spacetraderproject.model.SolarSystem;
+import cs2340.gatech.edu.cs2340spacetraderproject.model.Universe;
+
+import java.util.*;
 
 public class ConfigurationActivity extends AppCompatActivity {
 
@@ -38,6 +42,7 @@ public class ConfigurationActivity extends AppCompatActivity {
     private Player player = new Player();
     private final int maxSkill = 16;
     private int totalSkill = player.getEngineerSkill() + player.getFighterSkill() + player.getPilotSkill() + player.getTraderSkill();
+    private boolean playerCreated = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +67,7 @@ public class ConfigurationActivity extends AppCompatActivity {
     public void onCreatePressed(View view) {
         if (totalSkill == 16) {
             String TAG = "PlayerInfo";
+            playerCreated = true;
 
             player.setName(nameField.getText().toString());
             player.setGameDifficulty(difficultySpinner.getSelectedItem().toString());
@@ -74,7 +80,6 @@ public class ConfigurationActivity extends AppCompatActivity {
             Log.i(TAG, "Trader Skill: " + Integer.toString(player.getTraderSkill()));
             Log.i(TAG, "Engineer Skill: " + Integer.toString(player.getEngineerSkill()));
             Log.i(TAG, "Game Difficulty: " + player.getGameDifficulty());
-            finish();
         } else {
             Toast.makeText(getApplicationContext(), "Must allocate all skill points before creation.", Toast.LENGTH_SHORT).show();
         }
@@ -151,6 +156,30 @@ public class ConfigurationActivity extends AppCompatActivity {
             engineerSkillPoint.setText(String.format("%s", player.getEngineerSkill()));
             totalSkill--;
             totalSkillPoint.setText(String.format("%s", maxSkill - totalSkill));
+        }
+    }
+
+    /*Button handler for generating universe*/
+    public void onGeneratePressed(View view) {
+        if (playerCreated) {
+            Universe universe = new Universe();
+
+            Random rand = new Random();
+
+            universe.addSolarSystem(new SolarSystem("Gypsophil", 23, 75, rand.nextInt(8), rand.nextInt(13)));
+            universe.addSolarSystem(new SolarSystem("Tuzi", 44, 110, rand.nextInt(8), rand.nextInt(13)));
+
+            String TAG = "UniverseInfo";
+            Log.i(TAG, "Universe: ");
+
+            for (SolarSystem ss : universe.getSolarSystem()) {
+                Log.i(TAG, "Solar System Name: " + ss.getName() + ", coordinates: " + Integer.toString(ss.getX()) + ", " + Integer.toString(ss.getY()) + ", Tech Level: " + ss.getTechArray()[ss.getTech()] + ", Resources: " + ss.getResourceArray()[ss.getResource()] );
+            }
+
+            finish();
+
+        } else {
+            Toast.makeText(getApplicationContext(), "Must create player before generating universe", Toast.LENGTH_SHORT).show();
         }
     }
 

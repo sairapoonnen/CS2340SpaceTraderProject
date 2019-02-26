@@ -172,6 +172,10 @@ public class ConfigurationActivity extends AppCompatActivity {
             universe.addSolarSystem(new SolarSystem("Hades", 50, 70, rand.nextInt(8), rand.nextInt(13)));
             universe.addSolarSystem(new SolarSystem("Terosa", 14, 19, rand.nextInt(8), rand.nextInt(13)));
             universe.addSolarSystem(new SolarSystem("Malcoria", 9, 41, rand.nextInt(8), rand.nextInt(13)));
+            universe.addSolarSystem(new SolarSystem("Brax", 61, 4, rand.nextInt(8), rand.nextInt(13)));
+            universe.addSolarSystem(new SolarSystem("Sol", 75, 59, rand.nextInt(8), rand.nextInt(13)));
+            universe.addSolarSystem(new SolarSystem("Andevian", 83, 37, rand.nextInt(8), rand.nextInt(13)));
+            universe.addSolarSystem(new SolarSystem("Relva", 96, 22, rand.nextInt(8), rand.nextInt(13)));
 
             String TAG = "UniverseInfo";
             Log.i(TAG, "Universe: ");

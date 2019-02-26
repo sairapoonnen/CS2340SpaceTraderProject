@@ -317,7 +317,7 @@
     <Button
         android:id="@+id/add_button"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="54dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
@@ -331,10 +331,10 @@
         android:text="Create"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.781"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.981" />
+        app:layout_constraintVertical_bias="0.986" />
 
     <TextView
         android:id="@+id/pilot_header"
@@ -421,7 +421,7 @@
         app:layout_constraintVertical_bias="0.52" />
 
     <TextView
-        android:id="@+id/total_points"
+        android:id="@+id/totalSkillPoint"
         android:layout_width="36dp"
         android:layout_height="44dp"
         android:layout_marginTop="8dp"
@@ -441,7 +441,7 @@
         app:layout_constraintVertical_bias="0.017" />
 
     <TextView
-        android:id="@+id/integer_engineer"
+        android:id="@+id/engineerSkillPoint"
         android:layout_width="22dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -461,12 +461,12 @@
         app:layout_constraintVertical_bias="0.618" />
 
     <TextView
-        android:id="@+id/integer_trader"
+        android:id="@+id/traderSkillPoint"
         android:layout_width="26dp"
         android:layout_height="45dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="364dp"
         android:layout_marginEnd="68dp"
         android:layout_marginRight="68dp"
         android:layout_marginBottom="20dp"
@@ -481,7 +481,7 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <TextView
-        android:id="@+id/integer_fighter"
+        android:id="@+id/fighterSkillPoint"
         android:layout_width="26dp"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -491,7 +491,7 @@
         tools:layout_editor_absoluteY="303dp" />
 
     <TextView
-        android:id="@+id/integer_pilot"
+        android:id="@+id/pilotSkillPoint"
         android:layout_width="21dp"
         android:layout_height="50dp"
         android:layout_marginStart="8dp"
@@ -514,9 +514,19 @@
         android:id="@+id/generateUniverse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="28dp"
         android:onClick="onGeneratePressed"
         android:text="Generate Universe"
-        tools:layout_editor_absoluteX="55dp"
-        tools:layout_editor_absoluteY="445dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.155"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
 </android.support.constraint.ConstraintLayout>

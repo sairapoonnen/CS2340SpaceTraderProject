@@ -570,6 +570,7 @@ bool mtrl_btn_textappearance_all_caps
 color Honeydew
 color LavenderBlush
 color LemonChiffon
+color PapayaWhip
 color White
 color abc_background_cache_hint_selector_material_dark
 color abc_background_cache_hint_selector_material_light

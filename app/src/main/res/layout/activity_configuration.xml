@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/engineerSkill"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
-    tools:context=".views.ConfigurationActivity">
+    tools:context=".views.ConfigurationActivity"
+    >
 
 
     <Button
-        android:id="@+id/pilot_plus3"
+        android:id="@+id/pilot_plus"
         android:layout_width="32dp"
         android:layout_height="31dp"
         android:layout_marginStart="8dp"
@@ -22,7 +23,6 @@
         android:layout_marginBottom="8dp"
         android:background="@color/LemonChiffon"
         android:gravity="center"
-        android:onClick="onPlusPilotPressed"
         android:text="+"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -44,7 +44,6 @@
         android:layout_marginBottom="8dp"
         android:background="@color/LemonChiffon"
         android:gravity="center"
-        android:onClick="onPlusFighterPressed"
         android:text="+"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -66,7 +65,6 @@
         android:layout_marginBottom="8dp"
         android:background="@color/LemonChiffon"
         android:gravity="center"
-        android:onClick="onMinusFighterPressed"
         android:text="-"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -78,7 +76,7 @@
         app:layout_constraintVertical_bias="0.431" />
 
     <Button
-        android:id="@+id/pilot_minus4"
+        android:id="@+id/pilot_minus"
         android:layout_width="32dp"
         android:layout_height="31dp"
         android:layout_marginStart="8dp"
@@ -89,12 +87,11 @@
         android:layout_marginBottom="8dp"
         android:background="@color/LemonChiffon"
         android:gravity="center"
-        android:onClick="onMinusPilotPressed"
         android:text="-"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/pilot_plus3"
+        app:layout_constraintEnd_toStartOf="@+id/pilot_plus"
         app:layout_constraintHorizontal_bias="0.774"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -112,7 +109,6 @@
         android:layout_marginBottom="8dp"
         android:background="@color/LemonChiffon"
         android:gravity="center"
-        android:onClick="onPlusEngineerPressed"
         android:text="+"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -134,7 +130,6 @@
         android:layout_marginBottom="8dp"
         android:background="@color/LemonChiffon"
         android:gravity="center"
-        android:onClick="onMinusEngineerPressed"
         android:text="-"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -157,7 +152,6 @@
         android:layout_marginBottom="8dp"
         android:background="@color/LemonChiffon"
         android:gravity="center"
-        android:onClick="onPlusTraderPressed"
         android:text="+"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -402,7 +396,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.247" />
+        app:layout_constraintVertical_bias="0.248" />
 
     <Button
         android:id="@+id/trader_minus"
@@ -416,7 +410,6 @@
         android:layout_marginBottom="8dp"
         android:background="@color/LemonChiffon"
         android:gravity="center"
-        android:onClick="onMinusTraderPressed"
         android:text="-"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -428,101 +421,102 @@
         app:layout_constraintVertical_bias="0.52" />
 
     <TextView
-        android:id="@+id/pilotSkillPoint"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
+        android:id="@+id/total_points"
+        android:layout_width="36dp"
+        android:layout_height="44dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        android:text="0"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.806"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.347" />
-
-    <TextView
-        android:id="@+id/fighterSkillPoint"
-        android:layout_width="wrap_content"
-        android:layout_height="19dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="0"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.806"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.433" />
-
-    <TextView
-        android:id="@+id/traderSkillPoint"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="0"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/skill_header"
-        app:layout_constraintHorizontal_bias="0.795"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.518" />
-
-    <TextView
-        android:id="@+id/engineerSkillPoint"
-        android:layout_width="8dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="14dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="0"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.806"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.606" />
-
-    <TextView
-        android:id="@+id/totalSkillPoint"
-        android:layout_width="wrap_content"
-        android:layout_height="25dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
+        android:gravity="center"
         android:text="16"
-        android:textSize="16sp"
+        android:textSize="28sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.691"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintRight_toRightOf="@id/totalSkill"
+        app:layout_constraintStart_toEndOf="@id/totalSkill"
+        app:layout_constraintTop_toBottomOf="@+id/skill_header"
+        app:layout_constraintVertical_bias="0.017" />
+
+    <TextView
+        android:id="@+id/integer_engineer"
+        android:layout_width="22dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center"
+        android:text="0"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/engineer_plus"
+        app:layout_constraintHorizontal_bias="0.523"
+        app:layout_constraintStart_toEndOf="@+id/engineer_minus"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.618" />
+
+    <TextView
+        android:id="@+id/integer_trader"
+        android:layout_width="26dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="68dp"
+        android:layout_marginRight="68dp"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:text="0"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/integer_engineer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.987"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.247" />
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/integer_fighter"
+        android:layout_width="26dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="0"
+        android:textSize="30sp"
+        tools:layout_editor_absoluteX="313dp"
+        tools:layout_editor_absoluteY="303dp" />
+
+    <TextView
+        android:id="@+id/integer_pilot"
+        android:layout_width="21dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center"
+        android:text="0"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/pilot_plus"
+        app:layout_constraintStart_toEndOf="@+id/pilot_minus"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.338" />
+
 
     <Button
         android:id="@+id/generateUniverse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="onGeneratePressed"
         android:text="Generate Universe"
-        android:onClick="onGeneratePressed"/>
+        tools:layout_editor_absoluteX="55dp"
+        tools:layout_editor_absoluteY="445dp" />
 
 </android.support.constraint.ConstraintLayout>

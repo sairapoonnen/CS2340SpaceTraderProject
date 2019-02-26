@@ -25,6 +25,7 @@
         android:gravity="center"
         android:text="+"
         android:textSize="18sp"
+        android:onClick="onPlusPilotPressed"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.977"
@@ -46,6 +47,7 @@
         android:gravity="center"
         android:text="+"
         android:textSize="18sp"
+        android:onClick="onPlusFighterPressed"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.898"
@@ -68,6 +70,7 @@
         android:text="-"
         android:textSize="18sp"
         android:textStyle="bold"
+        android:onClick="onMinusFighterPressed"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.672"
@@ -90,6 +93,7 @@
         android:text="-"
         android:textSize="18sp"
         android:textStyle="bold"
+        android:onClick="onMinusPilotPressed"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/pilot_plus"
         app:layout_constraintHorizontal_bias="0.774"
@@ -111,6 +115,7 @@
         android:gravity="center"
         android:text="+"
         android:textSize="18sp"
+        android:onClick="onPlusEngineerPressed"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.977"
@@ -133,6 +138,7 @@
         android:text="-"
         android:textSize="18sp"
         android:textStyle="bold"
+        android:onClick="onMinusEngineerPressed"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.674"
@@ -154,6 +160,7 @@
         android:gravity="center"
         android:text="+"
         android:textSize="18sp"
+        android:onClick="onPlusTraderPressed"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.977"
@@ -317,7 +324,7 @@
     <Button
         android:id="@+id/add_button"
         android:layout_width="wrap_content"
-        android:layout_height="54dp"
+        android:layout_height="47dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
@@ -329,12 +336,13 @@
         android:layout_marginBottom="16dp"
         android:onClick="onCreatePressed"
         android:text="Create"
+        android:background="@color/PapayaWhip"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.781"
+        app:layout_constraintHorizontal_bias="0.162"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.986" />
+        app:layout_constraintVertical_bias="0.972" />
 
     <TextView
         android:id="@+id/pilot_header"
@@ -413,6 +421,7 @@
         android:text="-"
         android:textSize="18sp"
         android:textStyle="bold"
+        android:onClick="onMinusTraderPressed"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.674"
@@ -462,7 +471,7 @@
 
     <TextView
         android:id="@+id/traderSkillPoint"
-        android:layout_width="26dp"
+        android:layout_width="30dp"
         android:layout_height="45dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
@@ -482,13 +491,24 @@
 
     <TextView
         android:id="@+id/fighterSkillPoint"
-        android:layout_width="26dp"
+        android:layout_width="30dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
         android:gravity="center"
         android:text="0"
         android:textSize="30sp"
-        tools:layout_editor_absoluteX="313dp"
-        tools:layout_editor_absoluteY="303dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.824"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.437"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/pilotSkillPoint"
@@ -509,24 +529,24 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.338" />
 
-
     <Button
         android:id="@+id/generateUniverse"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="48dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="28dp"
+        android:background="@color/PapayaWhip"
         android:onClick="onGeneratePressed"
         android:text="Generate Universe"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.155"
+        app:layout_constraintHorizontal_bias="0.827"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.99" />
 
 </android.support.constraint.ConstraintLayout>

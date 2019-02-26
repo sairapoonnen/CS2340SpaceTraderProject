@@ -4,5 +4,6 @@
     <color name="White">#FFFFFF</color>
     <color name="LavenderBlush">#FFF0F5</color>
     <color name="LemonChiffon">#FFFACD</color>
+    <color name="PapayaWhip">#FFEFD5</color>
     <string name="title_activity_main2">Main2Activity</string>
 </resources>

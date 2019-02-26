@@ -654,9 +654,9 @@ public final class R {
         public static final int default_activity_button = 0x7f0a0035;
         public static final int edit_query = 0x7f0a003f;
         public static final int end = 0x7f0a0040;
-        public static final int expand_activities_button = 0x7f0a0049;
-        public static final int expanded_menu = 0x7f0a004a;
-        public static final int forever = 0x7f0a0054;
+        public static final int expand_activities_button = 0x7f0a0048;
+        public static final int expanded_menu = 0x7f0a0049;
+        public static final int forever = 0x7f0a0053;
         public static final int group_divider = 0x7f0a0058;
         public static final int home = 0x7f0a005a;
         public static final int icon = 0x7f0a005c;

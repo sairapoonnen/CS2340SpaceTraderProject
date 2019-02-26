@@ -1098,7 +1098,6 @@ id direct
 id disableHome
 id edit_query
 id end
-id engineerSkill
 id engineerSkillPoint
 id engineer_header
 id engineer_minus
@@ -1119,6 +1118,7 @@ id filled
 id fixed
 id forever
 id game_difficulty
+id generateUniverse
 id ghost_view
 id gone
 id group_divider
@@ -1167,8 +1167,8 @@ id parent_matrix
 id percent
 id pilotSkillPoint
 id pilot_header
-id pilot_minus4
-id pilot_plus3
+id pilot_minus
+id pilot_plus
 id pin
 id player_name
 id progress_circular

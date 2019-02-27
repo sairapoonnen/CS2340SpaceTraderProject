@@ -15,4 +15,13 @@ public class Universe {
     public Universe() {
         solarSystem = new ArrayList<SolarSystem>();
     }
+
+    public String toString() {
+        String solarSystems = "";
+        for (SolarSystem ss: solarSystem) {
+            solarSystems += ss.toString() + "\n";
+        }
+
+        return solarSystems;
+    }
 }

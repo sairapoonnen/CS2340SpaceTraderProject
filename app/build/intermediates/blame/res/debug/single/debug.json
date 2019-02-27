@@ -1348,6 +1348,10 @@
         "source": "/Users/Saira/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/86ef20b9ba08463128a747deb561088f/res/drawable-xxhdpi-v4/abc_btn_check_to_on_mtrl_000.png"
     },
     {
+        "merged": "/Users/Saira/StudioProjects/CS2340SpaceTraderProject/app/build/intermediates/res/merged/debug/layout_activity_universe_configuration.xml.flat",
+        "source": "/Users/Saira/StudioProjects/CS2340SpaceTraderProject/app/src/main/res/layout/activity_universe_configuration.xml"
+    },
+    {
         "merged": "/Users/Saira/StudioProjects/CS2340SpaceTraderProject/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_popup_background_mtrl_mult.9.png.flat",
         "source": "/Users/Saira/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/86ef20b9ba08463128a747deb561088f/res/drawable-xhdpi-v4/abc_popup_background_mtrl_mult.9.png"
     },

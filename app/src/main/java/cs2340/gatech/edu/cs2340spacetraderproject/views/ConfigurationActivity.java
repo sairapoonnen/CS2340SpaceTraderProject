@@ -1,6 +1,7 @@
 package cs2340.gatech.edu.cs2340spacetraderproject.views;
 
 //import android.arch.lifecycle.ViewModelProviders;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.TestLooperManager;
 import android.support.v7.app.AppCompatActivity;
@@ -180,14 +181,28 @@ public class ConfigurationActivity extends AppCompatActivity {
             String TAG = "UniverseInfo";
             Log.i(TAG, "Universe: ");
 
-            for (SolarSystem ss : universe.getSolarSystem()) {
-                Log.i(TAG, "Solar System Name: " + ss.getName() + ", coordinates: " + Integer.toString(ss.getX()) + ", " + Integer.toString(ss.getY()) + ", Tech Level: " + ss.getTechArray()[ss.getTech()] + ", Resources: " + ss.getResourceArray()[ss.getResource()] );
-            }
+//            for (SolarSystem ss : universe.getSolarSystem()) {
+//                Log.i(TAG, "Solar System Name: " + ss.getName() + ", coordinates: " + Integer.toString(ss.getX()) + ", " + Integer.toString(ss.getY()) + ", Tech Level: " + ss.getTechArray()[ss.getTech()] + ", Resources: " + ss.getResourceArray()[ss.getResource()] );
+//            }
 
-            finish();
+            largeLog("Solar System", universe.toString());
+
+
+            Intent intent = new Intent(ConfigurationActivity.this, UniverseConfigurationActivity.class);
+            startActivity(intent);
+
 
         } else {
             Toast.makeText(getApplicationContext(), "Must create player before generating universe", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public static void largeLog(String tag, String content) {
+        if (content.length() > 4000) {
+            Log.d(tag, content.substring(0, 4000));
+            largeLog(tag, content.substring(4000));
+        } else {
+            Log.d(tag, content);
         }
     }
 

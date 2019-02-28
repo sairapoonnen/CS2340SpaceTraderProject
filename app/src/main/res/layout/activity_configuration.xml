@@ -113,15 +113,15 @@
         android:layout_marginBottom="8dp"
         android:background="@color/LemonChiffon"
         android:gravity="center"
-        android:onClick="onPlusEngineerPressed"
         android:text="+"
         android:textSize="18sp"
+        android:onClick="onPlusEngineerPressed"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.977"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.6" />
+        app:layout_constraintVertical_bias="0.615" />
 
     <Button
         android:id="@+id/engineer_minus"
@@ -135,16 +135,16 @@
         android:layout_marginBottom="8dp"
         android:background="@color/LemonChiffon"
         android:gravity="center"
-        android:onClick="onMinusEngineerPressed"
         android:text="-"
         android:textSize="18sp"
         android:textStyle="bold"
+        android:onClick="onMinusEngineerPressed"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.674"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.6" />
+        app:layout_constraintVertical_bias="0.615" />
 
     <Button
         android:id="@+id/trader_plus"
@@ -158,20 +158,20 @@
         android:layout_marginBottom="8dp"
         android:background="@color/LemonChiffon"
         android:gravity="center"
-        android:onClick="onPlusTraderPressed"
         android:text="+"
         android:textSize="18sp"
+        android:onClick="onPlusTraderPressed"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.98"
+        app:layout_constraintHorizontal_bias="0.977"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.52" />
 
     <TextView
         android:id="@+id/trader_header"
-        android:layout_width="81dp"
-        android:layout_height="30dp"
+        android:layout_width="75dp"
+        android:layout_height="26dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
@@ -211,13 +211,13 @@
         app:layout_constraintHorizontal_bias="0.025"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.6"
+        app:layout_constraintVertical_bias="0.616"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/fighter_header"
-        android:layout_width="81dp"
-        android:layout_height="30dp"
+        android:layout_width="77dp"
+        android:layout_height="24dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
@@ -246,7 +246,7 @@
         android:layout_marginBottom="8dp"
         android:gravity="center"
         android:singleLine="true"
-        android:text="Input Character Name"
+        android:text="Name"
         android:textColor="@android:color/black"
         android:textSize="14sp"
         android:typeface="monospace"
@@ -346,8 +346,8 @@
 
     <TextView
         android:id="@+id/pilot_header"
-        android:layout_width="81dp"
-        android:layout_height="30dp"
+        android:layout_width="72dp"
+        android:layout_height="23dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
@@ -408,7 +408,7 @@
 
     <Button
         android:id="@+id/trader_minus"
-        android:layout_width="32dp"
+        android:layout_width="33dp"
         android:layout_height="31dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
@@ -418,10 +418,10 @@
         android:layout_marginBottom="8dp"
         android:background="@color/LemonChiffon"
         android:gravity="center"
-        android:onClick="onMinusTraderPressed"
         android:text="-"
         android:textSize="18sp"
         android:textStyle="bold"
+        android:onClick="onMinusTraderPressed"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.674"
@@ -460,20 +460,21 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:gravity="center"
-        android:maxLines="1"
-        android:minEms="2"
         android:text="0"
         android:textSize="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/engineer_plus"
+        app:layout_constraintHorizontal_bias="0.523"
         app:layout_constraintStart_toEndOf="@+id/engineer_minus"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.6" />
+        android:minEms="2"
+        android:maxLines = "1"
+        app:layout_constraintVertical_bias="0.618" />
 
     <TextView
         android:id="@+id/traderSkillPoint"
         android:layout_width="62dp"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
@@ -487,10 +488,10 @@
         android:textSize="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.85"
+        app:layout_constraintHorizontal_bias="0.855"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.51" />
+        app:layout_constraintVertical_bias="0.531" />
 
     <TextView
         android:id="@+id/fighterSkillPoint"
@@ -507,17 +508,18 @@
         android:minEms="2"
         android:text="0"
         android:textSize="30dp"
-        app:layout_constraintBottom_toTopOf="@+id/traderSkillPoint"
-        app:layout_constraintEnd_toStartOf="@+id/fighter_plus"
-        app:layout_constraintStart_toEndOf="@+id/fighter_minus"
-        app:layout_constraintTop_toBottomOf="@+id/pilotSkillPoint"
-        app:layout_constraintVertical_bias="0.52"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.855"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.437"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/pilotSkillPoint"
         android:layout_width="62dp"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
@@ -525,15 +527,15 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:gravity="center"
-        android:maxLines="1"
-        android:minEms="2"
         android:text="0"
         android:textSize="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/pilot_plus"
         app:layout_constraintStart_toEndOf="@+id/pilot_minus"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.32999998" />
+        android:minEms="2"
+        android:maxLines = "1"
+        app:layout_constraintVertical_bias="0.338" />
 
     <Button
         android:id="@+id/generateUniverse"

@@ -246,7 +246,7 @@
         android:layout_marginBottom="8dp"
         android:gravity="center"
         android:singleLine="true"
-        android:text="Name"
+        android:text="Input Character Name"
         android:textColor="@android:color/black"
         android:textSize="14sp"
         android:typeface="monospace"

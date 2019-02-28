@@ -1,7 +1,5 @@
 package cs2340.gatech.edu.cs2340spacetraderproject.model;
 
-import java.util.*;
-
 public class SolarSystem {
 
     private String name;
@@ -49,11 +47,7 @@ public class SolarSystem {
 
     public String[] getResourceArray() { return resourceArray; }
 
-
-
-
-
-
-
-
+    public String toString() {
+        return "Solar System Name: " + name + ", coordinates: (" + x + ", " + y + "), Tech Level: " + tech + ", Resources: " + resource;
+    }
 }

@@ -1,6 +1,7 @@
 package cs2340.gatech.edu.cs2340spacetraderproject.views;
 
 //import android.arch.lifecycle.ViewModelProviders;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.TestLooperManager;
 import android.support.v7.app.AppCompatActivity;
@@ -170,18 +171,38 @@ public class ConfigurationActivity extends AppCompatActivity {
             universe.addSolarSystem(new SolarSystem("Tuzi", 44, 110, rand.nextInt(8), rand.nextInt(13)));
             universe.addSolarSystem(new SolarSystem("Nix", 32, 80, rand.nextInt(8), rand.nextInt(13)));
             universe.addSolarSystem(new SolarSystem("Hades", 50, 70, rand.nextInt(8), rand.nextInt(13)));
+            universe.addSolarSystem(new SolarSystem("Terosa", 14, 19, rand.nextInt(8), rand.nextInt(13)));
+            universe.addSolarSystem(new SolarSystem("Malcoria", 9, 41, rand.nextInt(8), rand.nextInt(13)));
+            universe.addSolarSystem(new SolarSystem("Brax", 61, 4, rand.nextInt(8), rand.nextInt(13)));
+            universe.addSolarSystem(new SolarSystem("Sol", 75, 59, rand.nextInt(8), rand.nextInt(13)));
+            universe.addSolarSystem(new SolarSystem("Andevian", 83, 37, rand.nextInt(8), rand.nextInt(13)));
+            universe.addSolarSystem(new SolarSystem("Relva", 96, 22, rand.nextInt(8), rand.nextInt(13)));
 
             String TAG = "UniverseInfo";
             Log.i(TAG, "Universe: ");
 
-            for (SolarSystem ss : universe.getSolarSystem()) {
-                Log.i(TAG, "Solar System Name: " + ss.getName() + ", coordinates: " + Integer.toString(ss.getX()) + ", " + Integer.toString(ss.getY()) + ", Tech Level: " + ss.getTechArray()[ss.getTech()] + ", Resources: " + ss.getResourceArray()[ss.getResource()] );
-            }
+//            for (SolarSystem ss : universe.getSolarSystem()) {
+//                Log.i(TAG, "Solar System Name: " + ss.getName() + ", coordinates: " + Integer.toString(ss.getX()) + ", " + Integer.toString(ss.getY()) + ", Tech Level: " + ss.getTechArray()[ss.getTech()] + ", Resources: " + ss.getResourceArray()[ss.getResource()] );
+//            }
 
-            finish();
+            largeLog("Solar System", universe.toString());
+
+
+            Intent intent = new Intent(ConfigurationActivity.this, UniverseConfigurationActivity.class);
+            startActivity(intent);
+
 
         } else {
             Toast.makeText(getApplicationContext(), "Must create player before generating universe", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public static void largeLog(String tag, String content) {
+        if (content.length() > 4000) {
+            Log.d(tag, content.substring(0, 4000));
+            largeLog(tag, content.substring(4000));
+        } else {
+            Log.d(tag, content);
         }
     }
 

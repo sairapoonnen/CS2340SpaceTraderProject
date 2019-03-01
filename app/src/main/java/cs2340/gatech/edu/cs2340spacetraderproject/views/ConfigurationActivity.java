@@ -73,6 +73,8 @@ public class ConfigurationActivity extends AppCompatActivity {
             player.setName(nameField.getText().toString());
             player.setGameDifficulty(difficultySpinner.getSelectedItem().toString());
 
+            view.setEnabled(false);
+
             Log.i(TAG, "Player Name: " + player.getName());
             Log.i(TAG, "Credits: " + player.getCredits());
             Log.i(TAG, "Spaceship: " + player.getSpaceship().getName());

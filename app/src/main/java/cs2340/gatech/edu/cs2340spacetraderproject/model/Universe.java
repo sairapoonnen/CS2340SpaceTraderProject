@@ -17,7 +17,7 @@ public class Universe {
     }
 
     public String toString() {
-        String solarSystems = "";
+        String solarSystems = "Universe:\n";
         for (SolarSystem ss: solarSystem) {
             solarSystems += ss.toString() + "\n";
         }

@@ -48,6 +48,6 @@ public class SolarSystem {
     public String[] getResourceArray() { return resourceArray; }
 
     public String toString() {
-        return "Solar System Name: " + name + ", coordinates: (" + x + ", " + y + "), Tech Level: " + tech + ", Resources: " + resource;
+        return "Solar System Name: " + name + ", coordinates: (" + x + ", " + y + "), Tech Level: " + techArray[tech] + ", Resources: " + resourceArray[resource];
     }
 }

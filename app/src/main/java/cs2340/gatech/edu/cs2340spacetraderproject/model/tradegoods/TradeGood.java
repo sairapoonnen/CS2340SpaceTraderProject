@@ -6,7 +6,7 @@ public class TradeGood {
 
     private String name;
     private int basePrice;
-    private int mltp;
+    private int mtlp;
     private int mtlu;
     private int ttp;
     private int ipl;
@@ -20,12 +20,12 @@ public class TradeGood {
     private int totalPrice;
     private int changedPrice;
 
-    public TradeGood(String name, int basePrice, int mltp, int mtlu, int ttp, int ipl,
+    public TradeGood(String name, int basePrice, int mtlp, int mtlu, int ttp, int ipl,
                      int var, String ie, String cr, String er, int mtl, int mth) {
 
         this.name = name;
         this.basePrice = basePrice;
-        this.mltp = mltp;
+        this.mtlp = mtlp;
         this.mtlu = mtlu;
         this.ttp = ttp;
         this.ipl = ipl;
@@ -44,25 +44,25 @@ public class TradeGood {
 
     public int getBasePrice() { return basePrice; }
 
-    public int getMltp() { return mltp; }
+    public int getMTLP() { return mtlp; }
 
-    public int getMtlu() { return mtlu; }
+    public int getMTLU() { return mtlu; }
 
-    public int getTtp() { return ttp; }
+    public int getTTP() { return ttp; }
 
-    public int getIpl() { return ipl; }
+    public int getIPL() { return ipl; }
 
     public int getVar() { return var; }
 
-    public String getIe() { return ie; }
+    public String getIE() { return ie; }
 
-    public String getCr() { return cr; }
+    public String getCR() { return cr; }
 
-    public String getEr() { return er; }
+    public String getER() { return er; }
 
-    public int getMtl() { return mtl; }
+    public int getMTL() { return mtl; }
 
-    public int getMth() { return mth; }
+    public int getMTH() { return mth; }
 
     public int getTotalPrice() { return totalPrice; }
 

@@ -11,6 +11,7 @@ public class TradeGood {
     private int ttp;
     private int ipl;
     private int var;
+    private String ie;
     private String cr;
     private String er;
     private int mtl;
@@ -19,8 +20,8 @@ public class TradeGood {
     private int totalPrice;
     private int changedPrice;
 
-    public TradeGood(String name, int basePrice, int mltp, int mtlu, int ttp,
-                     int ipl, int var, String cr, String er, int mtl, int mth) {
+    public TradeGood(String name, int basePrice, int mltp, int mtlu, int ttp, int ipl,
+                     int var, String ie, String cr, String er, int mtl, int mth) {
 
         this.name = name;
         this.basePrice = basePrice;
@@ -29,6 +30,7 @@ public class TradeGood {
         this.ttp = ttp;
         this.ipl = ipl;
         this.var = var;
+        this.ie = ie;
         this.cr = cr;
         this.er = er;
         this.mtl = mtl;
@@ -51,6 +53,8 @@ public class TradeGood {
     public int getIpl() { return ipl; }
 
     public int getVar() { return var; }
+
+    public String getIe() { return ie; }
 
     public String getCr() { return cr; }
 

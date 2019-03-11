@@ -1,10 +1,14 @@
 package cs2340.gatech.edu.cs2340spacetraderproject.views;
 
-//import android.arch.lifecycle.ViewModelProviders;
+//import androidx.lifecycle.ViewModelProviders;
+import android.arch.lifecycle.ViewModelProviders;
+import android.arch.lifecycle.ViewModel;
+import android.arch.persistence.room.Room;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.TestLooperManager;
 import android.support.v7.app.AppCompatActivity;
+//import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -14,7 +18,10 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
 import cs2340.gatech.edu.cs2340spacetraderproject.R;
+import cs2340.gatech.edu.cs2340spacetraderproject.model.UserDatabase;
+import cs2340.gatech.edu.cs2340spacetraderproject.model.User;
 import cs2340.gatech.edu.cs2340spacetraderproject.viewmodels.ConfigurationViewModel;
 import cs2340.gatech.edu.cs2340spacetraderproject.model.Player;
 import cs2340.gatech.edu.cs2340spacetraderproject.model.Spaceship;
@@ -27,7 +34,11 @@ import java.util.*;
 public class ConfigurationActivity extends AppCompatActivity {
 
     /*reference to viewModel*/
-    private ConfigurationViewModel viewModel;
+    private ConfigurationViewModel viewModel = ViewModelProviders.of(this).get(ConfigurationViewModel.class);
+
+    /*database*/
+    UserDatabase db = Room.databaseBuilder(getApplicationContext(), UserDatabase.class, "user_database").build();
+
 
     /*widgets*/
     private EditText nameField;
@@ -72,6 +83,7 @@ public class ConfigurationActivity extends AppCompatActivity {
 
             player.setName(nameField.getText().toString());
             player.setGameDifficulty(difficultySpinner.getSelectedItem().toString());
+
 
             view.setEnabled(false);
 
@@ -165,7 +177,7 @@ public class ConfigurationActivity extends AppCompatActivity {
     /*Button handler for generating universe*/
     public void onGeneratePressed(View view) {
         if (playerCreated) {
-            Universe universe = new Universe();
+            final Universe universe = new Universe();
 
             Random rand = new Random();
 
@@ -180,6 +192,20 @@ public class ConfigurationActivity extends AppCompatActivity {
             universe.addSolarSystem(new SolarSystem("Andevian", 83, 37, rand.nextInt(8), rand.nextInt(13)));
             universe.addSolarSystem(new SolarSystem("Relva", 96, 22, rand.nextInt(8), rand.nextInt(13)));
 
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    User user = new User();
+                    user.setId(1);
+                    user.setPlayer(player);
+                    user.setUniverse(universe);
+                    db.userDao().insert(user);
+
+                    Log.d("Test", "player: " + db.userDao().getUser(1).getPlayer().getName() + " ; universe: " + db.userDao().getUser(1).getUniverse().getSolarSystem().get(0).getName());
+
+                }
+            }).start();
+
             String TAG = "UniverseInfo";
             Log.i(TAG, "Universe: ");
 
@@ -188,7 +214,6 @@ public class ConfigurationActivity extends AppCompatActivity {
 //            }
 
             largeLog("Solar System", universe.toString());
-
 
             Intent intent = new Intent(ConfigurationActivity.this, UniverseConfigurationActivity.class);
             startActivity(intent);

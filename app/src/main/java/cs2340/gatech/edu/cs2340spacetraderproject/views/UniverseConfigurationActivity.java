@@ -11,6 +11,8 @@ import cs2340.gatech.edu.cs2340spacetraderproject.R;
 
 public class UniverseConfigurationActivity extends AppCompatActivity {
 
+    //have map here?
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

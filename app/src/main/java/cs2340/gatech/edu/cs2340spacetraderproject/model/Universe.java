@@ -12,8 +12,18 @@ public class Universe {
 
     public ArrayList<SolarSystem> getSolarSystem() { return solarSystem; }
 
-    public Universe() {
+    private static Universe single_instance = null;
+
+    private Universe() {
         solarSystem = new ArrayList<SolarSystem>();
+    }
+
+    public static Universe Universe() {
+        if (single_instance == null) {
+            single_instance = new Universe();
+        }
+
+        return single_instance;
     }
 
     public String toString() {

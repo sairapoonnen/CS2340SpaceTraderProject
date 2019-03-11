@@ -1,6 +1,7 @@
 package cs2340.gatech.edu.cs2340spacetraderproject.views;
 
-//import android.arch.lifecycle.ViewModelProviders;
+import android.arch.lifecycle.ViewModelProviders;
+import android.arch.lifecycle.ViewModel;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.TestLooperManager;
@@ -26,8 +27,7 @@ import java.util.*;
 
 public class ConfigurationActivity extends AppCompatActivity {
 
-    /*reference to viewModel*/
-    private ConfigurationViewModel viewModel;
+    ConfigurationViewModel viewModel;
 
     /*widgets*/
     private EditText nameField;
@@ -40,7 +40,7 @@ public class ConfigurationActivity extends AppCompatActivity {
 
 
     /*data for player being edited*/
-    private Player player = new Player();
+    private Player player = Player.Player();
     private final int maxSkill = 16;
     private int totalSkill = player.getEngineerSkill() + player.getFighterSkill() + player.getPilotSkill() + player.getTraderSkill();
     private boolean playerCreated = false;
@@ -49,6 +49,10 @@ public class ConfigurationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_configuration);
+
+        /*reference to viewModel*/
+        viewModel = ViewModelProviders.of(this).get(ConfigurationViewModel.class);
+
 
         nameField = findViewById(R.id.player_name);
         difficultySpinner = findViewById(R.id.difficultySpinner);
@@ -165,7 +169,7 @@ public class ConfigurationActivity extends AppCompatActivity {
     /*Button handler for generating universe*/
     public void onGeneratePressed(View view) {
         if (playerCreated) {
-            Universe universe = new Universe();
+            Universe universe = Universe.Universe();
 
             Random rand = new Random();
 
@@ -179,6 +183,7 @@ public class ConfigurationActivity extends AppCompatActivity {
             universe.addSolarSystem(new SolarSystem("Sol", 75, 59, rand.nextInt(8), rand.nextInt(13)));
             universe.addSolarSystem(new SolarSystem("Andevian", 83, 37, rand.nextInt(8), rand.nextInt(13)));
             universe.addSolarSystem(new SolarSystem("Relva", 96, 22, rand.nextInt(8), rand.nextInt(13)));
+
 
             String TAG = "UniverseInfo";
             Log.i(TAG, "Universe: ");

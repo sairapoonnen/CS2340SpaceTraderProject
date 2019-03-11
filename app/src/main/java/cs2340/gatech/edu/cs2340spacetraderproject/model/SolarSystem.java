@@ -1,5 +1,9 @@
 package cs2340.gatech.edu.cs2340spacetraderproject.model;
 
+import java.util.HashMap;
+
+import cs2340.gatech.edu.cs2340spacetraderproject.model.tradegoods.TradeGood;
+
 public class SolarSystem {
 
     private String name;
@@ -7,6 +11,7 @@ public class SolarSystem {
     private int y;
     private int tech;
     private int resource;
+    private HashMap market;
 
     public SolarSystem(String name, int x, int y, int tech, int resource) {
         this.name = name;
@@ -33,6 +38,8 @@ public class SolarSystem {
 
     public void setResource(int resource) { this.resource = resource; }
 
+    public void addMarket(TradeGood item, int amt) { market.put(item, amt); }
+
     public String getName() { return name; }
 
     public int getX() { return x; }
@@ -46,6 +53,8 @@ public class SolarSystem {
     public int getResource() {return resource; }
 
     public String[] getResourceArray() { return resourceArray; }
+
+    public HashMap getMarket() { return market; }
 
     public String toString() {
         return "Solar System Name: " + name + ", coordinates: (" + x + ", " + y + "), Tech Level: " + techArray[tech] + ", Resources: " + resourceArray[resource];

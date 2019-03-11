@@ -22,7 +22,9 @@ public class Player {
         this.gameDifficulty = gameDifficulty;
     }
 
-    public Player() {
+    private static Player single_instance = null;
+
+    private Player() {
         this.name = "";
         this.pilotSkill = 0;
         this.fighterSkill = 0;
@@ -32,6 +34,15 @@ public class Player {
         this.spaceship = new Gnat();
         this.gameDifficulty = null;
     }
+
+    public static Player Player() {
+        if (single_instance == null) {
+            single_instance = new Player();
+        }
+
+        return single_instance;
+    }
+
 
     public String getName() { return this.name; }
 

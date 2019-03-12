@@ -14,9 +14,9 @@
         android:text="Generating random start planet..." />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/nextButton"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="59dp"
         android:onClick="onNextPressed"
         android:text="Next" />
 </android.support.design.widget.CoordinatorLayout>

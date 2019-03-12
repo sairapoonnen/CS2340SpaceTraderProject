@@ -28,5 +28,11 @@ public class EditItemActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edititem);
+
+        if (getIntent().hasExtra("BUY")) {
+            setTitle("Buying Item");
+        } else {
+            setTitle("Selling Item");
+        }
     }
 }

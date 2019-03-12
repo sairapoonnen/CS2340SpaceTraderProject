@@ -38,7 +38,7 @@ public class SolarSystem {
 
     public void setResource(int resource) { this.resource = resource; }
 
-    public void addMarket(TradeGood item, int amt) { market.put(item, amt); }
+    public void addMarket(String item, int[] info) { market.put(item, info); }
 
     public String getName() { return name; }
 

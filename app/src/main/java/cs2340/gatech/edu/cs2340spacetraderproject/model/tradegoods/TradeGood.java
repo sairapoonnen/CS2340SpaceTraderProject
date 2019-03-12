@@ -37,7 +37,7 @@ public class TradeGood {
         this.mth = mth;
 
         totalPrice = basePrice;
-        changedPrice = totalPrice;
+        //changedPrice = totalPrice;
     }
 
     public String getName() { return name; }
@@ -75,6 +75,12 @@ public class TradeGood {
         this.totalPrice = totalPrice;
 //        this.changedPrice = totalPrice + (this.getIpl() * planet techlevel)
 //                + (totalPrice * random.nextInt(var + 1));
+    }
+
+    public int[] getInfo() {
+        int[] info = new int[]{basePrice, mtlp, mtlu, ttp, ipl, var};
+
+        return info;
     }
 
 

@@ -45,9 +45,11 @@ public class PlanetActivity extends AppCompatActivity {
 
         SolarSystem ss = universe.getSolarSystem().get(rand.nextInt(10));
         market.setMarket(ss.getMarket());
+        market.setSS(ss); //for events
 
         name = findViewById(R.id.planet_name);
         name.setText(ss.getName());
+        //add textView for planet tech level and resource type?
 
         //test
         Log.d("Test", "planet: " + ss.getName());

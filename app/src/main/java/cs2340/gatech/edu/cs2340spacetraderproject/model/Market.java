@@ -6,7 +6,8 @@ import cs2340.gatech.edu.cs2340spacetraderproject.model.tradegoods.TradeGood;
 
 public class Market {
 
-    private HashMap market;
+    private HashMap<String, int[]> market;
+    private SolarSystem ss;
 
     private static Market single_instance = null;
 
@@ -24,5 +25,10 @@ public class Market {
 
     public void setMarket(HashMap market) { this.market = market; }
 
-    public HashMap getMarket() { return market; }
+    public void setSS(SolarSystem ss) { this.ss = ss; }
+
+    public HashMap<String, int[]> getMarket() { return market; }
+
+    public SolarSystem getSS() { return ss; }
+
 }

@@ -1,9 +1,12 @@
 package cs2340.gatech.edu.cs2340spacetraderproject.model;
 
+import java.util.HashMap;
+
 public class Spaceship {
     private String name;
     private int hullStrength;
     private int cargoBays;
+    private HashMap<String, int[]> cargo;
     private int weaponSlots;
     private int gadgetSlots;
     private int shieldSlots;
@@ -50,6 +53,10 @@ public class Spaceship {
     public int getDistance() {
         return distance;
     }
+
+    public HashMap<String, int[]> getCargo() { return cargo; }
+
+    public void setCargo(HashMap cargo) { this.cargo = cargo; }
 
     public void setCargoBays(int cargoBays) {
         this.cargoBays = cargoBays;

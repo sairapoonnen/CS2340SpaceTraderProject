@@ -94,7 +94,7 @@
 
     <TextView
         android:id="@+id/cargo_header"
-        android:layout_width="113dp"
+        android:layout_width="118dp"
         android:layout_height="29dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
@@ -102,7 +102,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        android:background="@color/LemonChiffon"
+        android:background="@color/LavenderBlush"
         android:gravity="center"
         android:text="Cargo Amount"
         android:textSize="18sp"
@@ -127,7 +127,7 @@
         android:gravity="center"
         android:text="Cost"
         android:textSize="18sp"
-        android:background="@color/LemonChiffon"
+        android:background="@color/LavenderBlush"
         app:fontFamily="@font/alegreya_sans_sc_bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

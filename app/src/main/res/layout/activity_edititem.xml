@@ -56,15 +56,15 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="16dp"
+        android:background="@color/PapayaWhip"
         android:onClick="onConfirmedPressed"
         android:text="Cancel"
-        android:background="@color/PapayaWhip"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.126"
+        app:layout_constraintHorizontal_bias="0.17"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.968" />
 
     <TextView
         android:id="@+id/item_name"
@@ -94,16 +94,16 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="16dp"
+        android:background="@color/PaleVioletRed"
         android:onClick="onCancelPressed"
         android:text="Confirm"
         android:textColor="@color/White"
-        android:background="@color/PaleVioletRed"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.895"
+        app:layout_constraintHorizontal_bias="0.872"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.968" />
 
     <TextView
         android:id="@+id/item_price"
@@ -122,5 +122,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.423" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/universe2"
+        tools:layout_editor_absoluteX="90dp"
+        tools:layout_editor_absoluteY="349dp" />
 
 </android.support.constraint.ConstraintLayout>

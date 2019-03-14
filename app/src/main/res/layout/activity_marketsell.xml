@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/item_list"
+        android:id="@+id/cargo_list"
         android:layout_width="395dp"
         android:layout_height="476dp"
         android:layout_marginStart="8dp"
@@ -46,7 +46,7 @@
         app:layout_constraintVertical_bias="0.039" />
 
     <TextView
-        android:id="@+id/cost_header2"
+        android:id="@+id/credit_header2"
         android:layout_width="65dp"
         android:layout_height="30dp"
         android:layout_marginStart="8dp"
@@ -57,7 +57,7 @@
         android:layout_marginBottom="8dp"
         android:background="@color/LemonChiffon"
         android:gravity="center"
-        android:text="Cost"
+        android:text="Credits"
         android:textSize="18sp"
         app:fontFamily="@font/alegreya_sans_sc_bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -86,7 +86,7 @@
         app:layout_constraintVertical_bias="0.043" />
 
     <TextView
-        android:id="@+id/cost2"
+        android:id="@+id/credits_amt2"
         android:layout_width="wrap_content"
         android:layout_height="25dp"
         android:layout_marginStart="8dp"

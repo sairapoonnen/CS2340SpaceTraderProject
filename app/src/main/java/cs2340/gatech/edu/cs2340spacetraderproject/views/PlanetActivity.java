@@ -15,6 +15,16 @@ import android.widget.Toast;
 
 import cs2340.gatech.edu.cs2340spacetraderproject.R;
 import cs2340.gatech.edu.cs2340spacetraderproject.model.Market;
+import cs2340.gatech.edu.cs2340spacetraderproject.model.tradegoods.Firearms;
+import cs2340.gatech.edu.cs2340spacetraderproject.model.tradegoods.Food;
+import cs2340.gatech.edu.cs2340spacetraderproject.model.tradegoods.Furs;
+import cs2340.gatech.edu.cs2340spacetraderproject.model.tradegoods.Games;
+import cs2340.gatech.edu.cs2340spacetraderproject.model.tradegoods.Machines;
+import cs2340.gatech.edu.cs2340spacetraderproject.model.tradegoods.Medicine;
+import cs2340.gatech.edu.cs2340spacetraderproject.model.tradegoods.Narcotics;
+import cs2340.gatech.edu.cs2340spacetraderproject.model.tradegoods.Ore;
+import cs2340.gatech.edu.cs2340spacetraderproject.model.tradegoods.Robots;
+import cs2340.gatech.edu.cs2340spacetraderproject.model.tradegoods.Water;
 import cs2340.gatech.edu.cs2340spacetraderproject.viewmodels.ConfigurationViewModel;
 import cs2340.gatech.edu.cs2340spacetraderproject.model.Player;
 import cs2340.gatech.edu.cs2340spacetraderproject.model.Spaceship;
@@ -28,6 +38,19 @@ public class PlanetActivity extends AppCompatActivity {
 
     private Universe universe = Universe.Universe();
     private Market market = Market.Market();
+
+    /*
+    private Water water = new Water();
+    private Furs furs = new Furs();
+    private Food food = new Food();
+    private Ore ore = new Ore();
+    private Games games =  new Games();
+    private Firearms firearms = new Firearms();
+    private Medicine medicine = new Medicine();
+    private Machines machines = new Machines();
+    private Narcotics narcotics = new Narcotics();
+    private Robots robots = new Robots();
+    */
 
     //widgets
     private TextView name;
@@ -44,6 +67,33 @@ public class PlanetActivity extends AppCompatActivity {
         Random rand = new Random();
 
         SolarSystem ss = universe.getSolarSystem().get(rand.nextInt(10));
+
+        Log.d("Test", "planet: " + ss.getName());
+
+        ss.addMarket(new Water());
+        ss.addMarket(new Water());
+        ss.addMarket(new Water());
+        ss.addMarket(new Furs());
+        ss.addMarket(new Furs());
+        ss.addMarket(new Furs());
+
+        if (ss.getTech() == 1) {
+            ss.addMarket(new Food());
+        } else if (ss.getTech() == 2) {
+            ss.addMarket(new Ore());
+        } else if (ss.getTech() == 3) {
+            ss.addMarket(new Games());
+            ss.addMarket(new Firearms());
+        } else if (ss.getTech() == 4) {
+            ss.addMarket(new Medicine());
+            ss.addMarket(new Machines());
+        } else if (ss.getTech() == 5) {
+            ss.addMarket(new Narcotics());
+        } else if (ss.getTech() >= 6){
+            ss.addMarket(new Robots());
+        }
+
+        Log.d("test", ss.getMarket().get(0).getName() + ", tech level: " + ss.getTech());
         market.setMarket(ss.getMarket());
         market.setSS(ss); //for events
 
@@ -51,8 +101,6 @@ public class PlanetActivity extends AppCompatActivity {
         name.setText(ss.getName());
         //add textView for planet tech level and resource type?
 
-        //test
-        Log.d("Test", "planet: " + ss.getName());
 
     }
 
@@ -66,5 +114,11 @@ public class PlanetActivity extends AppCompatActivity {
     public void onMarketPressed(View view) {
         Intent intent = new Intent(PlanetActivity.this, MarketBuyActivity.class);
         startActivity(intent);
+
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
     }
 }

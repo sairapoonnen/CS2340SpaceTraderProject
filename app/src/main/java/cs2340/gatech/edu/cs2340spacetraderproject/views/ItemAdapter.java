@@ -23,7 +23,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
     /** a copy of the list of items in the model */
     private Market market = Market.Market();
 
-    private List<String> itemList = new ArrayList<>(); //will be list of keys (tradegood names)
+    private List<TradeGood> itemList = new ArrayList<>(); //will be list of keys (tradegood names)
     //not sure if it should be a list of TradeGood or should we export TradeGood info into another format?
 
     /** a listener for a touch event on the item */
@@ -57,14 +57,14 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
 
         //get element from your dataset at this position
         //bind the student data for one student
-        String item = itemList.get(position);
+        TradeGood item = itemList.get(position);
+        Log.d("Null?", item.getName());
 
         Log.d("APP", "Binding: " + position + " " + itemList.get(position));
 
         //replace the contents of the view with that element
-        holder.name.setText(item);
-        holder.quantity.setText(market.getMarket().get(item)[0]);
-        holder.price.setText(market.getMarket().get(item)[1]); //omitted var for now, will go back to change
+        holder.name.setText(item.getName());
+        holder.price.setText("" + (item.getBasePrice() + (item.getIPL() * (market.getSS().getTech() - item.getMTLP())))); //omitted var for now, will go back to change
     }
 
     @Override
@@ -72,9 +72,10 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
         return itemList.size();
     }
 
-    public void setItemList(List<String> items) {
+    public void setItemList(List<TradeGood> items) {
         itemList = items;
         notifyDataSetChanged();
+
     }
 
     /**
@@ -88,7 +89,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
         public ItemViewHolder(View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.item_name);
-            quantity = itemView.findViewById(R.id.item_quantity);
+            //quantity = itemView.findViewById(R.id.item_quantity);
             price = itemView.findViewById(R.id.item_price);
 
             itemView.setOnClickListener(new View.OnClickListener() {
@@ -106,7 +107,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
     }
 
     public interface OnItemClickListener {
-        void onItemClicked(String item);
+        void onItemClicked(TradeGood item);
     }
 
     public void setItemClickListener(OnItemClickListener listener) {

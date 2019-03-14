@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import cs2340.gatech.edu.cs2340spacetraderproject.R;
+import cs2340.gatech.edu.cs2340spacetraderproject.model.tradegoods.TradeGood;
 import cs2340.gatech.edu.cs2340spacetraderproject.viewmodels.ConfigurationViewModel;
 import cs2340.gatech.edu.cs2340spacetraderproject.model.Player;
 import cs2340.gatech.edu.cs2340spacetraderproject.model.Spaceship;
@@ -28,7 +29,11 @@ import java.util.*;
 public class MarketSellActivity extends AppCompatActivity {
 
     private ItemAdapter adapter;
-    private Player player;
+    private Player player = Player.Player();
+
+    private TextView credits;
+    private TextView cargo;
+    private int cargo_have;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,32 +42,51 @@ public class MarketSellActivity extends AppCompatActivity {
          /*
          Set up our recycler view by grabbing the layout for a single item
          */
-        RecyclerView recyclerView = findViewById(R.id.item_list);
+        RecyclerView recyclerView = findViewById(R.id.cargo_list);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
 
         // Setup the adapter for this recycler view
         adapter = new ItemAdapter();
         recyclerView.setAdapter(adapter);
+
+        /*
+        List<TradeGood> itemList;
+        itemList = player.getSpaceship().getCargo();
+        adapter.setItemList(itemList);
+        */
+
+        credits = findViewById(R.id.credits_amt2);
+        cargo = findViewById(R.id.cargo_amt2);
     }
+
 
     @Override
     public void onResume() {
         super.onResume();
 
-        List<String> itemList = new ArrayList<>();
-        itemList.addAll(player.getSpaceship().getCargo().keySet());
+        //credits = findViewById(R.id.credits_amt);
+        //cargo = findViewById(R.id.cargo_amt);
+
+        Log.d("Null?", "" + player.getCredits());
+        credits.setText("" + player.getCredits());
+        cargo.setText("" + player.getSpaceship().getCargo().size() + "/" + player.getSpaceship().getCargoBays());
+
+        List<TradeGood> itemList = new ArrayList<>();
+        itemList = player.getSpaceship().getCargo();
         adapter.setItemList(itemList);
 
         adapter.setItemClickListener(new ItemAdapter.OnItemClickListener() {
             @Override
-            public void onItemClicked(String item) {
+            public void onItemClicked(TradeGood item) {
                 Intent intent = new Intent(MarketSellActivity.this, EditItemActivity.class);
-                intent.putExtra("Sell", "sell");
+                intent.putExtra("SELL", item);
+                startActivity(intent);
                 //startActivityForResult(intent, EDIT_REQUEST);
             }
         });
     }
+
 
     public void onLeavePressed(View view) {
         Intent intent = new Intent(MarketSellActivity.this, PlanetActivity.class);

@@ -1,8 +1,12 @@
 package cs2340.gatech.edu.cs2340spacetraderproject.model.tradegoods;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import java.io.Serializable;
 import java.util.Random;
 
-public class TradeGood {
+public class TradeGood implements Serializable {
 
     private String name;
     private int basePrice;
@@ -83,5 +87,27 @@ public class TradeGood {
         return info;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+
+        if (obj == null || obj.getClass() != this.getClass()) {
+            return false;
+        }
+
+        TradeGood item = (TradeGood) obj;
+
+        return ((TradeGood) obj).getName().equals(this.name);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 17;
+        result = 31 * result + name.hashCode();
+        result = 31 * result + basePrice;
+        return result;
+    }
 
 }

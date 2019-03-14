@@ -1,12 +1,16 @@
 package cs2340.gatech.edu.cs2340spacetraderproject.model;
 
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.List;
+
+import cs2340.gatech.edu.cs2340spacetraderproject.model.tradegoods.TradeGood;
 
 public class Spaceship {
     private String name;
     private int hullStrength;
     private int cargoBays;
-    private HashMap<String, int[]> cargo;
+    //private HashMap<String, int[]> cargo;
+    private List<TradeGood> cargo = new ArrayList<>();
     private int weaponSlots;
     private int gadgetSlots;
     private int shieldSlots;
@@ -54,9 +58,12 @@ public class Spaceship {
         return distance;
     }
 
-    public HashMap<String, int[]> getCargo() { return cargo; }
+    //public HashMap<String, int[]> getCargo() { return cargo; }
 
-    public void setCargo(HashMap cargo) { this.cargo = cargo; }
+    //public void setCargo(HashMap cargo) { this.cargo = cargo; }
+    public List<TradeGood> getCargo() { return cargo; }
+
+    public void addCargo(TradeGood item) { cargo.add(item);}
 
     public void setCargoBays(int cargoBays) {
         this.cargoBays = cargoBays;

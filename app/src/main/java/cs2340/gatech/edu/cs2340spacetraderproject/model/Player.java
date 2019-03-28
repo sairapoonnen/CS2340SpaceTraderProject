@@ -10,6 +10,8 @@ public class Player {
     private int credits;
     private Spaceship spaceship;
     private String gameDifficulty;
+    private SolarSystem ss;
+
 
     public Player(String name, int pilotSkill, int fighterSkill, int traderSkill, int engineerSkill, String gameDifficulty) {
         this.name = name;
@@ -70,6 +72,8 @@ public class Player {
         return this.gameDifficulty;
     }
 
+    public SolarSystem getSS() { return this.ss; }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -101,5 +105,7 @@ public class Player {
     public void setGameDifficulty(String gameDifficulty) {
         this.gameDifficulty = gameDifficulty;
     }
+
+    public void setSS(SolarSystem ss) { this.ss = ss; }
 
 }

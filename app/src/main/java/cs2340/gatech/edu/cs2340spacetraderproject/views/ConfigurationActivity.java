@@ -79,14 +79,14 @@ public class ConfigurationActivity extends AppCompatActivity {
 
             view.setEnabled(false);
 
-            Log.i(TAG, "Player Name: " + player.getName());
-            Log.i(TAG, "Credits: " + player.getCredits());
-            Log.i(TAG, "Spaceship: " + player.getSpaceship().getName());
-            Log.i(TAG, "Pilot Skill: " + Integer.toString(player.getPilotSkill()));
-            Log.i(TAG, "Fighter Skill: " + Integer.toString(player.getFighterSkill()));
-            Log.i(TAG, "Trader Skill: " + Integer.toString(player.getTraderSkill()));
-            Log.i(TAG, "Engineer Skill: " + Integer.toString(player.getEngineerSkill()));
-            Log.i(TAG, "Game Difficulty: " + player.getGameDifficulty());
+            Log.d(TAG, "Player Name: " + player.getName());
+            Log.d(TAG, "Credits: " + player.getCredits());
+            Log.d(TAG, "Spaceship: " + player.getSpaceship().getName());
+            Log.d(TAG, "Pilot Skill: " + Integer.toString(player.getPilotSkill()));
+            Log.d(TAG, "Fighter Skill: " + Integer.toString(player.getFighterSkill()));
+            Log.d(TAG, "Trader Skill: " + Integer.toString(player.getTraderSkill()));
+            Log.d(TAG, "Engineer Skill: " + Integer.toString(player.getEngineerSkill()));
+            Log.d(TAG, "Game Difficulty: " + player.getGameDifficulty());
         } else {
             Toast.makeText(getApplicationContext(), "Must allocate all skill points before creation.", Toast.LENGTH_SHORT).show();
         }

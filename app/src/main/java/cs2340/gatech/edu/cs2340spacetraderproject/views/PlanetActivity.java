@@ -24,6 +24,7 @@ import cs2340.gatech.edu.cs2340spacetraderproject.model.tradegoods.Medicine;
 import cs2340.gatech.edu.cs2340spacetraderproject.model.tradegoods.Narcotics;
 import cs2340.gatech.edu.cs2340spacetraderproject.model.tradegoods.Ore;
 import cs2340.gatech.edu.cs2340spacetraderproject.model.tradegoods.Robots;
+import cs2340.gatech.edu.cs2340spacetraderproject.model.tradegoods.TradeGood;
 import cs2340.gatech.edu.cs2340spacetraderproject.model.tradegoods.Water;
 import cs2340.gatech.edu.cs2340spacetraderproject.viewmodels.ConfigurationViewModel;
 import cs2340.gatech.edu.cs2340spacetraderproject.model.Player;
@@ -38,6 +39,8 @@ public class PlanetActivity extends AppCompatActivity {
 
     private Universe universe = Universe.Universe();
     private Market market = Market.Market();
+    private SolarSystem ss;
+
 
     /*
     private Water water = new Water();
@@ -61,21 +64,19 @@ public class PlanetActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_planet);
 
+        ss = (SolarSystem) getIntent().getSerializableExtra("PLANET");
+        //Log.d("itemHashAfter", item.toString());
 
+        //Log.d("Test", "planet: " + ss.getName());
 
-        //selecting random planet to visit, will replace once Travel is implemented
-        Random rand = new Random();
-
-        SolarSystem ss = universe.getSolarSystem().get(rand.nextInt(10));
-
-        Log.d("Test", "planet: " + ss.getName());
-
-        ss.addMarket(new Water());
-        ss.addMarket(new Water());
+        //ss.addMarket(new Water());
+        //ss.addMarket(new Water());
+        //ss.addMarket(new Water());
         ss.addMarket(new Water());
         ss.addMarket(new Furs());
-        ss.addMarket(new Furs());
-        ss.addMarket(new Furs());
+        //ss.addMarket(new Furs());
+        //ss.addMarket(new Furs());
+        //ss.addMarket(new Furs());
 
         if (ss.getTech() == 1) {
             ss.addMarket(new Food());
@@ -106,7 +107,7 @@ public class PlanetActivity extends AppCompatActivity {
 
     //button handler to go back to Map
     public void onMapPressed(View view) {
-        Intent intent = new Intent(PlanetActivity.this, UniverseConfigurationActivity.class);
+        Intent intent = new Intent(PlanetActivity.this, TravelActivity.class);
         startActivity(intent);
     }
 
@@ -120,5 +121,7 @@ public class PlanetActivity extends AppCompatActivity {
     @Override
     public void onResume() {
         super.onResume();
+
+        Log.d("Resume?", "onResume");
     }
 }

@@ -108,7 +108,7 @@ public class MarketBuyActivity extends AppCompatActivity {
 
 
     public void onLeavePressed(View view) {
-        Intent intent = new Intent(MarketBuyActivity.this, PlanetActivity.class);
+        Intent intent = new Intent(MarketBuyActivity.this, TravelActivity.class);
         startActivity(intent);
     }
 

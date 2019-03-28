@@ -16,8 +16,9 @@ public class Spaceship {
     private int shieldSlots;
     private int crewQuarters;
     private int distance;
+    private int fuel;
 
-    public Spaceship(String name, int hullStrength, int cargoBays, int weaponSlots, int gadgetSlots, int shieldSlots, int crewQuarters, int distance) {
+    public Spaceship(String name, int hullStrength, int cargoBays, int weaponSlots, int gadgetSlots, int shieldSlots, int crewQuarters, int distance, int fuel) {
         this.name = name;
         this.hullStrength = hullStrength;
         this.cargoBays = cargoBays;
@@ -26,6 +27,7 @@ public class Spaceship {
         this.shieldSlots = shieldSlots;
         this.crewQuarters = crewQuarters;
         this.distance = distance;
+        this.fuel = fuel;
     }
 
     public String getName() { return name; }
@@ -58,6 +60,8 @@ public class Spaceship {
         return distance;
     }
 
+    public int getFuel() { return fuel; }
+
     //public HashMap<String, int[]> getCargo() { return cargo; }
 
     //public void setCargo(HashMap cargo) { this.cargo = cargo; }
@@ -67,5 +71,17 @@ public class Spaceship {
 
     public void setCargoBays(int cargoBays) {
         this.cargoBays = cargoBays;
+    }
+
+    public void setFuel(int fuel) { this.fuel = fuel; }
+
+    public int calculateDistance (int x1, int y1, int x2, int y2) {
+
+        double inside = Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2);
+
+        double sqrt = Math.sqrt(inside);
+
+        return (int) Math.abs(sqrt);
+
     }
 }

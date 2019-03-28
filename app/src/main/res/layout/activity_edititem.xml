@@ -112,15 +112,14 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="184dp"
         android:text="TextView"
-        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.343" />
+        app:layout_constraintTop_toBottomOf="@+id/itemPrice_header"
+        app:layout_constraintVertical_bias="0.04" />
 
     <ImageView
         android:id="@+id/imageView6"
@@ -135,10 +134,9 @@
         android:background="@color/LavenderBlush"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/item_price"
-        app:layout_constraintVertical_bias="0.276"
+        app:layout_constraintVertical_bias="0.238"
         app:srcCompat="@drawable/universe2" />
 
 </android.support.constraint.ConstraintLayout>

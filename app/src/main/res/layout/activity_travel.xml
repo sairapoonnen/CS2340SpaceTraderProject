@@ -8,23 +8,25 @@
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/planet_list"
-        android:layout_width="395dp"
+        android:layout_width="358dp"
         android:layout_height="480dp"
         android:layout_marginTop="28dp"
         android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/back_to_planet"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.301"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fuel_input" />
+        app:layout_constraintTop_toBottomOf="@+id/fuel_input"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/choose_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="28dp"
         android:text="Choose a planet to travel to "
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintHorizontal_bias="0.62"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -32,8 +34,8 @@
         android:id="@+id/location_title"
         android:layout_width="wrap_content"
         android:layout_height="27dp"
-        android:layout_marginStart="88dp"
-        android:layout_marginLeft="88dp"
+        android:layout_marginStart="112dp"
+        android:layout_marginLeft="112dp"
         android:layout_marginTop="12dp"
         android:text="Player Location: "
         app:layout_constraintStart_toStartOf="parent"
@@ -83,9 +85,9 @@
         android:id="@+id/back_to_planet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="664dp"
-        android:layout_marginEnd="160dp"
-        android:layout_marginRight="160dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="316dp"
+        android:layout_marginRight="316dp"
         android:onClick="onBackPressed"
         android:text="Back"
         app:layout_constraintEnd_toEndOf="parent"

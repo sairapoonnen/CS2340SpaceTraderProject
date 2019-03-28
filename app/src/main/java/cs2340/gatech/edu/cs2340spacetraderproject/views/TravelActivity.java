@@ -72,7 +72,7 @@ public class TravelActivity extends AppCompatActivity {
         List<SolarSystem> planetList = new ArrayList<>();
 
         for (SolarSystem ss : universe.getSolarSystem()) {
-            if (player.getSpaceship().calculateDistance(market.getSS().getX(), market.getSS().getY(), ss.getX(), ss.getY()) <= player.getSpaceship().getFuel()) {
+            if (player.getSpaceship().calculateDistance(market.getSS().getX(), market.getSS().getY(), ss.getX(), ss.getY()) <= player.getSpaceship().getFuel() && !market.getSS().getName().equals(ss.getName())) {
                 planetList.add(ss);
             }
         }

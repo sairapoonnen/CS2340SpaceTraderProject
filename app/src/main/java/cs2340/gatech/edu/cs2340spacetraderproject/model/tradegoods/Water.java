@@ -4,7 +4,7 @@ public class Water extends TradeGood {
 
     public Water() {
 
-        super("Water", 200, 0, 0, 2, 3, 4,
+        super("Water", 100, 0, 0, 2, 3, 4,
                 "DROUGHT", "LOTSOFWATER", "DESERT", 30, 50);
     }
 }

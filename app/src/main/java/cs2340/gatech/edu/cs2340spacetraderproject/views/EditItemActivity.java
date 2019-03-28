@@ -69,12 +69,14 @@ public class EditItemActivity extends AppCompatActivity {
             if (item.getBasePrice() > player.getCredits()) {
                 Toast.makeText(getApplicationContext(), "Not enough credits to buy item", Toast.LENGTH_SHORT).show();
             } else {
+                /*
                 itemList.remove(item);
                 Log.d("itemHash", item.toString());
 
                 Log.d("allItemsBuy", Arrays.toString(itemList.toArray()));
                 market.setMarket(itemList);
                 Log.d("allItemsBuy", Arrays.toString(itemList.toArray()));
+                */
 
 
                 cargo.add(item);
@@ -83,14 +85,19 @@ public class EditItemActivity extends AppCompatActivity {
             }
 
         } else {
-            itemList.add(item);
-            Log.d("itemHash", item.toString());
 
-            Log.d("allItemsSell", Arrays.toString(cargo.toArray()));
-            cargo.remove(item);
-            Log.d("allItemsSell", Arrays.toString(cargo.toArray()));
+            if (market.getSS().getTech() < item.getMTLU()) {
+                Toast.makeText(getApplicationContext(), "This planet cannot use this resource", Toast.LENGTH_SHORT).show();
+            } else {
+                itemList.add(item);
+                Log.d("itemHash", item.toString());
 
-            player.setCredits(player.getCredits() + totalPrice);
+                Log.d("allItemsSell", Arrays.toString(cargo.toArray()));
+                cargo.remove(item);
+                Log.d("allItemsSell", Arrays.toString(cargo.toArray()));
+
+                player.setCredits(player.getCredits() + totalPrice);
+            }
         }
 
         finish();

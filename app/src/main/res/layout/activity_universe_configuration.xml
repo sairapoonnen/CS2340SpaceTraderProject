@@ -10,26 +10,31 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="183dp"
+        android:layout_width="274dp"
         android:layout_height="62dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginLeft="68dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="112dp"
-        android:layout_marginRight="112dp"
-        android:layout_marginBottom="248dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
         android:text="Generating random start planet..."
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView7"
+        app:fontFamily="@font/alegreya_sans_sc_bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.145" />
 
     <Button
         android:id="@+id/nextButton"
         android:layout_width="145dp"
-        android:layout_height="84dp"
+        android:layout_height="57dp"
         android:layout_marginStart="157dp"
         android:layout_marginLeft="157dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="158dp"
         android:layout_marginRight="158dp"
         android:layout_marginBottom="8dp"
@@ -40,21 +45,25 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.854" />
 
     <ImageView
         android:id="@+id/imageView7"
-        android:layout_width="236dp"
-        android:layout_height="186dp"
+        android:layout_width="449dp"
+        android:layout_height="233dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/nextButton"
+        android:layout_marginBottom="8dp"
+        android:background="@color/LavenderBlush"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.45"
         app:srcCompat="@drawable/planet" />
 
 </android.support.constraint.ConstraintLayout>

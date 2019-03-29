@@ -15,17 +15,16 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        android:background="@color/LavenderBlush"
+        android:background="@color/PeachPuff"
         android:gravity="center"
         android:text="Item Price"
         android:textSize="18sp"
         app:fontFamily="@font/alegreya_sans_sc_bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.336" />
+        app:layout_constraintVertical_bias="0.263" />
 
     <TextView
         android:id="@+id/itemName_header"
@@ -37,17 +36,16 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        android:background="@color/LavenderBlush"
+        android:background="@color/PeachPuff"
         android:gravity="center"
         android:text="Item Name"
         android:textSize="18sp"
         app:fontFamily="@font/alegreya_sans_sc_bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.179" />
+        app:layout_constraintVertical_bias="0.107" />
 
     <Button
         android:id="@+id/cancel"
@@ -76,11 +74,13 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:text="TextView"
+        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.25" />
+        app:layout_constraintVertical_bias="0.176" />
 
     <Button
         android:id="@+id/confirm"
@@ -105,38 +105,38 @@
 
     <TextView
         android:id="@+id/item_price"
-        android:layout_width="57dp"
-        android:layout_height="22dp"
+        android:layout_width="65dp"
+        android:layout_height="21dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="184dp"
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.532"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.406" />
+        app:layout_constraintTop_toBottomOf="@+id/itemPrice_header"
+        app:layout_constraintVertical_bias="0.04" />
 
     <ImageView
         android:id="@+id/imageView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="419dp"
+        android:layout_height="234dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
+        android:background="@color/LavenderBlush"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/item_price"
-        app:layout_constraintVertical_bias="0.331"
+        app:layout_constraintVertical_bias="0.238"
         app:srcCompat="@drawable/universe2" />
 
 </android.support.constraint.ConstraintLayout>

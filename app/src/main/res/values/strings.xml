@@ -6,6 +6,11 @@
     <color name="LemonChiffon">#FFFACD</color>
     <color name="PapayaWhip">#FFEFD5</color>
     <color name="PaleVioletRed">#DB7093</color>
+    <color name="PeachPuff">#FFDAB9</color>
+    <color name="MintCream">#F5FFFA</color>
+    <color name="LightGreen">#90EE90</color>
+    <color name="LightSkyBlue">#87CEFA</color>
+    <color name="Turquoise">#40E0D0</color>
     <string name="title_activity_main2">Main2Activity</string>
     <string name="title_activity_universe_configuration">UniverseConfigurationActivity</string>
 </resources>

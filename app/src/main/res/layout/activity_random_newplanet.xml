@@ -27,7 +27,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.063" />
+        app:layout_constraintVertical_bias="0.072" />
 
     <TextView
         android:id="@+id/random_message3"
@@ -51,7 +51,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/random_alert3"
-        app:layout_constraintVertical_bias="0.44" />
+        app:layout_constraintVertical_bias="0.405" />
 
     <ImageView
         android:id="@+id/imageView3"

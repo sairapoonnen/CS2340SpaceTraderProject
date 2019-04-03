@@ -8,7 +8,29 @@
     android:background="@color/Silver">
 
     <TextView
-        android:id="@+id/textView20"
+        android:id="@+id/textView24"
+        android:layout_width="375dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center"
+        android:text="You failed to flee the scene!"
+        android:textColor="@color/BlueViolet"
+        android:textSize="24sp"
+        app:fontFamily="@font/alegreya_sans_sc_medium"
+        app:layout_constraintBottom_toTopOf="@+id/back_button12"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView16"
+        app:layout_constraintVertical_bias="0.237" />
+
+    <TextView
+        android:id="@+id/textView25"
         android:layout_width="375dp"
         android:layout_height="34dp"
         android:layout_marginStart="8dp"
@@ -18,21 +40,20 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:gravity="center"
-        android:text="You failed to travel!"
+        android:text="You lost a trade good item!"
         android:textColor="@color/BlueViolet"
         android:textSize="24sp"
         app:fontFamily="@font/alegreya_sans_sc_medium"
-        app:layout_constraintBottom_toTopOf="@+id/back_button10"
+        app:layout_constraintBottom_toTopOf="@+id/back_button12"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView14"
-        app:layout_constraintVertical_bias="0.248" />
+        app:layout_constraintTop_toBottomOf="@+id/textView24"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/back_button10"
+        android:id="@+id/back_button12"
         android:layout_width="138dp"
-        android:layout_height="50dp"
+        android:layout_height="47dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
@@ -46,34 +67,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView14"
-        app:layout_constraintVertical_bias="0.982" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView16"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
-        android:id="@+id/textView21"
-        android:layout_width="375dp"
-        android:layout_height="28dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="72dp"
-        android:gravity="center"
-        android:text="You lost [1] reputation point!"
-        android:textColor="@color/BlueViolet"
-        android:textSize="24sp"
-        app:fontFamily="@font/alegreya_sans_sc_medium"
-        app:layout_constraintBottom_toTopOf="@+id/back_button10"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView12"
-        app:layout_constraintVertical_bias="0.226" />
-
-    <TextView
-        android:id="@+id/result_msg3"
+        android:id="@+id/result_msg5"
         android:layout_width="181dp"
-        android:layout_height="43dp"
+        android:layout_height="48dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
@@ -85,14 +85,14 @@
         android:textColor="@color/White"
         android:textSize="30sp"
         app:fontFamily="@font/alegreya_sans_sc_bold"
-        app:layout_constraintBottom_toTopOf="@+id/imageView14"
+        app:layout_constraintBottom_toTopOf="@+id/imageView16"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.632" />
+        app:layout_constraintVertical_bias="0.64" />
 
     <ImageView
-        android:id="@+id/imageView14"
+        android:id="@+id/imageView16"
         android:layout_width="163dp"
         android:layout_height="151dp"
         android:layout_marginStart="8dp"
@@ -106,6 +106,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.404"
+        app:layout_constraintVertical_bias="0.402"
         app:srcCompat="@drawable/fail" />
 </android.support.constraint.ConstraintLayout>

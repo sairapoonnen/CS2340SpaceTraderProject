@@ -10,6 +10,8 @@ public class Player {
     private int credits;
     private Spaceship spaceship;
     private String gameDifficulty;
+    private SolarSystem ss;
+
 
     public Player(String name, int pilotSkill, int fighterSkill, int traderSkill, int engineerSkill, String gameDifficulty) {
         this.name = name;
@@ -22,7 +24,9 @@ public class Player {
         this.gameDifficulty = gameDifficulty;
     }
 
-    public Player() {
+    private static Player single_instance = null;
+
+    private Player() {
         this.name = "";
         this.pilotSkill = 0;
         this.fighterSkill = 0;
@@ -32,6 +36,15 @@ public class Player {
         this.spaceship = new Gnat();
         this.gameDifficulty = null;
     }
+
+    public static Player Player() {
+        if (single_instance == null) {
+            single_instance = new Player();
+        }
+
+        return single_instance;
+    }
+
 
     public String getName() { return this.name; }
 
@@ -58,6 +71,8 @@ public class Player {
     public String getGameDifficulty() {
         return this.gameDifficulty;
     }
+
+    public SolarSystem getSS() { return this.ss; }
 
     public void setName(String name) {
         this.name = name;
@@ -90,5 +105,7 @@ public class Player {
     public void setGameDifficulty(String gameDifficulty) {
         this.gameDifficulty = gameDifficulty;
     }
+
+    public void setSS(SolarSystem ss) { this.ss = ss; }
 
 }

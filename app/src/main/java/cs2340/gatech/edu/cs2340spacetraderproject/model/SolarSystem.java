@@ -1,12 +1,20 @@
 package cs2340.gatech.edu.cs2340spacetraderproject.model;
 
-public class SolarSystem {
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+import cs2340.gatech.edu.cs2340spacetraderproject.model.tradegoods.TradeGood;
+
+public class SolarSystem implements Serializable {
 
     private String name;
     private int x;
     private int y;
     private int tech;
     private int resource;
+    private List<TradeGood> market = new ArrayList<>();
 
     public SolarSystem(String name, int x, int y, int tech, int resource) {
         this.name = name;
@@ -33,6 +41,9 @@ public class SolarSystem {
 
     public void setResource(int resource) { this.resource = resource; }
 
+//    public void addMarket(String item, int[] info) { market.put(item, info); }
+    public void addMarket(TradeGood item) { market.add(item); }
+
     public String getName() { return name; }
 
     public int getX() { return x; }
@@ -46,6 +57,9 @@ public class SolarSystem {
     public int getResource() {return resource; }
 
     public String[] getResourceArray() { return resourceArray; }
+
+   // public HashMap getMarket() { return market; }
+    public List<TradeGood> getMarket() { return market; }
 
     public String toString() {
         return "Solar System Name: " + name + ", coordinates: (" + x + ", " + y + "), Tech Level: " + techArray[tech] + ", Resources: " + resourceArray[resource];

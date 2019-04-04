@@ -144,22 +144,21 @@ public class PlanetActivity extends AppCompatActivity {
         mDatabase.child("Player").setValue(player);
         mDatabase.child("SolarSystem").setValue(ss.getName());
         //mDatabase.child("Universe").removeValue();
-        for (TradeGood item: items) {
+        for (TradeGood item : items) {
             mDatabase.child("Items").child(item.getName()).setValue(item.getName());
         }
 
 
-
-
         player.getSpaceship().cargo = items;
-
-        for (int i = 0; i < 10; i++) {
-            String stored = "" + universe.getSolarSystem().get(i).getX() + " " + universe.getSolarSystem().get(i).getY() + " " +
-                    universe.getSolarSystem().get(i).getTech() + " " + universe.getSolarSystem().get(i).getResource();
-            mDatabase.child("Universe").child(universe.getSolarSystem().get(i).getName()).setValue(stored);
-
-        }
     }
+
+//        for (int i = 0; i < 10; i++) {
+//            String stored = "" + universe.getSolarSystem().get(i).getX() + " " + universe.getSolarSystem().get(i).getY() + " " +
+//                    universe.getSolarSystem().get(i).getTech() + " " + universe.getSolarSystem().get(i).getResource();
+//            mDatabase.child("Universe").child(universe.getSolarSystem().get(i).getName()).setValue(stored);
+//
+//        }
+
         //mDatabase.child("Universe").setValue(universe);
 
 //        for (int i = 0; i < market.getMarket().size(); i++) {

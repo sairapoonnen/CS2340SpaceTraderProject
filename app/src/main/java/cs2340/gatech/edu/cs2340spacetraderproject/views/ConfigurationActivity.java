@@ -15,6 +15,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import cs2340.gatech.edu.cs2340spacetraderproject.R;
 import cs2340.gatech.edu.cs2340spacetraderproject.model.Gnat;
 import cs2340.gatech.edu.cs2340spacetraderproject.viewmodels.ConfigurationViewModel;
@@ -29,6 +32,8 @@ import java.util.*;
 public class ConfigurationActivity extends AppCompatActivity {
 
     ConfigurationViewModel viewModel;
+
+    private DatabaseReference mDatabase;
 
     /*widgets*/
     private EditText nameField;
@@ -46,10 +51,15 @@ public class ConfigurationActivity extends AppCompatActivity {
     private int totalSkill = player.getEngineerSkill() + player.getFighterSkill() + player.getPilotSkill() + player.getTraderSkill();
     private boolean playerCreated = false;
 
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_configuration);
+
+        mDatabase = FirebaseDatabase.getInstance().getReference();
 
         /*reference to viewModel*/
         viewModel = ViewModelProviders.of(this).get(ConfigurationViewModel.class);
@@ -198,6 +208,13 @@ public class ConfigurationActivity extends AppCompatActivity {
 
             largeLog("Solar System", universe.toString());
 
+
+            for (int i = 0; i < 10; i++) {
+                String stored = "" + universe.getSolarSystem().get(i).getX() + " " + universe.getSolarSystem().get(i).getY() + " " +
+                        universe.getSolarSystem().get(i).getTech() + " " + universe.getSolarSystem().get(i).getResource();
+                mDatabase.child("Universe").child(universe.getSolarSystem().get(i).getName()).setValue(stored);
+
+            }
 
             Intent intent = new Intent(ConfigurationActivity.this, UniverseConfigurationActivity.class);
             startActivity(intent);

@@ -45,6 +45,8 @@ public class TravelActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_travel);
 
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+
            /*
          Set up our recycler view by grabbing the layout for a single item
          */
@@ -105,5 +107,19 @@ public class TravelActivity extends AppCompatActivity {
 
     public void onBackPressed(View view) {
         finish();
+    }
+
+    public void onSavePress(View view) {
+
+        List<TradeGood> items = player.getSpaceship().getCargo();
+        player.getSpaceship().setCargoEmpty();
+        mDatabase.child("Player").setValue(player);
+        mDatabase.child("SolarSystem").setValue(market.getSS().getName());
+        //mDatabase.child("Universe").removeValue();
+        for (TradeGood item : items) {
+            mDatabase.child("Items").child(item.getName()).setValue(item.getName());
+        }
+
+        player.getSpaceship().cargo = items;
     }
 }

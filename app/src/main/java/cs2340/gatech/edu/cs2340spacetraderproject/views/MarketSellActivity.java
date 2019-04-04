@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import cs2340.gatech.edu.cs2340spacetraderproject.R;
+import cs2340.gatech.edu.cs2340spacetraderproject.model.Market;
 import cs2340.gatech.edu.cs2340spacetraderproject.model.tradegoods.TradeGood;
 import cs2340.gatech.edu.cs2340spacetraderproject.viewmodels.ConfigurationViewModel;
 import cs2340.gatech.edu.cs2340spacetraderproject.model.Player;
@@ -30,6 +31,7 @@ public class MarketSellActivity extends AppCompatActivity {
 
     private ItemAdapter adapter;
     private Player player = Player.Player();
+    private Market market = Market.Market();
 
     private TextView credits;
     private TextView cargo;

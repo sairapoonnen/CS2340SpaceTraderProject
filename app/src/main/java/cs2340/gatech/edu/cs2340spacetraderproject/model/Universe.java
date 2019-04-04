@@ -12,10 +12,14 @@ public class Universe {
 
     public ArrayList<SolarSystem> getSolarSystem() { return solarSystem; }
 
-    private static Universe single_instance = null;
+    public static Universe single_instance = null;
 
     private Universe() {
         solarSystem = new ArrayList<SolarSystem>();
+    }
+
+    public Universe(ArrayList<SolarSystem> ss) {
+        this.solarSystem = ss;
     }
 
     public static Universe Universe() {

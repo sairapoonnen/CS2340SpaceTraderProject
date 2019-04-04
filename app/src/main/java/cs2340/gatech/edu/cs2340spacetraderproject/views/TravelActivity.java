@@ -10,6 +10,9 @@ import android.widget.Toast;
 import android.widget.TextView;
 import android.view.View;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -34,6 +37,8 @@ public class TravelActivity extends AppCompatActivity {
     private Universe universe = Universe.Universe();
 
     private int subtract;
+
+    private DatabaseReference mDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +69,7 @@ public class TravelActivity extends AppCompatActivity {
     public void onResume() {
         super.onResume();
 
-
+        mDatabase = FirebaseDatabase.getInstance().getReference();
         //Log.d("Null?", "" + player.getCredits());
         location.setText("" + market.getSS().getName());
         fuel.setText("" + player.getSpaceship().getFuel());

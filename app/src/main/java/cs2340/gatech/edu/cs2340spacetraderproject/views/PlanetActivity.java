@@ -13,6 +13,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import cs2340.gatech.edu.cs2340spacetraderproject.R;
 import cs2340.gatech.edu.cs2340spacetraderproject.model.Market;
 import cs2340.gatech.edu.cs2340spacetraderproject.model.tradegoods.Firearms;
@@ -41,6 +44,9 @@ public class PlanetActivity extends AppCompatActivity {
     private Market market = Market.Market();
     private SolarSystem ss;
 
+    Player player = Player.Player();
+
+    private DatabaseReference mDatabase;
 
     /*
     private Water water = new Water();
@@ -64,10 +70,12 @@ public class PlanetActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_planet);
 
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+
         ss = (SolarSystem) getIntent().getSerializableExtra("PLANET");
         //Log.d("itemHashAfter", item.toString());
 
-        //Log.d("Test", "planet: " + ss.getName());
+        Log.d("Test", "planet: " + ss.getName());
 
         //ss.addMarket(new Water());
         //ss.addMarket(new Water());
@@ -129,10 +137,47 @@ public class PlanetActivity extends AppCompatActivity {
 
     }
 
+    public void onSavePressed(View view) {
+
+        List<TradeGood> items = player.getSpaceship().getCargo();
+        player.getSpaceship().setCargoEmpty();
+        mDatabase.child("Player").setValue(player);
+        mDatabase.child("SolarSystem").setValue(ss.getName());
+        //mDatabase.child("Universe").removeValue();
+        for (TradeGood item: items) {
+            mDatabase.child("Items").child(item.getName()).setValue(item.getName());
+        }
+
+
+
+
+        player.getSpaceship().cargo = items;
+
+        for (int i = 0; i < 10; i++) {
+            String stored = "" + universe.getSolarSystem().get(i).getX() + " " + universe.getSolarSystem().get(i).getY() + " " +
+                    universe.getSolarSystem().get(i).getTech() + " " + universe.getSolarSystem().get(i).getResource();
+            mDatabase.child("Universe").child(universe.getSolarSystem().get(i).getName()).setValue(stored);
+
+        }
+    }
+        //mDatabase.child("Universe").setValue(universe);
+
+//        for (int i = 0; i < market.getMarket().size(); i++) {
+//            TradeGood item = market.getMarket().get(i);
+//            int price = item.getBasePrice() + (item.getIPL() * (market.getSS().getTech() - item.getMTLP());
+//            mDatabase.child("Market").child(market.getMarket().get(i).getName()).setValue(price);
+//        }
+
+//        for (TradeGood good: market.getMarket()) {
+//            mDatabase.child("Market").child("A Good").setValue(good);
+//        }
+    //}
+
     @Override
     public void onResume() {
         super.onResume();
 
         Log.d("Resume?", "onResume");
+        mDatabase = FirebaseDatabase.getInstance().getReference();
     }
 }

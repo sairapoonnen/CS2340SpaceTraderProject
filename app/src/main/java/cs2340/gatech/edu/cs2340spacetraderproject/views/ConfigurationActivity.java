@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import cs2340.gatech.edu.cs2340spacetraderproject.R;
+import cs2340.gatech.edu.cs2340spacetraderproject.model.Gnat;
 import cs2340.gatech.edu.cs2340spacetraderproject.viewmodels.ConfigurationViewModel;
 import cs2340.gatech.edu.cs2340spacetraderproject.model.Player;
 import cs2340.gatech.edu.cs2340spacetraderproject.model.Spaceship;
@@ -76,6 +77,9 @@ public class ConfigurationActivity extends AppCompatActivity {
 
             player.setName(nameField.getText().toString());
             player.setGameDifficulty(difficultySpinner.getSelectedItem().toString());
+            player.setSpaceship(new Gnat());
+            player.setCredits(1000);
+
 
             view.setEnabled(false);
 

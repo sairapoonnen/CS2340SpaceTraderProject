@@ -70,14 +70,14 @@ public class EditItemActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Not enough credits to buy item", Toast.LENGTH_SHORT).show();
             } else {
 
+                /*
                 itemList.remove(item);
                 Log.d("itemHash", item.toString());
 
                 Log.d("allItemsBuy", Arrays.toString(itemList.toArray()));
                 market.setMarket(itemList);
                 Log.d("allItemsBuy", Arrays.toString(itemList.toArray()));
-
-
+                */
 
                 cargo.add(item);
 

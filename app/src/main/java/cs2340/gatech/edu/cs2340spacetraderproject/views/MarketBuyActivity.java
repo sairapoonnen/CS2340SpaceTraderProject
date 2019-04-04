@@ -81,7 +81,12 @@ public class MarketBuyActivity extends AppCompatActivity {
 
         Log.d("Null?", "" + player.getCredits());
         credits.setText("" + player.getCredits());
-        cargo.setText("" + player.getSpaceship().getCargo().size() + "/" + player.getSpaceship().getCargoBays());
+        if (player.getSpaceship().getCargo() == null) {
+            cargo.setText("" + 0 + "/" + player.getSpaceship().getCargoBays());
+        } else {
+            cargo.setText("" + player.getSpaceship().getCargo().size() + "/" + player.getSpaceship().getCargoBays());
+        }
+
 
         List<TradeGood> itemList = new ArrayList<>();
         itemList = market.getMarket();

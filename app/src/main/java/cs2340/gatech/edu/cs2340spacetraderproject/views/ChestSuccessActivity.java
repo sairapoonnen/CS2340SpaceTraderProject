@@ -39,9 +39,9 @@ public class ChestSuccessActivity extends AppCompatActivity {
         Random rand = new Random();
         int index = rand.nextInt(numItems);
         TradeGood item = market.getMarket().get(index);
-        List<TradeGood> items = market.getMarket();
-        items.remove(item);
-        market.setMarket(items);
+//        List<TradeGood> items = market.getMarket();
+//        items.remove(item);
+//        market.setMarket(items);
 
         spaceship.addCargo(item);
 

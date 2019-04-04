@@ -10,7 +10,7 @@ public class Spaceship {
     private int hullStrength;
     private int cargoBays;
     //private HashMap<String, int[]> cargo;
-    private List<TradeGood> cargo = new ArrayList<>();
+    public List<TradeGood> cargo = new ArrayList<>();
     private int weaponSlots;
     private int gadgetSlots;
     private int shieldSlots;
@@ -28,6 +28,10 @@ public class Spaceship {
         this.crewQuarters = crewQuarters;
         this.distance = distance;
         this.fuel = fuel;
+    }
+
+    public Spaceship() {
+
     }
 
     public String getName() { return name; }
@@ -68,6 +72,10 @@ public class Spaceship {
     public List<TradeGood> getCargo() { return cargo; }
 
     public void addCargo(TradeGood item) { cargo.add(item);}
+
+    public void setCargoEmpty() {
+        cargo = null;
+    }
 
     public void setCargoBays(int cargoBays) {
         this.cargoBays = cargoBays;

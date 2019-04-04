@@ -10,9 +10,21 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".views.ChestFailureActivity"
+            android:label="@string/title_activity_chest_failure"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".views.ChestSuccessActivity"
+            android:label="@string/title_activity_chest_success"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".views.RandomChestActivity"
+            android:label="@string/title_activity_random_chest"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".views.UniverseConfigurationActivity"
             android:label="@string/title_activity_universe_configuration"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".views.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

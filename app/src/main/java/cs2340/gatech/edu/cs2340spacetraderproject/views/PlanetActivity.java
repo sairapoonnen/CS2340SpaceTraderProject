@@ -113,8 +113,19 @@ public class PlanetActivity extends AppCompatActivity {
 
     //button handler to go to Market
     public void onMarketPressed(View view) {
-        Intent intent = new Intent(PlanetActivity.this, MarketBuyActivity.class);
-        startActivity(intent);
+
+        Random rand = new Random();
+        int prob = rand.nextInt(100);
+
+        if (prob < 60) {
+            Intent intent = new Intent(PlanetActivity.this, RandomChestActivity.class);
+            startActivity(intent);
+        } else {
+            Intent intent = new Intent(PlanetActivity.this, MarketBuyActivity.class);
+            startActivity(intent);
+        }
+
+
 
     }
 

@@ -144,7 +144,15 @@ public class PlanetActivity extends AppCompatActivity {
         mDatabase.child("Player").setValue(player);
         mDatabase.child("SolarSystem").setValue(ss.getName());
         //mDatabase.child("Universe").removeValue();
+
+//        HashMap<TradeGood, Integer> itemList = new HashMap<>();
+//        for (TradeGood item: items) {
+//            int curr = itemList.get(item);
+//            itemList.put(item, curr + 1);
+//        }
+
         for (TradeGood item : items) {
+            //Log.d("item", item.getName() + itemList.get(item));
             mDatabase.child("Items").child(item.getName()).setValue(item.getName());
         }
 

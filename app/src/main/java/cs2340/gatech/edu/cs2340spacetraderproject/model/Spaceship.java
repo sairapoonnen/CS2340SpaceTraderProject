@@ -73,6 +73,8 @@ public class Spaceship {
 
     public void addCargo(TradeGood item) { cargo.add(item);}
 
+    public void removeCargo(int index) { cargo.remove(index); }
+
     public void setCargoEmpty() {
         cargo = null;
     }

@@ -16,6 +16,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 import cs2340.gatech.edu.cs2340spacetraderproject.R;
 import cs2340.gatech.edu.cs2340spacetraderproject.model.Market;
@@ -39,6 +40,7 @@ public class TravelActivity extends AppCompatActivity {
     private int subtract;
 
     private DatabaseReference mDatabase;
+    Random rand = new Random();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,11 +97,24 @@ public class TravelActivity extends AppCompatActivity {
                 subtract = player.getSpaceship().getFuel() - player.getSpaceship().calculateDistance(market.getSS().getX(), market.getSS().getY(), planet.getX(), planet.getY());
 
                 player.getSpaceship().setFuel(subtract);
-                Intent intent = new Intent(TravelActivity.this, PlanetActivity.class);
+                int randomAct = rand.nextInt(6);
+                if (randomAct == 0) {
+                    Intent intent = new Intent(TravelActivity.this, RandomChestActivity.class);
+                    startActivity(intent);
+                } else if (randomAct == 1) {
+                    Intent intent = new Intent(TravelActivity.this, PirateEncounterActivity.class);
+                    startActivity(intent);
+                } else if (randomAct == 2) {
+                    Intent intent = new Intent(TravelActivity.this, AsteroidEncounterActivity.class);
+                    startActivity(intent);
+                } else {
+                    Intent intent = new Intent(TravelActivity.this, PlanetActivity.class);
                     //Log.d("itemHashBefore", item.toString());
-                intent.putExtra("PLANET", planet);
-                startActivity(intent);
+                    intent.putExtra("PLANET", planet);
+                    startActivity(intent);
                     //startActivityForResult(intent, EDIT_REQUEST);
+                }
+
 
             }
         });

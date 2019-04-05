@@ -22,6 +22,38 @@
             android:label="@string/title_activity_random_chest"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
+            android:name=".views.PirateEncounterActivity"
+            android:label="PirateEncounterActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".views.PirateFightSuccessActivity"
+            android:label="PirateFightSuccessActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".views.PirateFightFailActivity"
+            android:label="PirateFightFailActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".views.PirateFleeSuccessActivity"
+            android:label="PirateFleeSuccessActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".views.PirateFleeFailActivity"
+            android:label="PirateFleeFailActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".views.AsteroidEncounterActivity"
+            android:label="AsteroidEncounterActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".views.AsteroidFail"
+            android:label="AsteroidFail"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".views.AsteroidSuccess"
+            android:label="AsteroidSuccess"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
             android:name=".views.UniverseConfigurationActivity"
             android:label="@string/title_activity_universe_configuration"
             android:theme="@style/AppTheme.NoActionBar" />

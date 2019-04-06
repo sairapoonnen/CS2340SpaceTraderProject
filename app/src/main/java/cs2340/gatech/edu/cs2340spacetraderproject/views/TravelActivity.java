@@ -97,15 +97,15 @@ public class TravelActivity extends AppCompatActivity {
                 subtract = player.getSpaceship().getFuel() - player.getSpaceship().calculateDistance(market.getSS().getX(), market.getSS().getY(), planet.getX(), planet.getY());
 
                 player.getSpaceship().setFuel(subtract);
-                int randomAct = rand.nextInt(6);
+                int randomAct = rand.nextInt(3);
+                Log.d("Random", "rand int: " + randomAct);
                 if (randomAct == 0) {
-                    Intent intent = new Intent(TravelActivity.this, RandomChestActivity.class);
+                    Intent intent = new Intent(TravelActivity.this, PirateEncounterActivity.class);
+                    intent.putExtra("PLANET", planet);
                     startActivity(intent);
                 } else if (randomAct == 1) {
-                    Intent intent = new Intent(TravelActivity.this, PirateEncounterActivity.class);
-                    startActivity(intent);
-                } else if (randomAct == 2) {
                     Intent intent = new Intent(TravelActivity.this, AsteroidEncounterActivity.class);
+                    intent.putExtra("PLANET", planet);
                     startActivity(intent);
                 } else {
                     Intent intent = new Intent(TravelActivity.this, PlanetActivity.class);
@@ -127,6 +127,7 @@ public class TravelActivity extends AppCompatActivity {
     public void onSavePress(View view) {
 
         List<TradeGood> items = player.getSpaceship().getCargo();
+
         player.getSpaceship().setCargoEmpty();
         mDatabase.child("Player").setValue(player);
         mDatabase.child("SolarSystem").setValue(market.getSS().getName());

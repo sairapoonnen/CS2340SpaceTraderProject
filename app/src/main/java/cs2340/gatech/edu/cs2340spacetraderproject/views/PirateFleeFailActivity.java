@@ -10,17 +10,21 @@ import java.util.Random;
 
 import cs2340.gatech.edu.cs2340spacetraderproject.R;
 import cs2340.gatech.edu.cs2340spacetraderproject.model.Player;
+import cs2340.gatech.edu.cs2340spacetraderproject.model.SolarSystem;
 import cs2340.gatech.edu.cs2340spacetraderproject.model.Spaceship;
 import cs2340.gatech.edu.cs2340spacetraderproject.model.tradegoods.TradeGood;
 
 public class PirateFleeFailActivity extends AppCompatActivity {
     Player player = Player.Player();
     Spaceship spaceship = player.getSpaceship();
+    private SolarSystem planet;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fail_pirate_flee);
+
+        planet = (SolarSystem) getIntent().getSerializableExtra("PLANET");
     }
 
     public void onResume() {
@@ -39,7 +43,8 @@ public class PirateFleeFailActivity extends AppCompatActivity {
     }
 
     public void onBackPress(View view) {
-        Intent intent = new Intent(PirateFleeFailActivity.this, MarketBuyActivity.class);
+        Intent intent = new Intent(PirateFleeFailActivity.this, PlanetActivity.class);
+        intent.putExtra("PLANET", planet);
         startActivity(intent);
     }
 }

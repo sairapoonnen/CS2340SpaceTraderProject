@@ -11,6 +11,7 @@ public class Player {
     private Spaceship spaceship;
     private String gameDifficulty;
     private SolarSystem ss;
+    private int reputation;
 
 
     public Player(String name, int pilotSkill, int fighterSkill, int traderSkill, int engineerSkill, String gameDifficulty) {
@@ -22,6 +23,7 @@ public class Player {
         this.credits = 1000;
         this.spaceship = new Gnat();
         this.gameDifficulty = gameDifficulty;
+        this.reputation = 5;
     }
 
     public static Player single_instance = null;
@@ -76,6 +78,8 @@ public class Player {
 
     public SolarSystem getSS() { return this.ss; }
 
+    public int getReputation() { return this.reputation;}
+
     public void setName(String name) {
         this.name = name;
     }
@@ -109,5 +113,7 @@ public class Player {
     }
 
     public void setSS(SolarSystem ss) { this.ss = ss; }
+
+    public void setReputation(int reputation) { this.reputation = this.reputation + reputation; }
 
 }

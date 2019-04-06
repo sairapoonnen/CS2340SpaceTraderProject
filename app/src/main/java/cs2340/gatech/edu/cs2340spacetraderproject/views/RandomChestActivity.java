@@ -22,16 +22,21 @@ public class RandomChestActivity extends AppCompatActivity {
     }
 
     public void onOpenPressed(View view) {
+
+        Intent intent = new Intent(RandomChestActivity.this, ChestSuccessActivity.class);
+        startActivity(intent);
+
+        /*
         Random rand = new Random();
         int prob = rand.nextInt(100);
-        if (prob < 90) {
+        if (prob < 50) {
             Intent intent = new Intent(RandomChestActivity.this, ChestSuccessActivity.class);
             startActivity(intent);
         } else {
             Intent intent = new Intent(RandomChestActivity.this, ChestFailureActivity.class);
             startActivity(intent);
         }
-
+        */
     }
 
     public void onPassPressed(View view) {

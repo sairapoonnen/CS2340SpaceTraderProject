@@ -18,7 +18,8 @@ public class Spaceship {
     private int distance;
     private int fuel;
 
-    public Spaceship(String name, int hullStrength, int cargoBays, int weaponSlots, int gadgetSlots, int shieldSlots, int crewQuarters, int distance, int fuel) {
+    public Spaceship(String name, int hullStrength, int cargoBays, int weaponSlots, int gadgetSlots,
+                     int shieldSlots, int crewQuarters, int distance, int fuel) {
         this.name = name;
         this.hullStrength = hullStrength;
         this.cargoBays = cargoBays;

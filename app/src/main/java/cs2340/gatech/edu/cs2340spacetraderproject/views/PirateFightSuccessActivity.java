@@ -18,9 +18,9 @@ import cs2340.gatech.edu.cs2340spacetraderproject.model.Spaceship;
 import cs2340.gatech.edu.cs2340spacetraderproject.model.tradegoods.TradeGood;
 
 public class PirateFightSuccessActivity extends AppCompatActivity {
-    Player player = Player.Player();
-    Spaceship spaceship = player.getSpaceship();
-    Market market = Market.Market();
+    private Player player = Player.Player();
+    private Spaceship spaceship = player.getSpaceship();
+    private Market market = Market.Market();
 
     private SolarSystem planet;
 

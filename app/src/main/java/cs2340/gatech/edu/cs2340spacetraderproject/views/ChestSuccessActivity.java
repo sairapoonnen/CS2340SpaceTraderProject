@@ -19,9 +19,9 @@ import cs2340.gatech.edu.cs2340spacetraderproject.model.Spaceship;
 import cs2340.gatech.edu.cs2340spacetraderproject.model.tradegoods.TradeGood;
 
 public class ChestSuccessActivity extends AppCompatActivity {
-    Player player = Player.Player();
-    Spaceship spaceship = player.getSpaceship();
-    Market market = Market.Market();
+    private Player player = Player.Player();
+    private Spaceship spaceship = player.getSpaceship();
+    private Market market = Market.Market();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +42,7 @@ public class ChestSuccessActivity extends AppCompatActivity {
 
         spaceship.addCargo(item);
 
-        TextView textView = (TextView)findViewById(R.id.item);
+        TextView textView = findViewById(R.id.item);
         textView.setText(item.getName());
     }
 

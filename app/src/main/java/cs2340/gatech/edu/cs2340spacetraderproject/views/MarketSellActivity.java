@@ -72,7 +72,8 @@ public class MarketSellActivity extends AppCompatActivity {
 
         Log.d("Null?", "" + player.getCredits());
         credits.setText("" + player.getCredits());
-        cargo.setText("" + player.getSpaceship().getCargo().size() + "/" + player.getSpaceship().getCargoBays());
+        cargo.setText("" + player.getSpaceship().getCargo().size() + "/" +
+                player.getSpaceship().getCargoBays());
 
         List<TradeGood> itemList = new ArrayList<>();
         itemList = player.getSpaceship().getCargo();
@@ -95,9 +96,6 @@ public class MarketSellActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void onConfirmPressed(View view) {
-
-    }
 
     public void onBuyPressed(View view) {
         Intent intent = new Intent(MarketSellActivity.this, MarketBuyActivity.class);

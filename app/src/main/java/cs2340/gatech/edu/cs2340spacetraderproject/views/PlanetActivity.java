@@ -36,6 +36,8 @@ import cs2340.gatech.edu.cs2340spacetraderproject.model.GameDifficulty;
 import cs2340.gatech.edu.cs2340spacetraderproject.model.SolarSystem;
 import cs2340.gatech.edu.cs2340spacetraderproject.model.Universe;
 
+import java.util.HashMap;
+
 import java.util.*;
 
 public class PlanetActivity extends AppCompatActivity {
@@ -44,7 +46,7 @@ public class PlanetActivity extends AppCompatActivity {
     private Market market = Market.Market();
     private SolarSystem ss;
 
-    Player player = Player.Player();
+    private Player player = Player.Player();
 
     private DatabaseReference mDatabase;
 
@@ -145,40 +147,29 @@ public class PlanetActivity extends AppCompatActivity {
         mDatabase.child("SolarSystem").setValue(ss.getName());
         //mDatabase.child("Universe").removeValue();
 
-//        HashMap<TradeGood, Integer> itemList = new HashMap<>();
-//        for (TradeGood item: items) {
-//            int curr = itemList.get(item);
-//            itemList.put(item, curr + 1);
-//        }
+        HashMap<TradeGood, Integer> itemList = new HashMap<>();
+        for (TradeGood item: items) {
+
+            if (itemList.get(item) == null) {
+                itemList.put(item, 1);
+            } else {
+                int curr = itemList.get(item);
+                itemList.put(item, curr + 1);
+            }
+
+        }
 
         for (TradeGood item : items) {
             //Log.d("item", item.getName() + itemList.get(item));
-            mDatabase.child("Items").child(item.getName()).setValue(item.getName());
+            //mDatabase.child("Items").child(item.getName()).setValue(item.getName());
+            mDatabase.child("Items").child(item.getName()).setValue(itemList.get(item));
         }
 
 
         player.getSpaceship().cargo = items;
     }
 
-//        for (int i = 0; i < 10; i++) {
-//            String stored = "" + universe.getSolarSystem().get(i).getX() + " " + universe.getSolarSystem().get(i).getY() + " " +
-//                    universe.getSolarSystem().get(i).getTech() + " " + universe.getSolarSystem().get(i).getResource();
-//            mDatabase.child("Universe").child(universe.getSolarSystem().get(i).getName()).setValue(stored);
-//
-//        }
 
-        //mDatabase.child("Universe").setValue(universe);
-
-//        for (int i = 0; i < market.getMarket().size(); i++) {
-//            TradeGood item = market.getMarket().get(i);
-//            int price = item.getBasePrice() + (item.getIPL() * (market.getSS().getTech() - item.getMTLP());
-//            mDatabase.child("Market").child(market.getMarket().get(i).getName()).setValue(price);
-//        }
-
-//        for (TradeGood good: market.getMarket()) {
-//            mDatabase.child("Market").child("A Good").setValue(good);
-//        }
-    //}
 
     @Override
     public void onResume() {

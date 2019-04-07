@@ -72,8 +72,10 @@ public class MainActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
 
                 if (dataSnapshot.getChildrenCount() == 0) {
-                    Toast.makeText(getApplicationContext(), "You have no saved games", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(MainActivity.this, ConfigurationActivity.class);
+                    Toast.makeText(getApplicationContext(),
+                            "You have no saved games", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(MainActivity.this,
+                            ConfigurationActivity.class);
                     startActivity(intent);
                 } else {
                     //Player player = null;
@@ -85,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
                     ssName = (String) dataSnapshot.child("SolarSystem").getValue();
 
                     for (DataSnapshot sSystems: dataSnapshot.child("Universe").getChildren()) {
-                        String s  = (String) sSystems.getKey() + " " + (String)sSystems.getValue();
+                        String s  =  sSystems.getKey() + " " + sSystems.getValue();
                         solars.add(s);
                     }
 
@@ -93,7 +95,9 @@ public class MainActivity extends AppCompatActivity {
 
                     for (String ss: solars) {
                         String[] splitted = ss.split(" ");
-                        SolarSystem solarSys = new SolarSystem(splitted[0], Integer.parseInt(splitted[1]), Integer.parseInt(splitted[2]), Integer.parseInt(splitted[3]), Integer.parseInt(splitted[4]));
+                        SolarSystem solarSys = new SolarSystem(splitted[0],
+                                Integer.parseInt(splitted[1]), Integer.parseInt(splitted[2]),
+                                Integer.parseInt(splitted[3]), Integer.parseInt(splitted[4]));
                         if (splitted[0].equals(ssName)) {
                             current = solarSys;
                         }
@@ -105,12 +109,13 @@ public class MainActivity extends AppCompatActivity {
                     ArrayList<String> items = new ArrayList<>();
 
                     for (DataSnapshot sSystems: dataSnapshot.child("Items").getChildren()) {
-                        String s  = (String) sSystems.getKey();
+                        String s  = sSystems.getKey();
                         items.add(s);
                     }
 
                     ArrayList<TradeGood> tradeItems = new ArrayList<>();
-                    String[] arr = {"Firearms", "Food", "Furs", "Games", "Machines", "Medicine", "Narcotics", "Ore", "Robots", "TradeGood", "Water"};
+                    String[] arr = {"Firearms", "Food", "Furs", "Games", "Machines", "Medicine",
+                            "Narcotics", "Ore", "Robots", "TradeGood", "Water"};
                     List<String> allItems = Arrays.asList(arr);
 
 

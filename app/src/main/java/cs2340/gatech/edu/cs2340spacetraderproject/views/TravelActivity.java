@@ -40,7 +40,7 @@ public class TravelActivity extends AppCompatActivity {
     private int subtract;
 
     private DatabaseReference mDatabase;
-    Random rand = new Random();
+    private Random rand = new Random();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,7 +81,10 @@ public class TravelActivity extends AppCompatActivity {
         List<SolarSystem> planetList = new ArrayList<>();
 
         for (SolarSystem ss : universe.getSolarSystem()) {
-            if (player.getSpaceship().calculateDistance(market.getSS().getX(), market.getSS().getY(), ss.getX(), ss.getY()) <= player.getSpaceship().getFuel() && !market.getSS().getName().equals(ss.getName())) {
+            if (player.getSpaceship().calculateDistance(market.getSS().getX(),
+                    market.getSS().getY(), ss.getX(), ss.getY()) <=
+                    player.getSpaceship().getFuel() &&
+                    !market.getSS().getName().equals(ss.getName())) {
                 planetList.add(ss);
             }
         }
@@ -94,7 +97,9 @@ public class TravelActivity extends AppCompatActivity {
             @Override
             public void onItemClicked(SolarSystem planet) {
 
-                subtract = player.getSpaceship().getFuel() - player.getSpaceship().calculateDistance(market.getSS().getX(), market.getSS().getY(), planet.getX(), planet.getY());
+                subtract = player.getSpaceship().getFuel() -
+                        player.getSpaceship().calculateDistance(market.getSS().getX(),
+                                market.getSS().getY(), planet.getX(), planet.getY());
 
                 player.getSpaceship().setFuel(subtract);
                 int randomAct = rand.nextInt(3);
@@ -108,7 +113,8 @@ public class TravelActivity extends AppCompatActivity {
                     intent.putExtra("PLANET", planet);
                     startActivity(intent);
                 } else {
-                    Intent intent = new Intent(TravelActivity.this, PlanetActivity.class);
+                    Intent intent = new Intent(TravelActivity.this,
+                            PlanetActivity.class);
                     //Log.d("itemHashBefore", item.toString());
                     intent.putExtra("PLANET", planet);
                     startActivity(intent);

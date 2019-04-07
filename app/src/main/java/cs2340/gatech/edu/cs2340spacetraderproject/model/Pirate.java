@@ -8,7 +8,8 @@ public class Pirate {
     private int credits;
     private Spaceship spaceship;
 
-    public Pirate(int pilotSkill, int fighterSkill, int traderSkill, int engineerSkill, int credits, Spaceship spaceship) {
+    public Pirate(int pilotSkill, int fighterSkill, int traderSkill,
+                  int engineerSkill, int credits, Spaceship spaceship) {
         this.pilotSkill = pilotSkill;
         this.fighterSkill = fighterSkill;
         this.traderSkill = traderSkill;

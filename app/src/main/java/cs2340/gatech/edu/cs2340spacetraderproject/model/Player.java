@@ -14,7 +14,8 @@ public class Player {
     private int reputation;
 
 
-    public Player(String name, int pilotSkill, int fighterSkill, int traderSkill, int engineerSkill, String gameDifficulty) {
+    public Player(String name, int pilotSkill, int fighterSkill,
+                  int traderSkill, int engineerSkill, String gameDifficulty) {
         this.name = name;
         this.pilotSkill = pilotSkill;
         this.fighterSkill = fighterSkill;

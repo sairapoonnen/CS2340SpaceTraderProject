@@ -24,10 +24,12 @@ public class SolarSystem implements Serializable {
         this.resource = resource; //13 types, 0-12
     }
 
-    private String[] techArray = new String[]{"Pre-Agriculture", "Agriculture", "Medieval", "Renaissance",
+    private String[] techArray = new String[]{"Pre-Agriculture", "Agriculture",
+            "Medieval", "Renaissance",
             "Early Industrial", "Industrial", "Post-Industrial", "High-Tech"};
 
-    private String[] resourceArray = new String[]{"NOSPECIALRESOURCES", "MINERALRICH", "MINERALPOOR",
+    private String[] resourceArray = new String[]{"NOSPECIALRESOURCES", "MINERALRICH",
+            "MINERALPOOR",
             "DESERT", "LOTSOFWATER", "RICHSOIL", "POORSOIL", "RICHFAUNA", "LIFELESS",
             "WEIRDMUSHROOMS", "LOTSOFHERBS", "ARTISTIC", "WARLIKE"};
 
@@ -62,6 +64,7 @@ public class SolarSystem implements Serializable {
     public List<TradeGood> getMarket() { return market; }
 
     public String toString() {
-        return "Solar System Name: " + name + ", coordinates: (" + x + ", " + y + "), Tech Level: " + techArray[tech] + ", Resources: " + resourceArray[resource];
+        return "Solar System Name: " + name + ", coordinates: (" + x + ", " + y + ")," +
+                " Tech Level: " + techArray[tech] + ", Resources: " + resourceArray[resource];
     }
 }

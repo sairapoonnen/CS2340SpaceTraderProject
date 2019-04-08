@@ -95,4 +95,15 @@ public class Spaceship {
         return (int) Math.abs(sqrt);
 
     }
+
+    public boolean equals(Object other) {
+        if (other == this ) {
+            return true;
+        }
+        if (!(other instanceof Spaceship)) {
+            return false;
+        }
+        Spaceship that = (Spaceship)other;
+        return this.name.equals(that.getName()) && this.hullStrength == that.getHullStrength() && this.cargoBays == that.getCargoBays();
+    }
 }

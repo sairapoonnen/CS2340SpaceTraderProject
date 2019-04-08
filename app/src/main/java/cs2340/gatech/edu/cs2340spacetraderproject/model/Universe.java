@@ -33,7 +33,10 @@ public class Universe {
     public String toString() {
         String solarSystems = "Universe:\n";
         for (SolarSystem ss: solarSystem) {
-            solarSystems += ss.toString() + "\n";
+            if (ss != null) {
+                solarSystems += ss.toString() + "\n";
+            }
+
         }
 
         return solarSystems;

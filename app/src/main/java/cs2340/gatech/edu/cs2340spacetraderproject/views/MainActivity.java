@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
         Button makePlayer = (Button) findViewById(R.id.new_player);
 
         makePlayer.setOnClickListener(new OnClickListener(){
+            @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, ConfigurationActivity.class));
             }

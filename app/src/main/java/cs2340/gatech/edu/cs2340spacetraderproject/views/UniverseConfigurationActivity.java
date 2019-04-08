@@ -1,14 +1,9 @@
 package cs2340.gatech.edu.cs2340spacetraderproject.views;
 
-import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import java.util.Random;
@@ -16,7 +11,6 @@ import java.util.Random;
 import cs2340.gatech.edu.cs2340spacetraderproject.R;
 import cs2340.gatech.edu.cs2340spacetraderproject.model.SolarSystem;
 import cs2340.gatech.edu.cs2340spacetraderproject.model.Universe;
-import cs2340.gatech.edu.cs2340spacetraderproject.model.tradegoods.*;
 import cs2340.gatech.edu.cs2340spacetraderproject.viewmodels.UniverseViewModel;
 
 public class UniverseConfigurationActivity extends AppCompatActivity {

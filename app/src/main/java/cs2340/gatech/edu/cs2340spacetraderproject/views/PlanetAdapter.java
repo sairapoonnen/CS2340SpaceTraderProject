@@ -12,9 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cs2340.gatech.edu.cs2340spacetraderproject.R;
-import cs2340.gatech.edu.cs2340spacetraderproject.model.Market;
 import cs2340.gatech.edu.cs2340spacetraderproject.model.SolarSystem;
-import cs2340.gatech.edu.cs2340spacetraderproject.model.tradegoods.TradeGood;
 
 /**
  * Adapts the list of Planets in the model to be a list of graphical elements in view

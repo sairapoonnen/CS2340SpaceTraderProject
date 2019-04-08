@@ -2,7 +2,6 @@ package cs2340.gatech.edu.cs2340spacetraderproject.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import cs2340.gatech.edu.cs2340spacetraderproject.model.tradegoods.TradeGood;

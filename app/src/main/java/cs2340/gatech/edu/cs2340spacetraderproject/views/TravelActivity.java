@@ -5,13 +5,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.widget.Toast;
 import android.widget.TextView;
 import android.view.View;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import cs2340.gatech.edu.cs2340spacetraderproject.R;
@@ -19,7 +16,6 @@ import cs2340.gatech.edu.cs2340spacetraderproject.model.Market;
 import cs2340.gatech.edu.cs2340spacetraderproject.model.Player;
 import cs2340.gatech.edu.cs2340spacetraderproject.model.SolarSystem;
 import cs2340.gatech.edu.cs2340spacetraderproject.model.Universe;
-import cs2340.gatech.edu.cs2340spacetraderproject.model.tradegoods.TradeGood;
 
 public class TravelActivity extends AppCompatActivity {
 

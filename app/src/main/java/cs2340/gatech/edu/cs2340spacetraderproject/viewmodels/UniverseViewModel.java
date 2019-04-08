@@ -1,14 +1,8 @@
 package cs2340.gatech.edu.cs2340spacetraderproject.viewmodels;
 
-import android.util.Log;
-
 import android.arch.lifecycle.ViewModel;
 
-import java.util.Arrays;
-
-import cs2340.gatech.edu.cs2340spacetraderproject.model.Player;
 import cs2340.gatech.edu.cs2340spacetraderproject.model.Universe;
-import cs2340.gatech.edu.cs2340spacetraderproject.model.SolarSystem;
 import cs2340.gatech.edu.cs2340spacetraderproject.model.tradegoods.Firearms;
 import cs2340.gatech.edu.cs2340spacetraderproject.model.tradegoods.Food;
 import cs2340.gatech.edu.cs2340spacetraderproject.model.tradegoods.Furs;

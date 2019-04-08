@@ -1,8 +1,5 @@
 package cs2340.gatech.edu.cs2340spacetraderproject.model.tradegoods;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
 import java.io.Serializable;
 import java.util.Random;
 

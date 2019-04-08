@@ -55,6 +55,7 @@ public class EditItemActivity extends AppCompatActivity {
         } else {
             setTitle("Selling Item");
             item = (TradeGood) getIntent().getSerializableExtra("SELL");
+            Log.d("APP", "Wants to sell");
         }
 
         totalPrice = item.getBasePrice() + (item.getIPL() * (market.getSS().getTech() - item.getMTLP()));

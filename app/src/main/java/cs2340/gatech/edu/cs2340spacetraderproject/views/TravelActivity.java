@@ -27,7 +27,7 @@ import cs2340.gatech.edu.cs2340spacetraderproject.model.tradegoods.TradeGood;
 
 public class TravelActivity extends AppCompatActivity {
 
-    private RecyclerView recyclerView;
+
     private PlanetAdapter adapter;
 
     private TextView location;
@@ -39,7 +39,6 @@ public class TravelActivity extends AppCompatActivity {
 
     private int subtract;
 
-    private DatabaseReference mDatabase;
     private Random rand = new Random();
 
     @Override
@@ -47,7 +46,9 @@ public class TravelActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_travel);
 
-        mDatabase = FirebaseDatabase.getInstance().getReference();
+        RecyclerView recyclerView;
+
+
 
            /*
          Set up our recycler view by grabbing the layout for a single item
@@ -72,7 +73,7 @@ public class TravelActivity extends AppCompatActivity {
     @Override
     public void onResume() {
         super.onResume();
-
+        DatabaseReference mDatabase;
         mDatabase = FirebaseDatabase.getInstance().getReference();
         //Log.d("Null?", "" + player.getCredits());
         location.setText("" + market.getSS().getName());
@@ -131,6 +132,9 @@ public class TravelActivity extends AppCompatActivity {
     }
 
     public void onSavePress(View view) {
+
+        DatabaseReference mDatabase;
+        mDatabase = FirebaseDatabase.getInstance().getReference();
 
         List<TradeGood> items = player.getSpaceship().getCargo();
 

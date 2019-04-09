@@ -33,7 +33,6 @@ public class MarketBuyActivity extends AppCompatActivity {
     private Market market = Market.Market();
     private Player player = Player.Player();
 
-    private RecyclerView recyclerView;
     private ItemAdapter adapter;
 
     //widgets
@@ -49,6 +48,8 @@ public class MarketBuyActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_marketbuy);
+
+        RecyclerView recyclerView;
 
          /*
          Set up our recycler view by grabbing the layout for a single item

@@ -12,7 +12,7 @@ public class Market {
 
     private static Market single_instance = null;
 
-    private Market() {
+    public Market() {
         super();
     }
 

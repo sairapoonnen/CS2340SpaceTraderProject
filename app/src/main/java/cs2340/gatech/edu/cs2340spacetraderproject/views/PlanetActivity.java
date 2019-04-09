@@ -64,13 +64,14 @@ public class PlanetActivity extends AppCompatActivity {
     */
 
     //widgets
-    private TextView name;
     private Button toMap;
     private Button toMarket;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_planet);
+
+        TextView name;
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
 

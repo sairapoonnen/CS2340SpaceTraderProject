@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     //Player player = null;
                     String ssName = null;
-                    ArrayList<String> solars = new ArrayList<>();
+                    List<String> solars = new ArrayList<>();
                     ArrayList<SolarSystem> list = new ArrayList();
                     //player = (Player)dataSnapshot.child("Player").getValue();
                     Player player = dataSnapshot.child("Player").getValue(Player.class);
@@ -106,14 +106,14 @@ public class MainActivity extends AppCompatActivity {
                     Universe universe = new Universe(list);
                     Universe.single_instance = universe;
 
-                    ArrayList<String> items = new ArrayList<>();
+                    List<String> items = new ArrayList<>();
 
                     for (DataSnapshot sSystems: dataSnapshot.child("Items").getChildren()) {
                         String s  = sSystems.getKey();
                         items.add(s);
                     }
 
-                    ArrayList<TradeGood> tradeItems = new ArrayList<>();
+                    List<TradeGood> tradeItems = new ArrayList<>();
                     String[] arr = {"Firearms", "Food", "Furs", "Games", "Machines", "Medicine",
                             "Narcotics", "Ore", "Robots", "TradeGood", "Water"};
                     List<String> allItems = Arrays.asList(arr);
@@ -163,27 +163,10 @@ public class MainActivity extends AppCompatActivity {
                         Player.single_instance = player;
 
 
-
-
-
-//                    Log.d("NAME SS",ssName);
-//                    Log.d("Player Name", player.getName());
-//                    if (player != null) {
-//                        Player.single_instance = player;
-//
-//                        ArrayList<SolarSystem> solarSystems = new ArrayList<>();
-//                        for (int i = 0; i < 10; i++) {
-//                            String splitted =
-//                        }
-
-//
-
                         Intent intent = new Intent(MainActivity.this, PlanetActivity.class);
                         intent.putExtra("PLANET", current);
                         startActivity(intent);
                     }
-
-//
 
                 }
 

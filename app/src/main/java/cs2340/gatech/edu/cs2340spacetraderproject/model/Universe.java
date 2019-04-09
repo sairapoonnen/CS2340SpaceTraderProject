@@ -32,9 +32,11 @@ public class Universe {
 
     public String toString() {
         String solarSystems = "Universe:\n";
+
+        StringBuilder sb = new StringBuilder();
         for (SolarSystem ss: solarSystem) {
             if (ss != null) {
-                solarSystems += ss.toString() + "\n";
+                sb.append(ss.toString() + "\n");
             }
 
         }

@@ -33,7 +33,6 @@ public class ConfigurationActivity extends AppCompatActivity {
 
     ConfigurationViewModel viewModel;
 
-    private DatabaseReference mDatabase;
 
     /*widgets*/
     private EditText nameField;
@@ -60,7 +59,6 @@ public class ConfigurationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_configuration);
 
-        mDatabase = FirebaseDatabase.getInstance().getReference();
 
         /*reference to viewModel*/
         viewModel = ViewModelProviders.of(this).get(ConfigurationViewModel.class);
@@ -78,6 +76,15 @@ public class ConfigurationActivity extends AppCompatActivity {
                 android.R.layout.simple_spinner_item, GameDifficulty.values());
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         difficultySpinner.setAdapter(adapter);
+
+    }
+
+    public void createPlayer(String name, String difficulty) {
+        player.setName(name);
+        player.setGameDifficulty(difficulty);
+        player.setSpaceship(new Gnat());
+        player.setCredits(100);
+
 
     }
 

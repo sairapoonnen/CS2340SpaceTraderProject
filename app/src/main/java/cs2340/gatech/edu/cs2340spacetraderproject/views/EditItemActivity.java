@@ -35,9 +35,6 @@ public class EditItemActivity extends AppCompatActivity {
 
     private List<TradeGood> cargo = player.getSpaceship().getCargo();
 
-    private TextView itemName;
-    private TextView itemPrice;
-
     private int totalPrice;
 
 
@@ -45,6 +42,8 @@ public class EditItemActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edititem);
 
+        TextView itemName;
+        TextView itemPrice;
         itemName = findViewById(R.id.item_name);
         itemPrice = findViewById(R.id.item_price);
 

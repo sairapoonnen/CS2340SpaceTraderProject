@@ -25,6 +25,8 @@ import static org.junit.Assert.assertTrue;
 
 
 @RunWith(AndroidJUnit4.class)
+    //O.Henry
+    //Tests the OnConfirmPressed() method in EditItemActivity class
     public class EditItemActivityTest {
 
 

@@ -13,6 +13,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import cs2340.gatech.edu.cs2340spacetraderproject.R;
 import cs2340.gatech.edu.cs2340spacetraderproject.model.Market;
 import cs2340.gatech.edu.cs2340spacetraderproject.model.tradegoods.Firearms;
@@ -33,6 +36,8 @@ import cs2340.gatech.edu.cs2340spacetraderproject.model.GameDifficulty;
 import cs2340.gatech.edu.cs2340spacetraderproject.model.SolarSystem;
 import cs2340.gatech.edu.cs2340spacetraderproject.model.Universe;
 
+import java.util.HashMap;
+
 import java.util.*;
 
 public class PlanetActivity extends AppCompatActivity {
@@ -41,6 +46,9 @@ public class PlanetActivity extends AppCompatActivity {
     private Market market = Market.Market();
     private SolarSystem ss;
 
+    private Player player = Player.Player();
+
+    private DatabaseReference mDatabase;
 
     /*
     private Water water = new Water();
@@ -64,10 +72,12 @@ public class PlanetActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_planet);
 
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+
         ss = (SolarSystem) getIntent().getSerializableExtra("PLANET");
         //Log.d("itemHashAfter", item.toString());
 
-        //Log.d("Test", "planet: " + ss.getName());
+        Log.d("Test", "planet: " + ss.getName());
 
         //ss.addMarket(new Water());
         //ss.addMarket(new Water());
@@ -113,15 +123,59 @@ public class PlanetActivity extends AppCompatActivity {
 
     //button handler to go to Market
     public void onMarketPressed(View view) {
-        Intent intent = new Intent(PlanetActivity.this, MarketBuyActivity.class);
-        startActivity(intent);
+
+        Random rand = new Random();
+        int prob = rand.nextInt(100);
+
+        if (prob < 60) {
+            Intent intent = new Intent(PlanetActivity.this, RandomChestActivity.class);
+            startActivity(intent);
+        } else {
+            Intent intent = new Intent(PlanetActivity.this, MarketBuyActivity.class);
+            startActivity(intent);
+        }
+
+
 
     }
+
+    public void onSavePressed(View view) {
+
+        List<TradeGood> items = player.getSpaceship().getCargo();
+        player.getSpaceship().setCargoEmpty();
+        mDatabase.child("Player").setValue(player);
+        mDatabase.child("SolarSystem").setValue(ss.getName());
+        //mDatabase.child("Universe").removeValue();
+
+        HashMap<TradeGood, Integer> itemList = new HashMap<>();
+        for (TradeGood item: items) {
+
+            if (itemList.get(item) == null) {
+                itemList.put(item, 1);
+            } else {
+                int curr = itemList.get(item);
+                itemList.put(item, curr + 1);
+            }
+
+        }
+
+        for (TradeGood item : items) {
+            //Log.d("item", item.getName() + itemList.get(item));
+            //mDatabase.child("Items").child(item.getName()).setValue(item.getName());
+            mDatabase.child("Items").child(item.getName()).setValue(itemList.get(item));
+        }
+
+
+        player.getSpaceship().cargo = items;
+    }
+
+
 
     @Override
     public void onResume() {
         super.onResume();
 
         Log.d("Resume?", "onResume");
+        mDatabase = FirebaseDatabase.getInstance().getReference();
     }
 }

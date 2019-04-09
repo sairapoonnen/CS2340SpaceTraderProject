@@ -10,7 +10,7 @@ public class Spaceship {
     private int hullStrength;
     private int cargoBays;
     //private HashMap<String, int[]> cargo;
-    private List<TradeGood> cargo = new ArrayList<>();
+    public List<TradeGood> cargo = new ArrayList<>();
     private int weaponSlots;
     private int gadgetSlots;
     private int shieldSlots;
@@ -18,7 +18,8 @@ public class Spaceship {
     private int distance;
     private int fuel;
 
-    public Spaceship(String name, int hullStrength, int cargoBays, int weaponSlots, int gadgetSlots, int shieldSlots, int crewQuarters, int distance, int fuel) {
+    public Spaceship(String name, int hullStrength, int cargoBays, int weaponSlots, int gadgetSlots,
+                     int shieldSlots, int crewQuarters, int distance, int fuel) {
         this.name = name;
         this.hullStrength = hullStrength;
         this.cargoBays = cargoBays;
@@ -28,6 +29,10 @@ public class Spaceship {
         this.crewQuarters = crewQuarters;
         this.distance = distance;
         this.fuel = fuel;
+    }
+
+    public Spaceship() {
+
     }
 
     public String getName() { return name; }
@@ -69,6 +74,12 @@ public class Spaceship {
 
     public void addCargo(TradeGood item) { cargo.add(item);}
 
+    public void removeCargo(int index) { cargo.remove(index); }
+
+    public void setCargoEmpty() {
+        cargo = null;
+    }
+
     public void setCargoBays(int cargoBays) {
         this.cargoBays = cargoBays;
     }
@@ -83,5 +94,16 @@ public class Spaceship {
 
         return (int) Math.abs(sqrt);
 
+    }
+
+    public boolean equals(Object other) {
+        if (other == this ) {
+            return true;
+        }
+        if (!(other instanceof Spaceship)) {
+            return false;
+        }
+        Spaceship that = (Spaceship)other;
+        return this.name.equals(that.getName()) && this.hullStrength == that.getHullStrength() && this.cargoBays == that.getCargoBays();
     }
 }

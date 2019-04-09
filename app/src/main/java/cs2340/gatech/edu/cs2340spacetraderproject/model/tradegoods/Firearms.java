@@ -7,4 +7,5 @@ public class Firearms extends TradeGood {
         super("Firearms", 1250, 3, 1, 5, -75, 100,
                 "WAR", "WARLIKE", "Never", 600, 1100);
     }
+
 }

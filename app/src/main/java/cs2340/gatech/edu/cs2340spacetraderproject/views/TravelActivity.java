@@ -10,9 +10,13 @@ import android.widget.Toast;
 import android.widget.TextView;
 import android.view.View;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 import cs2340.gatech.edu.cs2340spacetraderproject.R;
 import cs2340.gatech.edu.cs2340spacetraderproject.model.Market;
@@ -35,10 +39,15 @@ public class TravelActivity extends AppCompatActivity {
 
     private int subtract;
 
+    private DatabaseReference mDatabase;
+    private Random rand = new Random();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_travel);
+
+        mDatabase = FirebaseDatabase.getInstance().getReference();
 
            /*
          Set up our recycler view by grabbing the layout for a single item
@@ -64,7 +73,7 @@ public class TravelActivity extends AppCompatActivity {
     public void onResume() {
         super.onResume();
 
-
+        mDatabase = FirebaseDatabase.getInstance().getReference();
         //Log.d("Null?", "" + player.getCredits());
         location.setText("" + market.getSS().getName());
         fuel.setText("" + player.getSpaceship().getFuel());
@@ -72,7 +81,10 @@ public class TravelActivity extends AppCompatActivity {
         List<SolarSystem> planetList = new ArrayList<>();
 
         for (SolarSystem ss : universe.getSolarSystem()) {
-            if (player.getSpaceship().calculateDistance(market.getSS().getX(), market.getSS().getY(), ss.getX(), ss.getY()) <= player.getSpaceship().getFuel() && !market.getSS().getName().equals(ss.getName())) {
+            if (player.getSpaceship().calculateDistance(market.getSS().getX(),
+                    market.getSS().getY(), ss.getX(), ss.getY()) <=
+                    player.getSpaceship().getFuel() &&
+                    !market.getSS().getName().equals(ss.getName())) {
                 planetList.add(ss);
             }
         }
@@ -85,14 +97,30 @@ public class TravelActivity extends AppCompatActivity {
             @Override
             public void onItemClicked(SolarSystem planet) {
 
-                subtract = player.getSpaceship().getFuel() - player.getSpaceship().calculateDistance(market.getSS().getX(), market.getSS().getY(), planet.getX(), planet.getY());
+                subtract = player.getSpaceship().getFuel() -
+                        player.getSpaceship().calculateDistance(market.getSS().getX(),
+                                market.getSS().getY(), planet.getX(), planet.getY());
 
                 player.getSpaceship().setFuel(subtract);
-                Intent intent = new Intent(TravelActivity.this, PlanetActivity.class);
+                int randomAct = rand.nextInt(3);
+                Log.d("Random", "rand int: " + randomAct);
+                if (randomAct == 0) {
+                    Intent intent = new Intent(TravelActivity.this, PirateEncounterActivity.class);
+                    intent.putExtra("PLANET", planet);
+                    startActivity(intent);
+                } else if (randomAct == 1) {
+                    Intent intent = new Intent(TravelActivity.this, AsteroidEncounterActivity.class);
+                    intent.putExtra("PLANET", planet);
+                    startActivity(intent);
+                } else {
+                    Intent intent = new Intent(TravelActivity.this,
+                            PlanetActivity.class);
                     //Log.d("itemHashBefore", item.toString());
-                intent.putExtra("PLANET", planet);
-                startActivity(intent);
+                    intent.putExtra("PLANET", planet);
+                    startActivity(intent);
                     //startActivityForResult(intent, EDIT_REQUEST);
+                }
+
 
             }
         });
@@ -100,5 +128,20 @@ public class TravelActivity extends AppCompatActivity {
 
     public void onBackPressed(View view) {
         finish();
+    }
+
+    public void onSavePress(View view) {
+
+        List<TradeGood> items = player.getSpaceship().getCargo();
+
+        player.getSpaceship().setCargoEmpty();
+        mDatabase.child("Player").setValue(player);
+        mDatabase.child("SolarSystem").setValue(market.getSS().getName());
+        //mDatabase.child("Universe").removeValue();
+        for (TradeGood item : items) {
+            mDatabase.child("Items").child(item.getName()).setValue(item.getName());
+        }
+
+        player.getSpaceship().cargo = items;
     }
 }

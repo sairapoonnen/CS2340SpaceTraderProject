@@ -24,7 +24,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
     private Market market = Market.Market();
 
     private List<TradeGood> itemList = new ArrayList<>(); //will be list of keys (tradegood names)
-    //not sure if it should be a list of TradeGood or should we export TradeGood info into another format?
+
 
     /** a listener for a touch event on the item */
     private OnItemClickListener listener;
@@ -64,7 +64,9 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
 
         //replace the contents of the view with that element
         holder.name.setText(item.getName());
-        holder.price.setText("" + (item.getBasePrice() + (item.getIPL() * (market.getSS().getTech() - item.getMTLP())))); //omitted var for now, will go back to change
+        holder.price.setText("" + (item.getBasePrice() +
+                (item.getIPL() * (market.getSS().getTech() - item.getMTLP()))));
+        //omitted var for now, will go back to change
     }
 
     @Override
@@ -84,7 +86,8 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
     public class ItemViewHolder extends RecyclerView.ViewHolder {
         private TextView name;
         private TextView quantity;
-        private TextView price; //price + (basePrice * var), actually ignoring the basePrice * var for now
+        private TextView price;
+        //price + (basePrice * var), actually ignoring the basePrice * var for now
 
         public ItemViewHolder(View itemView) {
             super(itemView);

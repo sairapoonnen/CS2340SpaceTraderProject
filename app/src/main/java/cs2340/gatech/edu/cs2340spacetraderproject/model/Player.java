@@ -11,9 +11,11 @@ public class Player {
     private Spaceship spaceship;
     private String gameDifficulty;
     private SolarSystem ss;
+    private int reputation;
 
 
-    public Player(String name, int pilotSkill, int fighterSkill, int traderSkill, int engineerSkill, String gameDifficulty) {
+    public Player(String name, int pilotSkill, int fighterSkill,
+                  int traderSkill, int engineerSkill, String gameDifficulty) {
         this.name = name;
         this.pilotSkill = pilotSkill;
         this.fighterSkill = fighterSkill;
@@ -22,19 +24,20 @@ public class Player {
         this.credits = 1000;
         this.spaceship = new Gnat();
         this.gameDifficulty = gameDifficulty;
+        this.reputation = 5;
     }
 
-    private static Player single_instance = null;
+    public static Player single_instance = null;
 
-    private Player() {
-        this.name = "";
-        this.pilotSkill = 0;
-        this.fighterSkill = 0;
-        this.traderSkill = 0;
-        this.engineerSkill = 0;
-        this.credits = 1000;
-        this.spaceship = new Gnat();
-        this.gameDifficulty = null;
+    public Player() {
+//        this.name = "";
+//        this.pilotSkill = 0;
+//        this.fighterSkill = 0;
+//        this.traderSkill = 0;
+//        this.engineerSkill = 0;
+//        this.credits = 1000;
+//        this.spaceship = new Gnat();
+//        this.gameDifficulty = null;
     }
 
     public static Player Player() {
@@ -44,6 +47,8 @@ public class Player {
 
         return single_instance;
     }
+
+
 
 
     public String getName() { return this.name; }
@@ -73,6 +78,8 @@ public class Player {
     }
 
     public SolarSystem getSS() { return this.ss; }
+
+    public int getReputation() { return this.reputation;}
 
     public void setName(String name) {
         this.name = name;
@@ -107,5 +114,7 @@ public class Player {
     }
 
     public void setSS(SolarSystem ss) { this.ss = ss; }
+
+    public void setReputation(int reputation) { this.reputation = this.reputation + reputation; }
 
 }

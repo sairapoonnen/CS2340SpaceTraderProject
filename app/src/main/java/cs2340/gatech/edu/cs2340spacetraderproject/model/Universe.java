@@ -12,10 +12,14 @@ public class Universe {
 
     public ArrayList<SolarSystem> getSolarSystem() { return solarSystem; }
 
-    private static Universe single_instance = null;
+    public static Universe single_instance = null;
 
     private Universe() {
         solarSystem = new ArrayList<SolarSystem>();
+    }
+
+    public Universe(ArrayList<SolarSystem> ss) {
+        this.solarSystem = ss;
     }
 
     public static Universe Universe() {
@@ -29,7 +33,10 @@ public class Universe {
     public String toString() {
         String solarSystems = "Universe:\n";
         for (SolarSystem ss: solarSystem) {
-            solarSystems += ss.toString() + "\n";
+            if (ss != null) {
+                solarSystems += ss.toString() + "\n";
+            }
+
         }
 
         return solarSystems;

@@ -81,7 +81,13 @@ public class MarketBuyActivity extends AppCompatActivity {
 
         Log.d("Null?", "" + player.getCredits());
         credits.setText("" + player.getCredits());
-        cargo.setText("" + player.getSpaceship().getCargo().size() + "/" + player.getSpaceship().getCargoBays());
+        if (player.getSpaceship().getCargo() == null) {
+            cargo.setText("" + 0 + "/" + player.getSpaceship().getCargoBays());
+        } else {
+            cargo.setText("" + player.getSpaceship().getCargo().size() + "/" +
+                    player.getSpaceship().getCargoBays());
+        }
+
 
         List<TradeGood> itemList = new ArrayList<>();
         itemList = market.getMarket();
@@ -93,8 +99,11 @@ public class MarketBuyActivity extends AppCompatActivity {
             @Override
             public void onItemClicked(TradeGood item) {
 
-                if ( player.getSpaceship().getCargo().size() == player.getSpaceship().getCargoBays()) {
-                    Toast.makeText(getApplicationContext(), "Cargo hold full. Cannot buy more goods.", Toast.LENGTH_SHORT).show();
+                if ( player.getSpaceship().getCargo().size() ==
+                        player.getSpaceship().getCargoBays()) {
+                    Toast.makeText(getApplicationContext(),
+                            "Cargo hold full. Cannot buy more goods.",
+                            Toast.LENGTH_SHORT).show();
                 } else {
                     Intent intent = new Intent(MarketBuyActivity.this, EditItemActivity.class);
                     Log.d("itemHashBefore", item.toString());
@@ -112,9 +121,6 @@ public class MarketBuyActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void onConfirmPressed(View view) {
-
-    }
 
     public void onSellPressed(View view) {
         Intent intent = new Intent(MarketBuyActivity.this, MarketSellActivity.class);

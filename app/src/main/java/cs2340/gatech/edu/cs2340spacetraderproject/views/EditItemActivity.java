@@ -57,7 +57,8 @@ public class EditItemActivity extends AppCompatActivity {
             item = (TradeGood) getIntent().getSerializableExtra("SELL");
         }
 
-        totalPrice = item.getBasePrice() + (item.getIPL() * (market.getSS().getTech() - item.getMTLP()));
+        totalPrice = item.getBasePrice() +
+                (item.getIPL() * (market.getSS().getTech() - item.getMTLP()));
         itemName.setText(item.getName());
         itemPrice.setText("" + totalPrice);
 
@@ -67,8 +68,10 @@ public class EditItemActivity extends AppCompatActivity {
         if (getIntent().hasExtra("BUY")) {
 
             if (item.getBasePrice() > player.getCredits()) {
-                Toast.makeText(getApplicationContext(), "Not enough credits to buy item", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Not enough credits to buy item",
+                        Toast.LENGTH_SHORT).show();
             } else {
+
                 /*
                 itemList.remove(item);
                 Log.d("itemHash", item.toString());
@@ -78,7 +81,6 @@ public class EditItemActivity extends AppCompatActivity {
                 Log.d("allItemsBuy", Arrays.toString(itemList.toArray()));
                 */
 
-
                 cargo.add(item);
 
                 player.setCredits(player.getCredits() - totalPrice);
@@ -87,9 +89,11 @@ public class EditItemActivity extends AppCompatActivity {
         } else {
 
             if (market.getSS().getTech() < item.getMTLU()) {
-                Toast.makeText(getApplicationContext(), "This planet cannot use this resource", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),
+                        "This planet cannot use this resource", Toast.LENGTH_SHORT).show();
             } else {
                 itemList.add(item);
+                market.setMarket(itemList);
                 Log.d("itemHash", item.toString());
 
                 Log.d("allItemsSell", Arrays.toString(cargo.toArray()));

@@ -17,6 +17,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:background="@color/Lavender"
+        android:onClick="onBackPress"
         android:text="Go back"
         android:textColor="@color/SlateBlue"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -45,7 +45,6 @@ import static org.junit.Assert.assertTrue;
             Intent intent = new Intent();
             intent.putExtra("BUY",new Water());
             Market().setSS(new SolarSystem("Bob", 1,1,1,1));
-
             mActivityRule.launchActivity(intent);
             int creds = Player().getCredits();
             onView(withId(R.id.confirm)).perform(click());

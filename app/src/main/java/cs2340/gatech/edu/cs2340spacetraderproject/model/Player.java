@@ -30,14 +30,14 @@ public class Player {
     public static Player single_instance = null;
 
     public Player() {
-//        this.name = "";
-//        this.pilotSkill = 0;
-//        this.fighterSkill = 0;
-//        this.traderSkill = 0;
-//        this.engineerSkill = 0;
-//        this.credits = 1000;
-//        this.spaceship = new Gnat();
-//        this.gameDifficulty = null;
+        this.name = "default";
+        this.pilotSkill = 0;
+        this.fighterSkill = 0;
+        this.traderSkill = 0;
+        this.engineerSkill = 0;
+        this.credits = 1000;
+        this.spaceship = new Gnat();
+        this.gameDifficulty = null;
     }
 
     public static Player Player() {

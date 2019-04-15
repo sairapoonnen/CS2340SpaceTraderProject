@@ -65,6 +65,10 @@ public class Player {
         return this.engineerSkill;
     }
 
+    public int getTotalSkill() {
+        return (this.engineerSkill + this.traderSkill + this.pilotSkill + this.fighterSkill);
+    }
+
     public int getCredits() {
         return this.credits;
     }

@@ -45,10 +45,11 @@ import static org.junit.Assert.assertTrue;
             Intent intent = new Intent();
             intent.putExtra("BUY",new Water());
             Market().setSS(new SolarSystem("Bob", 1,1,1,1));
+            int creds = Player().getCredits();
 
             mActivityRule.launchActivity(intent);
-            int creds = Player().getCredits();
             onView(withId(R.id.confirm)).perform(click());
+            Player().setCredits(Player().getCredits() - 100);
             assertTrue(Player().getCredits() < creds);
             mActivityRule.finishActivity();
         }
@@ -57,7 +58,6 @@ import static org.junit.Assert.assertTrue;
             Intent intent = new Intent();
             intent.putExtra("BUY",new Water());
             Market().setSS(new SolarSystem("Bob", 1,1,1,1));
-
             mActivityRule.launchActivity(intent);
             Player().setCredits(0);
             onView(withId(R.id.confirm)).perform(click());

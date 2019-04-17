@@ -47,11 +47,8 @@ public class ConfigurationActivity extends AppCompatActivity {
     /*data for player being edited*/
     private Player player = Player.Player();
     private final int maxSkill = 16;
-    private int totalSkill = player.getEngineerSkill() + player.getFighterSkill()
-            + player.getPilotSkill() + player.getTraderSkill();
+    private int totalSkill = player.getTotalSkill();
     private boolean playerCreated = false;
-
-
 
 
     @Override

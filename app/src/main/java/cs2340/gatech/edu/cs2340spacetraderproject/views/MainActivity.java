@@ -1,5 +1,6 @@
 package cs2340.gatech.edu.cs2340spacetraderproject.views;
 
+import android.animation.ValueAnimator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -23,7 +24,9 @@ import android.content.Intent;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -41,6 +44,10 @@ import java.lang.ClassNotFoundException;
 public class MainActivity extends AppCompatActivity {
 
     private DatabaseReference mDatabase;
+    private ImageView background;
+    private Button createPlayer;
+    private Button loadGame;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +55,24 @@ public class MainActivity extends AppCompatActivity {
         mDatabase = FirebaseDatabase.getInstance().getReference();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        background = findViewById(R.id.background);
+        move(background);
+        createPlayer = findViewById(R.id.new_player);
+        loadGame = findViewById(R.id.load);
+        createPlayer.setVisibility(View.INVISIBLE);
+        loadGame.setVisibility(View.INVISIBLE);
+        createPlayer.postDelayed(new Runnable() {
+            public void run() {
+                createPlayer.setVisibility(View.VISIBLE);
+                createPlayer.startAnimation(AnimationUtils.loadAnimation(MainActivity.this, R.anim.fade_in));
+            }
+        }, 4500);
+        loadGame.postDelayed(new Runnable() {
+            public void run() {
+                loadGame.setVisibility(View.VISIBLE);
+                loadGame.startAnimation(AnimationUtils.loadAnimation(MainActivity.this, R.anim.fade_in));
+            }
+        }, 5000);
 
 //        Button makePlayer = (Button) findViewById(R.id.new_player);
 //
@@ -175,5 +200,17 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    public static void move(final ImageView view){
+        ValueAnimator va = ValueAnimator.ofFloat(500f, 50f);
+        int mDuration = 6000; //in millis
+        va.setDuration(mDuration);
+        va.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            public void onAnimationUpdate(ValueAnimator animation) {
+                view.setTranslationX((float)animation.getAnimatedValue());
+            }
+        });
+        va.start();
     }
 }

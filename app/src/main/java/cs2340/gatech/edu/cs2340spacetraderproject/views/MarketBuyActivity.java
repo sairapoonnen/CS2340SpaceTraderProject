@@ -4,6 +4,8 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.content.ClipData;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.constraint.ConstraintLayout;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -32,6 +34,7 @@ public class MarketBuyActivity extends AppCompatActivity {
 
     private Market market = Market.Market();
     private Player player = Player.Player();
+    private SolarSystem ss;
 
     private ItemAdapter adapter;
 
@@ -42,12 +45,14 @@ public class MarketBuyActivity extends AppCompatActivity {
     private Button leave;
     private Button sell;
     private Button Confirm;
+    private ConstraintLayout constraintLayout;
 
     //private int cargo_have;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_marketbuy);
+        ss = (SolarSystem) getIntent().getSerializableExtra("PLANET");
 
         RecyclerView recyclerView;
 
@@ -60,6 +65,13 @@ public class MarketBuyActivity extends AppCompatActivity {
 
         adapter = new ItemAdapter();
         recyclerView.setAdapter(adapter);
+
+        constraintLayout = findViewById(R.id.constraintLayout);
+        if (ss.getTech() <= 3) {
+            constraintLayout.setBackground(ContextCompat.getDrawable(MarketBuyActivity.this, R.drawable.market2static));
+        } else if (ss.getTech() <= 6) {
+            constraintLayout.setBackground(ContextCompat.getDrawable(MarketBuyActivity.this, R.drawable.market1static));
+        }
 
 
         /*
@@ -118,13 +130,15 @@ public class MarketBuyActivity extends AppCompatActivity {
 
 
     public void onLeavePressed(View view) {
-        Intent intent = new Intent(MarketBuyActivity.this, TravelActivity.class);
+        Intent intent = new Intent(MarketBuyActivity.this, MarketActivity.class);
+        intent.putExtra("PLANET", ss);
         startActivity(intent);
     }
 
 
     public void onSellPressed(View view) {
         Intent intent = new Intent(MarketBuyActivity.this, MarketSellActivity.class);
+        intent.putExtra("PLANET", ss);
         startActivity(intent);
     }
 }

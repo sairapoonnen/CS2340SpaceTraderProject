@@ -65,13 +65,18 @@
             </intent-filter>
         </activity>
         <activity android:name=".views.PlanetActivity" />
+        <activity
+            android:name=".views.PlanetSurfaceActivity"
+            android:label="PlanetSurfaceActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".views.MarketActivity" />
         <activity android:name=".views.MarketBuyActivity" />
         <activity android:name=".views.MarketSellActivity" />
-        <activity android:name=".views.EditItemActivity" />
+        <activity android:name=".views.EditItemActivity"/>
         <activity android:name=".views.TravelActivity" />
+        <activity android:name=".views.FlyingCutsceneActivity" />
         <activity
-            android:name=".views.ConfigurationActivity"
-            android:parentActivityName=".views.MainActivity" />
+            android:name=".views.ConfigurationActivity" />
 
         <meta-data
             android:name="preloaded_fonts"

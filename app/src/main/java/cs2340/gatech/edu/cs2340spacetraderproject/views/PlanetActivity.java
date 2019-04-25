@@ -3,9 +3,12 @@ package cs2340.gatech.edu.cs2340spacetraderproject.views;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.constraint.ConstraintLayout;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -50,6 +53,8 @@ public class PlanetActivity extends AppCompatActivity {
 
     private DatabaseReference mDatabase;
 
+    private TextView whiteBox;
+
     /*
     private Water water = new Water();
     private Furs furs = new Furs();
@@ -64,8 +69,7 @@ public class PlanetActivity extends AppCompatActivity {
     */
 
     //widgets
-    private Button toMap;
-    private Button toMarket;
+    private ConstraintLayout constraintLayout;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,6 +81,12 @@ public class PlanetActivity extends AppCompatActivity {
 
         ss = (SolarSystem) getIntent().getSerializableExtra("PLANET");
         //Log.d("itemHashAfter", item.toString());
+
+        whiteBox = findViewById(R.id.whiteBox);
+        whiteBox.startAnimation(AnimationUtils.loadAnimation(
+                PlanetActivity.this, R.anim.fade_out));
+        whiteBox.setVisibility(View.INVISIBLE);
+
 
         Log.d("Test", "planet: " + ss.getName());
 
@@ -113,33 +123,26 @@ public class PlanetActivity extends AppCompatActivity {
         name.setText(ss.getName());
         //add textView for planet tech level and resource type?
 
+        constraintLayout = findViewById(R.id.constraintLayout);
+        if (ss.getTech() <= 2) {
+            constraintLayout.setBackground(ContextCompat.getDrawable(PlanetActivity.this, R.drawable.planet2));
+        } else if (ss.getTech() <= 4) {
+            constraintLayout.setBackground(ContextCompat.getDrawable(PlanetActivity.this, R.drawable.planet1));
+        } else if (ss.getTech() <= 6) {
+            constraintLayout.setBackground(ContextCompat.getDrawable(PlanetActivity.this, R.drawable.planet3));
+        }
+
 
     }
 
     //button handler to go back to Map
-    public void onMapPressed(View view) {
-        Intent intent = new Intent(PlanetActivity.this, TravelActivity.class);
+    public void onEnterPressed(View view) {
+        Intent intent = new Intent(PlanetActivity.this, PlanetSurfaceActivity.class);
+        intent.putExtra("PLANET", ss);
         startActivity(intent);
     }
 
-    //button handler to go to Market
-    public void onMarketPressed(View view) {
-
-        Random rand = new Random();
-        int prob = rand.nextInt(100);
-
-        if (prob < 60) {
-            Intent intent = new Intent(PlanetActivity.this, RandomChestActivity.class);
-            startActivity(intent);
-        } else {
-            Intent intent = new Intent(PlanetActivity.this, MarketBuyActivity.class);
-            startActivity(intent);
-        }
-
-
-
-    }
-
+    //add to profile page when done
     public void onSavePressed(View view) {
 
         List<TradeGood> items = player.getSpaceship().getCargo();
@@ -179,4 +182,5 @@ public class PlanetActivity extends AppCompatActivity {
         Log.d("Resume?", "onResume");
         mDatabase = FirebaseDatabase.getInstance().getReference();
     }
+
 }

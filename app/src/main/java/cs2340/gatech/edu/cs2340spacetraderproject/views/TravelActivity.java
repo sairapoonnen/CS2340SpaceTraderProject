@@ -103,7 +103,7 @@ public class TravelActivity extends AppCompatActivity {
                                 market.getSS().getY(), planet.getX(), planet.getY());
 
                 player.getSpaceship().setFuel(subtract);
-                int randomAct = rand.nextInt(3);
+                int randomAct = rand.nextInt(5);
                 Log.d("Random", "rand int: " + randomAct);
                 if (randomAct == 0) {
                     Intent intent = new Intent(TravelActivity.this, PirateEncounterActivity.class);
@@ -128,7 +128,9 @@ public class TravelActivity extends AppCompatActivity {
     }
 
     public void onBackPressed(View view) {
-        finish();
+        Intent intent = new Intent(TravelActivity.this, PlanetSurfaceActivity.class);
+        intent.putExtra("PLANET", market.getSS().getName());
+        startActivity(intent);
     }
 
     public void onSavePress(View view) {

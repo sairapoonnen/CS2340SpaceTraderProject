@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,6 +37,7 @@ public class EditItemActivity extends AppCompatActivity {
     private List<TradeGood> cargo = player.getSpaceship().getCargo();
 
     private int totalPrice;
+    private ImageView icon;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +48,7 @@ public class EditItemActivity extends AppCompatActivity {
         TextView itemPrice;
         itemName = findViewById(R.id.item_name);
         itemPrice = findViewById(R.id.item_price);
+        icon = findViewById(R.id.icon);
 
         if (getIntent().hasExtra("BUY")) {
             setTitle("Buying Item");
@@ -60,6 +63,26 @@ public class EditItemActivity extends AppCompatActivity {
                 (item.getIPL() * (market.getSS().getTech() - item.getMTLP()));
         itemName.setText(item.getName());
         itemPrice.setText("" + totalPrice);
+
+        if (item.getName().equals("Firearms")) {
+            icon.setImageResource(R.drawable.gun);
+        } else if (item.getName().equals("Food")) {
+            icon.setImageResource(R.drawable.food);
+        } else if (item.getName().equals("Furs")) {
+            icon.setImageResource(R.drawable.furs);
+        } else if (item.getName().equals("Games")) {
+            icon.setImageResource(R.drawable.games);
+        } else if (item.getName().equals("Machines")) {
+            icon.setImageResource(R.drawable.machine);
+        } else if (item.getName().equals("Narcotics")) {
+            icon.setImageResource(R.drawable.narcotics);
+        } else if (item.getName().equals("Ore")) {
+            icon.setImageResource(R.drawable.ore);
+        } else if (item.getName().equals("Robots")) {
+            icon.setImageResource(R.drawable.robot);
+        } else if (item.getName().equals("Water")) {
+            icon.setImageResource(R.drawable.water);
+        }
 
     }
 

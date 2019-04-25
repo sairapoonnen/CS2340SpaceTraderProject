@@ -29,8 +29,8 @@ public class PirateEncounterActivity extends AppCompatActivity {
 
     public void onFightPressed(View view) {
         Random rand = new Random();
-        int prob = rand.nextInt(100 * 2 ^ ((player.getFighterSkill() - randPirate.getFighterSkill() / 3)));
-        if (prob < 50) {
+        int prob = rand.nextInt(10 + (player.getFighterSkill() - randPirate.getFighterSkill()));
+        if (prob < 5) {
             Intent intent = new Intent(PirateEncounterActivity.this, PirateFightFailActivity.class);
             intent.putExtra("PLANET", planet);
             startActivity(intent);
@@ -44,8 +44,8 @@ public class PirateEncounterActivity extends AppCompatActivity {
 
     public void onFleePressed(View view) {
         Random rand = new Random();
-        int prob = rand.nextInt(100 * 2 ^ ((player.getPilotSkill() - randPirate.getPilotSkill()) / 3));
-        if (prob < 50) {
+        int prob = rand.nextInt(10 + (player.getPilotSkill() - randPirate.getPilotSkill()));
+        if (prob < 5) {
             Intent intent = new Intent(PirateEncounterActivity.this, PirateFleeFailActivity.class);
             intent.putExtra("PLANET", planet);
             startActivity(intent);

@@ -6,11 +6,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import cs2340.gatech.edu.cs2340spacetraderproject.model.tradegoods.Firearms;
 import cs2340.gatech.edu.cs2340spacetraderproject.model.tradegoods.TradeGood;
 import cs2340.gatech.edu.cs2340spacetraderproject.model.Market;
 import cs2340.gatech.edu.cs2340spacetraderproject.R;
@@ -66,7 +68,26 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
         holder.name.setText(item.getName());
         holder.price.setText("" + (item.getBasePrice() +
                 (item.getIPL() * (market.getSS().getTech() - item.getMTLP()))));
-        //omitted var for now, will go back to change
+        if (item.getName() == "Firearms") {
+            holder.icon.setImageResource(R.drawable.gun);
+        } else if (item.getName() == "Food") {
+            holder.icon.setImageResource(R.drawable.food);
+        } else if (item.getName() == "Furs") {
+            holder.icon.setImageResource(R.drawable.furs);
+        } else if (item.getName() == "Games") {
+            holder.icon.setImageResource(R.drawable.games);
+        } else if (item.getName() == "Machines") {
+            holder.icon.setImageResource(R.drawable.machine);
+        } else if (item.getName() == "Narcotics") {
+            holder.icon.setImageResource(R.drawable.narcotics);
+        } else if (item.getName() == "Ore") {
+            holder.icon.setImageResource(R.drawable.ore);
+        } else if (item.getName() == "Robots") {
+            holder.icon.setImageResource(R.drawable.robot);
+        } else if (item.getName() == "Water") {
+            holder.icon.setImageResource(R.drawable.water);
+        }
+            //omitted var for now, will go back to change
     }
 
     @Override
@@ -87,6 +108,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
         private TextView name;
         private TextView quantity;
         private TextView price;
+        private ImageView icon;
         //price + (basePrice * var), actually ignoring the basePrice * var for now
 
         public ItemViewHolder(View itemView) {
@@ -94,6 +116,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
             name = itemView.findViewById(R.id.item_name);
             //quantity = itemView.findViewById(R.id.item_quantity);
             price = itemView.findViewById(R.id.item_price);
+            icon = itemView.findViewById(R.id.icon);
 
             itemView.setOnClickListener(new View.OnClickListener() {
 

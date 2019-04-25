@@ -1,10 +1,14 @@
 package cs2340.gatech.edu.cs2340spacetraderproject.views;
 
+import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.view.animation.AnimationUtils;
+import android.widget.Button;
+import android.widget.ImageView;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -28,6 +32,8 @@ public class UniverseConfigurationActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private PlanetAdapter adapter;
+    private ImageView background;
+    private Button nextButton;
 
     private Universe universe = Universe.Universe();
     SolarSystem ss;
@@ -49,6 +55,24 @@ public class UniverseConfigurationActivity extends AppCompatActivity {
 
         ss = universe.getSolarSystem().get(rand.nextInt(10));
 
+        background = findViewById(R.id.background);
+        nextButton = findViewById(R.id.nextButton);
+        nextButton.setVisibility(View.INVISIBLE);
+        move(background);
+        nextButton.postDelayed(new Runnable() {
+            public void run() {
+                nextButton.setVisibility(View.VISIBLE);
+                nextButton.startAnimation(AnimationUtils.loadAnimation(
+                        UniverseConfigurationActivity.this, R.anim.fade_in));
+            }
+        }, 5800);
+        background.postDelayed(new Runnable() {
+            public void run() {
+                background.setVisibility(View.GONE);
+                background.startAnimation(AnimationUtils.loadAnimation(
+                        UniverseConfigurationActivity.this, R.anim.fade_out));
+            }
+        }, 1000);
 
 
     }
@@ -72,6 +96,18 @@ public class UniverseConfigurationActivity extends AppCompatActivity {
         Intent intent = new Intent(UniverseConfigurationActivity.this, PlanetActivity.class);
         intent.putExtra("PLANET", ss);
         startActivity(intent);
+    }
+
+    public static void move(final ImageView view){
+        ValueAnimator va = ValueAnimator.ofFloat(0f, -450f);
+        int mDuration = 6000; //in millis
+        va.setDuration(mDuration);
+        va.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            public void onAnimationUpdate(ValueAnimator animation) {
+                view.setTranslationY((float)animation.getAnimatedValue());
+            }
+        });
+        va.start();
     }
 
 }

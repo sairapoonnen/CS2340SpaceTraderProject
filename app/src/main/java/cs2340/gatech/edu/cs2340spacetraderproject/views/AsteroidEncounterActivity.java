@@ -27,8 +27,8 @@ public class AsteroidEncounterActivity extends AppCompatActivity {
 
     public void onAvoidPressed(View view) {
         Random rand = new Random();
-        int prob = rand.nextInt(100 * 2 ^ (player.getPilotSkill() / 3));
-        if (prob < 50) {
+        int prob = rand.nextInt(10 * player.getPilotSkill());
+        if (prob < 5) {
             Log.d("Outcome", "Fail, prob: " + prob);
             Intent intent = new Intent(AsteroidEncounterActivity.this, AsteroidFail.class);
             intent.putExtra("PLANET", planet);

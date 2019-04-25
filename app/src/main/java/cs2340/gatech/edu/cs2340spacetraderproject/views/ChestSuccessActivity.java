@@ -15,6 +15,7 @@ import java.util.Random;
 import cs2340.gatech.edu.cs2340spacetraderproject.R;
 import cs2340.gatech.edu.cs2340spacetraderproject.model.Market;
 import cs2340.gatech.edu.cs2340spacetraderproject.model.Player;
+import cs2340.gatech.edu.cs2340spacetraderproject.model.SolarSystem;
 import cs2340.gatech.edu.cs2340spacetraderproject.model.Spaceship;
 import cs2340.gatech.edu.cs2340spacetraderproject.model.tradegoods.TradeGood;
 
@@ -22,12 +23,12 @@ public class ChestSuccessActivity extends AppCompatActivity {
     private Player player = Player.Player();
     private Spaceship spaceship = player.getSpaceship();
     private Market market = Market.Market();
+    private SolarSystem ss;
 
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.success_chest);
-
+        ss = (SolarSystem) getIntent().getSerializableExtra("PLANET");
 
     }
 
@@ -47,7 +48,8 @@ public class ChestSuccessActivity extends AppCompatActivity {
     }
 
     public void onBackPress(View view) {
-        Intent intent = new Intent(ChestSuccessActivity.this, MarketBuyActivity.class);
+        Intent intent = new Intent(ChestSuccessActivity.this, MarketActivity.class);
+        intent.putExtra("PLANET", ss);
         startActivity(intent);
     }
 

@@ -1,5 +1,6 @@
 package cs2340.gatech.edu.cs2340spacetraderproject.views;
 
+import android.animation.ValueAnimator;
 import android.arch.lifecycle.ViewModelProviders;
 import android.arch.lifecycle.ViewModel;
 import android.content.Intent;
@@ -8,9 +9,11 @@ import android.os.TestLooperManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.LinearInterpolator;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -42,6 +45,8 @@ public class ConfigurationActivity extends AppCompatActivity {
     private TextView traderSkillPoint;
     private TextView engineerSkillPoint;
     private TextView totalSkillPoint;
+    private ImageView backgroundOne;
+    private ImageView backgroundTwo;
 
 
     /*data for player being edited*/
@@ -49,6 +54,7 @@ public class ConfigurationActivity extends AppCompatActivity {
     private final int maxSkill = 16;
     private int totalSkill = player.getTotalSkill();
     private boolean playerCreated = false;
+
 
 
     @Override
@@ -59,7 +65,8 @@ public class ConfigurationActivity extends AppCompatActivity {
 
         /*reference to viewModel*/
         viewModel = ViewModelProviders.of(this).get(ConfigurationViewModel.class);
-
+        final ImageView backgroundOne = (ImageView) findViewById(R.id.background_one);
+        final ImageView backgroundTwo = (ImageView) findViewById(R.id.background_two);
 
         nameField = findViewById(R.id.player_name);
         difficultySpinner = findViewById(R.id.difficultySpinner);
@@ -70,10 +77,25 @@ public class ConfigurationActivity extends AppCompatActivity {
         totalSkillPoint = findViewById(R.id.totalSkillPoint);
 
         ArrayAdapter<GameDifficulty> adapter = new ArrayAdapter<>(this,
-                android.R.layout.simple_spinner_item, GameDifficulty.values());
+                R.layout.spinner_item, GameDifficulty.values());
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         difficultySpinner.setAdapter(adapter);
 
+        final ValueAnimator animator = ValueAnimator.ofFloat(0.0f, -1.0f);
+        animator.setRepeatCount(ValueAnimator.INFINITE);
+        animator.setInterpolator(new LinearInterpolator());
+        animator.setDuration(15000L);
+        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                final float progress = (float) animation.getAnimatedValue();
+                final float width = backgroundOne.getWidth();
+                final float translationX = width * progress;
+                backgroundOne.setTranslationX(translationX);
+                backgroundTwo.setTranslationX(translationX + width);
+            }
+        });
+        animator.start();
     }
 
     public void createPlayer(String name, String difficulty) {
@@ -107,6 +129,9 @@ public class ConfigurationActivity extends AppCompatActivity {
             Log.d(TAG, "Trader Skill: " + Integer.toString(player.getTraderSkill()));
             Log.d(TAG, "Engineer Skill: " + Integer.toString(player.getEngineerSkill()));
             Log.d(TAG, "Game Difficulty: " + player.getGameDifficulty());
+            Toast.makeText(getApplicationContext(),
+                    "Player created!",
+                    Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(getApplicationContext(),
                     "Must allocate all skill points before creation.",
@@ -243,5 +268,6 @@ public class ConfigurationActivity extends AppCompatActivity {
             Log.d(tag, content);
         }
     }
+
 
 }

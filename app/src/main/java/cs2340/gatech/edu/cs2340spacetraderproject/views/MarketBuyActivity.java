@@ -49,6 +49,7 @@ public class MarketBuyActivity extends AppCompatActivity {
     private ItemAdapter adapter;
 
     MediaPlayer buttonSound;
+    MediaPlayer fair;
 
     //Home watcher
     HomeWatcher mHomeWatcher;
@@ -143,12 +144,14 @@ public class MarketBuyActivity extends AppCompatActivity {
             public void onHomePressed() {
                 if (mServ != null) {
                     mServ.pauseMusic();
+                    fair.stop();
                 }
             }
             @Override
             public void onHomeLongPressed() {
                 if (mServ != null) {
                     mServ.pauseMusic();
+                    fair.stop();
                 }
             }
         });
@@ -157,6 +160,9 @@ public class MarketBuyActivity extends AppCompatActivity {
 
         //button sound effect setup
         buttonSound = MediaPlayer.create(this, R.raw.button);
+        fair = MediaPlayer.create(this, R.raw.people);
+
+        fair.start();
 
     }
 
@@ -209,6 +215,7 @@ public class MarketBuyActivity extends AppCompatActivity {
 
     public void onLeavePressed(View view) {
 
+        fair.stop();
         buttonSound.start();
 
         Intent intent = new Intent(MarketBuyActivity.this, MarketActivity.class);
@@ -242,6 +249,7 @@ public class MarketBuyActivity extends AppCompatActivity {
         if (!isScreenOn) {
             if (mServ != null) {
                 mServ.pauseMusic();
+                fair.stop();
             }
         }
 

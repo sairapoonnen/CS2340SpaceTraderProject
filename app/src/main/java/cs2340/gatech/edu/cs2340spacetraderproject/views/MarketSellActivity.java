@@ -52,6 +52,7 @@ public class MarketSellActivity extends AppCompatActivity {
     private ConstraintLayout constraintLayout;
 
     MediaPlayer buttonSound;
+    MediaPlayer fair;
 
     //Home watcher
     HomeWatcher mHomeWatcher;
@@ -131,12 +132,14 @@ public class MarketSellActivity extends AppCompatActivity {
             public void onHomePressed() {
                 if (mServ != null) {
                     mServ.pauseMusic();
+                    fair.stop();
                 }
             }
             @Override
             public void onHomeLongPressed() {
                 if (mServ != null) {
                     mServ.pauseMusic();
+                    fair.stop();
                 }
             }
         });
@@ -145,6 +148,9 @@ public class MarketSellActivity extends AppCompatActivity {
 
         //button sound effect setup
         buttonSound = MediaPlayer.create(this, R.raw.button);
+        fair = MediaPlayer.create(this, R.raw.people);
+
+        fair.start();
     }
 
 
@@ -182,6 +188,7 @@ public class MarketSellActivity extends AppCompatActivity {
 
     public void onLeavePressed(View view) {
 
+        fair.stop();
         buttonSound.start();
 
         Intent intent = new Intent(MarketSellActivity.this, MarketActivity.class);
@@ -215,6 +222,7 @@ public class MarketSellActivity extends AppCompatActivity {
         if (!isScreenOn) {
             if (mServ != null) {
                 mServ.pauseMusic();
+
             }
         }
 

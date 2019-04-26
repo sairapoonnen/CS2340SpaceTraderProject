@@ -130,12 +130,14 @@ public class MarketActivity extends AppCompatActivity {
             public void onHomePressed() {
                 if (mServ != null) {
                     mServ.pauseMusic();
+                    people.stop();
                 }
             }
             @Override
             public void onHomeLongPressed() {
                 if (mServ != null) {
                     mServ.pauseMusic();
+                    people.stop();
                 }
             }
         });
@@ -144,7 +146,7 @@ public class MarketActivity extends AppCompatActivity {
 
         //button sound effect setup
         buttonSound = MediaPlayer.create(this, R.raw.button);
-        people = MediaPlayer.create(this, R.raw.people);
+        people = MediaPlayer.create(this, R.raw.market);
 
         people.start();
     }
@@ -152,6 +154,7 @@ public class MarketActivity extends AppCompatActivity {
     //button handler to go to Buy
     public void onBuyPressed(View view) {
 
+        people.stop();
         buttonSound.start();
 
         Intent intent = new Intent(MarketActivity.this, MarketBuyActivity.class);
@@ -163,6 +166,7 @@ public class MarketActivity extends AppCompatActivity {
     //button handler to go to Sell
     public void onSellPressed(View view) {
 
+        people.stop();
         buttonSound.start();
 
         Intent intent = new Intent(MarketActivity.this, MarketSellActivity.class);
@@ -218,6 +222,7 @@ public class MarketActivity extends AppCompatActivity {
         if (!isScreenOn) {
             if (mServ != null) {
                 mServ.pauseMusic();
+                people.stop();
             }
         }
 

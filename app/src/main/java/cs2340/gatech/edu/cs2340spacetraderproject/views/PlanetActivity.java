@@ -5,6 +5,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.os.PowerManager;
@@ -61,6 +62,8 @@ public class PlanetActivity extends AppCompatActivity {
     private DatabaseReference mDatabase;
 
     private TextView whiteBox;
+
+    MediaPlayer buttonSound;
 
     //Home watcher
     HomeWatcher mHomeWatcher;
@@ -197,10 +200,16 @@ public class PlanetActivity extends AppCompatActivity {
         });
 
         mHomeWatcher.startWatch();
+
+        //button sound effect setup
+        buttonSound = MediaPlayer.create(this, R.raw.button);
     }
 
     //button handler to go back to Map
     public void onEnterPressed(View view) {
+
+        buttonSound.start();
+
         Intent intent = new Intent(PlanetActivity.this, PlanetSurfaceActivity.class);
         intent.putExtra("PLANET", ss);
         startActivity(intent);

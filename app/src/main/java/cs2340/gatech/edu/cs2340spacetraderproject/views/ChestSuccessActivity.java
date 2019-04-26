@@ -1,6 +1,7 @@
 package cs2340.gatech.edu.cs2340spacetraderproject.views;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -25,10 +26,19 @@ public class ChestSuccessActivity extends AppCompatActivity {
     private Market market = Market.Market();
     private SolarSystem ss;
 
+    MediaPlayer buttonSound;
+    MediaPlayer success;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.success_chest);
         ss = (SolarSystem) getIntent().getSerializableExtra("PLANET");
+
+        //button sound effect setup
+        buttonSound = MediaPlayer.create(this, R.raw.button);
+        success = MediaPlayer.create(this, R.raw.success);
+
+        success.start();
 
     }
 
@@ -48,6 +58,9 @@ public class ChestSuccessActivity extends AppCompatActivity {
     }
 
     public void onBackPress(View view) {
+
+        buttonSound.start();
+
         Intent intent = new Intent(ChestSuccessActivity.this, MarketActivity.class);
         intent.putExtra("PLANET", ss);
         startActivity(intent);

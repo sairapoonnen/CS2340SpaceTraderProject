@@ -5,6 +5,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.os.PowerManager;
@@ -29,6 +30,8 @@ import cs2340.gatech.edu.cs2340spacetraderproject.viewmodels.UniverseViewModel;
 import java.util.Random;
 
 public class UniverseConfigurationActivity extends AppCompatActivity {
+
+    MediaPlayer buttonSound;
 
     //Home watcher
     HomeWatcher mHomeWatcher;
@@ -138,10 +141,14 @@ public class UniverseConfigurationActivity extends AppCompatActivity {
         });
         mHomeWatcher.startWatch();
 
+        //button sound effect setup
+        buttonSound = MediaPlayer.create(this, R.raw.button);
     }
 
     // button handler to go to planet screen
     public void onNextPressed(View view) {
+
+         buttonSound.start();
 
         for (int i = 0; i < 10; i++) {
             String stored = "" + universe.getSolarSystem().get(i).getX() +

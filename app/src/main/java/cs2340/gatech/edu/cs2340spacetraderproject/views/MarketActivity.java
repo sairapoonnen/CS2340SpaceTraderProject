@@ -5,6 +5,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.os.PowerManager;
@@ -29,6 +30,8 @@ public class MarketActivity extends AppCompatActivity {
     private Button sell;
     private Button leave;
     private TextView name;
+
+    MediaPlayer buttonSound;
 
     //Home watcher
     HomeWatcher mHomeWatcher;
@@ -137,27 +140,43 @@ public class MarketActivity extends AppCompatActivity {
         });
 
         mHomeWatcher.startWatch();
+
+        //button sound effect setup
+        buttonSound = MediaPlayer.create(this, R.raw.button);
     }
 
     //button handler to go to Buy
     public void onBuyPressed(View view) {
+
+        buttonSound.start();
+
         Intent intent = new Intent(MarketActivity.this, MarketBuyActivity.class);
         intent.putExtra("PLANET", ss);
         startActivity(intent);
+
     }
 
     //button handler to go to Sell
     public void onSellPressed(View view) {
+
+        buttonSound.start();
+
         Intent intent = new Intent(MarketActivity.this, MarketSellActivity.class);
         intent.putExtra("PLANET", ss);
         startActivity(intent);
+
     }
 
     //button handler to go back to planet surface
     public void onLeavePressed(View view) {
+
+        buttonSound.start();
+
         Intent intent = new Intent(MarketActivity.this, PlanetSurfaceActivity.class);
         intent.putExtra("PLANET", ss);
         startActivity(intent);
+
+        buttonSound.release();
     }
 
     public static void move(final ImageView view){

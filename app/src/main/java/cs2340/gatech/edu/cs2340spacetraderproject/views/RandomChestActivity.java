@@ -1,6 +1,7 @@
 package cs2340.gatech.edu.cs2340spacetraderproject.views;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -17,14 +18,24 @@ public class RandomChestActivity extends AppCompatActivity {
 
     private SolarSystem ss;
 
+    MediaPlayer buttonSound;
+    MediaPlayer pass;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_random_chest);
         ss = (SolarSystem) getIntent().getSerializableExtra("PLANET");
 
+        //button sound effect setup
+        buttonSound = MediaPlayer.create(this, R.raw.button);
+        pass = MediaPlayer.create(this, R.raw.flee);
+
     }
 
     public void onOpenPressed(View view) {
+
+        buttonSound.start();
+
         Random rand = new Random();
         int prob = rand.nextInt(100);
         if (prob < 50) {
@@ -39,6 +50,9 @@ public class RandomChestActivity extends AppCompatActivity {
     }
 
     public void onPassPressed(View view) {
+
+        pass.start();
+
         Intent intent = new Intent(RandomChestActivity.this, MarketBuyActivity.class);
         intent.putExtra("PLANET", ss);
         startActivity(intent);

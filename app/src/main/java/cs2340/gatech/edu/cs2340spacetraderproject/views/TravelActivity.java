@@ -1,6 +1,7 @@
 package cs2340.gatech.edu.cs2340spacetraderproject.views;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -41,6 +42,9 @@ public class TravelActivity extends AppCompatActivity {
 
     private Random rand = new Random();
 
+    MediaPlayer buttonSound;
+    MediaPlayer travel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,6 +71,12 @@ public class TravelActivity extends AppCompatActivity {
 
         location.setText("" + market.getSS().getName());
         fuel.setText("" + player.getSpaceship().getFuel());
+
+        //button sound effect setup
+        buttonSound = MediaPlayer.create(this, R.raw.button);
+        travel = MediaPlayer.create(this, R.raw.travelbutton);
+
+        travel.start();
 
     }
 
@@ -128,6 +138,9 @@ public class TravelActivity extends AppCompatActivity {
     }
 
     public void onBackPressed(View view) {
+
+        buttonSound.start();
+
         Intent intent = new Intent(TravelActivity.this, PlanetSurfaceActivity.class);
         intent.putExtra("PLANET", market.getSS().getName());
         startActivity(intent);

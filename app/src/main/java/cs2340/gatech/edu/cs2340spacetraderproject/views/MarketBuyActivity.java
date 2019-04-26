@@ -3,6 +3,7 @@ package cs2340.gatech.edu.cs2340spacetraderproject.views;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.ClipData;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.v4.content.ContextCompat;
@@ -37,6 +38,8 @@ public class MarketBuyActivity extends AppCompatActivity {
     private SolarSystem ss;
 
     private ItemAdapter adapter;
+
+    MediaPlayer buttonSound;
 
     //widgets
     private TextView credits;
@@ -84,6 +87,9 @@ public class MarketBuyActivity extends AppCompatActivity {
         credits = findViewById(R.id.credits_amt);
         cargo = findViewById(R.id.cargo_amt);
 
+        //button sound effect setup
+        buttonSound = MediaPlayer.create(this, R.raw.button);
+
     }
 
 
@@ -130,15 +136,23 @@ public class MarketBuyActivity extends AppCompatActivity {
 
 
     public void onLeavePressed(View view) {
+
+        buttonSound.start();
+
         Intent intent = new Intent(MarketBuyActivity.this, MarketActivity.class);
         intent.putExtra("PLANET", ss);
         startActivity(intent);
+
     }
 
 
     public void onSellPressed(View view) {
+
+        buttonSound.start();
+
         Intent intent = new Intent(MarketBuyActivity.this, MarketSellActivity.class);
         intent.putExtra("PLANET", ss);
         startActivity(intent);
+
     }
 }

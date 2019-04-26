@@ -5,6 +5,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.os.PowerManager;
@@ -38,6 +39,8 @@ public class PlanetSurfaceActivity extends AppCompatActivity {
     private Button mapButton;
     private Button shipYardButton;
     private Market market = Market.Market();
+
+    MediaPlayer bt;
 
     //Home watcher
     HomeWatcher mHomeWatcher;
@@ -148,10 +151,16 @@ public class PlanetSurfaceActivity extends AppCompatActivity {
         });
 
         mHomeWatcher.startWatch();
+
+        //button sound effect setup
+        bt = MediaPlayer.create(this, R.raw.button2);
     }
 
     //button handler to go back to Map
     public void onMapPressed(View view) {
+
+        bt.start();
+
         Intent intent = new Intent(PlanetSurfaceActivity.this, TravelActivity.class);
         intent.putExtra("PLANET", ss);
         startActivity(intent);
@@ -159,6 +168,9 @@ public class PlanetSurfaceActivity extends AppCompatActivity {
 
     //button handler to go to Market
     public void onMarketPressed(View view) {
+
+        bt.start();
+
         int randomAct = rand.nextInt(4);
         if (randomAct == 0) {
             Intent intent = new Intent(PlanetSurfaceActivity.this, RandomChestActivity.class);

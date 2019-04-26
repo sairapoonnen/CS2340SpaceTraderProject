@@ -1,7 +1,9 @@
 package cs2340.gatech.edu.cs2340spacetraderproject.views;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.util.Log;
@@ -14,6 +16,9 @@ public class AsteroidFail extends AppCompatActivity {
     private Player player = Player.Player();
     private SolarSystem planet;
 
+    MediaPlayer buttonSound;
+    MediaPlayer fail;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,9 +30,18 @@ public class AsteroidFail extends AppCompatActivity {
         player.setReputation(-1);
         Log.d("After", "Rep: " + player.getReputation());
 
+        //button sound effect setup
+        buttonSound = MediaPlayer.create(this, R.raw.button);
+        fail = MediaPlayer.create(this, R.raw.fail);
+
+        fail.start();
+
     }
 
     public void onBackPress(View view) {
+
+        buttonSound.start();
+
         Intent intent = new Intent(AsteroidFail.this, PlanetActivity.class);
         intent.putExtra("PLANET", planet);
         startActivity(intent);

@@ -2,6 +2,7 @@ package cs2340.gatech.edu.cs2340spacetraderproject.views;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -38,6 +39,8 @@ public class EditItemActivity extends AppCompatActivity {
 
     private int totalPrice;
     private ImageView icon;
+
+    MediaPlayer buttonSound;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,9 +87,15 @@ public class EditItemActivity extends AppCompatActivity {
             icon.setImageResource(R.drawable.water);
         }
 
+        //button sound effect setup
+        buttonSound = MediaPlayer.create(this, R.raw.button);
+
     }
 
     public void onConfirmedPressed(View view) {
+
+        buttonSound.start();
+
         if (getIntent().hasExtra("BUY")) {
 
             if (item.getBasePrice() > player.getCredits()) {
@@ -126,10 +135,14 @@ public class EditItemActivity extends AppCompatActivity {
             }
         }
 
+
         finish();
     }
 
     public void onCancelPressed(View view) {
+
+        buttonSound.start();
+
         onBackPressed();
     }
 }

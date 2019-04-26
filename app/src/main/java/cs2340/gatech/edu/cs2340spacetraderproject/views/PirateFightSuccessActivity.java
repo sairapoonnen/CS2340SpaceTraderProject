@@ -2,6 +2,7 @@ package cs2340.gatech.edu.cs2340spacetraderproject.views;
 
 import android.content.Intent;
 import android.media.Image;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -24,6 +25,9 @@ public class PirateFightSuccessActivity extends AppCompatActivity {
 
     private SolarSystem planet;
 
+    MediaPlayer buttonSound;
+    MediaPlayer success;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +35,11 @@ public class PirateFightSuccessActivity extends AppCompatActivity {
 
         planet = (SolarSystem) getIntent().getSerializableExtra("PLANET");
 
+        //button sound effect setup
+        buttonSound = MediaPlayer.create(this, R.raw.button);
+        success = MediaPlayer.create(this, R.raw.success);
+
+        success.start();
     }
 
     public void onResume() {
@@ -53,6 +62,9 @@ public class PirateFightSuccessActivity extends AppCompatActivity {
     }
 
     public void onBackPress(View view) {
+
+        buttonSound.start();
+
         Intent intent = new Intent(PirateFightSuccessActivity.this, PlanetActivity.class);
         intent.putExtra("PLANET", planet);
         startActivity(intent);

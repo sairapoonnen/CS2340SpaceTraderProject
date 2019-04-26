@@ -1,6 +1,7 @@
 package cs2340.gatech.edu.cs2340spacetraderproject.views;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -19,15 +20,26 @@ public class PirateEncounterActivity extends AppCompatActivity {
     Pirate randPirate = new Pirate(rand.nextInt(5), rand.nextInt(5), rand.nextInt(5), rand.nextInt(5), rand.nextInt(401) + 100, new Gnat());
     private SolarSystem planet;
 
+    MediaPlayer fight;
+    MediaPlayer flee;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_random_pirate);
 
         planet = (SolarSystem) getIntent().getSerializableExtra("PLANET");
+
+        //button sound effect setup
+        fight = MediaPlayer.create(this, R.raw.fight);
+        flee = MediaPlayer.create(this, R.raw.flee);
     }
 
     public void onFightPressed(View view) {
+
+        fight.start();
+
         Random rand = new Random();
         int prob = rand.nextInt(10 + (player.getFighterSkill() - randPirate.getFighterSkill()));
         if (prob < 5) {
@@ -40,9 +52,13 @@ public class PirateEncounterActivity extends AppCompatActivity {
             startActivity(intent);
         }
 
+
     }
 
     public void onFleePressed(View view) {
+
+        flee.start();
+
         Random rand = new Random();
         int prob = rand.nextInt(10 + (player.getPilotSkill() - randPirate.getPilotSkill()));
         if (prob < 5) {
@@ -54,6 +70,7 @@ public class PirateEncounterActivity extends AppCompatActivity {
             intent.putExtra("PLANET", planet);
             startActivity(intent);
         }
+
     }
 
 

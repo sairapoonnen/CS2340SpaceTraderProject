@@ -7,6 +7,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.os.PowerManager;
@@ -61,6 +62,8 @@ public class ConfigurationActivity extends AppCompatActivity {
     private final int maxSkill = 16;
     private int totalSkill = player.getTotalSkill();
     private boolean playerCreated = false;
+
+    MediaPlayer buttonSound;
 
     //Home watcher
     HomeWatcher mHomeWatcher;
@@ -158,6 +161,9 @@ public class ConfigurationActivity extends AppCompatActivity {
             }
         });
         mHomeWatcher.startWatch();
+
+        //button sound effect setup
+        buttonSound = MediaPlayer.create(this, R.raw.button);
     }
 
     public void createPlayer(String name, String difficulty) {
@@ -171,6 +177,9 @@ public class ConfigurationActivity extends AppCompatActivity {
 
     /*Button handler for the Create Player button*/
     public void onCreatePressed(View view) {
+
+        buttonSound.start();
+
         if (totalSkill == 16) {
             String TAG = "PlayerInfo";
             playerCreated = true;
@@ -199,24 +208,31 @@ public class ConfigurationActivity extends AppCompatActivity {
                     "Must allocate all skill points before creation.",
                     Toast.LENGTH_SHORT).show();
         }
+
     }
 
     public void onPlusPilotPressed(View view) {
+
         if (totalSkill < maxSkill) {
             player.setPilotSkill(player.getPilotSkill() + 1);
             pilotSkillPoint.setText(String.format("%s", player.getPilotSkill()));
             totalSkill++;
             totalSkillPoint.setText(String.format("%s", maxSkill - totalSkill));
         }
+
+
     }
 
     public void onMinusPilotPressed(View view) {
+
         if (player.getPilotSkill() > 0) {
             player.setPilotSkill(player.getPilotSkill() - 1);
             pilotSkillPoint.setText(String.format("%s", player.getPilotSkill()));
             totalSkill--;
             totalSkillPoint.setText(String.format("%s", maxSkill - totalSkill));
         }
+
+
     }
 
 
@@ -236,6 +252,8 @@ public class ConfigurationActivity extends AppCompatActivity {
             totalSkill--;
             totalSkillPoint.setText(String.format("%s", maxSkill - totalSkill));
         }
+
+
     }
 
 
@@ -246,6 +264,8 @@ public class ConfigurationActivity extends AppCompatActivity {
             totalSkill++;
             totalSkillPoint.setText(String.format("%s", maxSkill - totalSkill));
         }
+
+
     }
 
     public void onMinusTraderPressed(View view) {
@@ -255,28 +275,37 @@ public class ConfigurationActivity extends AppCompatActivity {
             totalSkill--;
             totalSkillPoint.setText(String.format("%s", maxSkill - totalSkill));
         }
+
     }
 
     public void onPlusEngineerPressed(View view) {
+
         if (totalSkill < maxSkill) {
             player.setEngineerSkill(player.getEngineerSkill() + 1);
             engineerSkillPoint.setText(String.format("%s", player.getEngineerSkill()));
             totalSkill++;
             totalSkillPoint.setText(String.format("%s", maxSkill - totalSkill));
         }
+
     }
 
     public void onMinusEngineerPressed(View view) {
+
         if (player.getEngineerSkill() > 0) {
             player.setEngineerSkill(player.getEngineerSkill() - 1);
             engineerSkillPoint.setText(String.format("%s", player.getEngineerSkill()));
             totalSkill--;
             totalSkillPoint.setText(String.format("%s", maxSkill - totalSkill));
         }
+
+
     }
 
     /*Button handler for generating universe*/
     public void onGeneratePressed(View view) {
+
+        buttonSound.start();
+
         if (playerCreated) {
             Universe universe = Universe.Universe();
 

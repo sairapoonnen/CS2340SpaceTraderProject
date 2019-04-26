@@ -56,6 +56,8 @@ public class MainActivity extends AppCompatActivity {
     private Button createPlayer;
     private Button loadGame;
 
+    MediaPlayer buttonSound;
+
     //Home watcher
     HomeWatcher mHomeWatcher;
 
@@ -91,27 +93,6 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-//        //button sound effect
-//        final MediaPlayer buttonSound = MediaPlayer.create(this, R.raw.button);
-//
-//        Button bt1 = (Button) findViewById(R.id.new_player);
-//
-//        bt1.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                buttonSound.start();
-//            }
-//        });
-//
-//        Button bt2 = (Button) this.findViewById(R.id.load);
-//
-//        bt2.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                buttonSound.start();
-//            }
-//        });
 
         //BIND music service
         doBindService();
@@ -160,16 +141,16 @@ public class MainActivity extends AppCompatActivity {
             }
         }, 5000);
 
-//        Button makePlayer = (Button) findViewById(R.id.new_player);
-//
-//        makePlayer.setOnClickListener(new OnClickListener(){
-//            public void onClick(View v) {
-//                startActivity(new Intent(MainActivity.this, ConfigurationActivity.class));
-//            }
-//        });
+
+        //button sound effect setup
+        buttonSound = MediaPlayer.create(this, R.raw.button);
+
     }
 
     public void createPlayer(View view) {
+
+        buttonSound.start();
+
 //        mDatabase.child("Player").setValue(null);
 //        mDatabase.child("SolarSystem").setValue(null);
         mDatabase.setValue(null);
@@ -179,6 +160,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void loadPressed(View view)  {
+
+        buttonSound.start();
+
         mDatabase.addValueEventListener(new ValueEventListener() {
             public void onDataChange(DataSnapshot dataSnapshot) {
 
@@ -286,6 +270,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
     }
 
     public static void move(final ImageView view){

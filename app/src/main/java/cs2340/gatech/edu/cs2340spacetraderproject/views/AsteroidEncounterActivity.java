@@ -1,6 +1,7 @@
 package cs2340.gatech.edu.cs2340spacetraderproject.views;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -16,6 +17,8 @@ public class AsteroidEncounterActivity extends AppCompatActivity {
     Player player = Player.Player();
     private SolarSystem planet;
 
+    MediaPlayer buttonSound;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,9 +26,14 @@ public class AsteroidEncounterActivity extends AppCompatActivity {
 
         planet = (SolarSystem) getIntent().getSerializableExtra("PLANET");
 
+        //button sound effect setup
+        buttonSound = MediaPlayer.create(this, R.raw.button);
     }
 
     public void onAvoidPressed(View view) {
+
+        buttonSound.start();
+
         Random rand = new Random();
         int prob = rand.nextInt(10 * player.getPilotSkill());
         if (prob < 5) {
@@ -39,6 +47,7 @@ public class AsteroidEncounterActivity extends AppCompatActivity {
             intent.putExtra("PLANET", planet);
             startActivity(intent);
         }
+
 
     }
 

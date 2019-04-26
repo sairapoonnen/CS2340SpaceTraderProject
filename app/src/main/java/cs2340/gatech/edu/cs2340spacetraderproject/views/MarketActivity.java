@@ -173,14 +173,13 @@ public class MarketActivity extends AppCompatActivity {
     //button handler to go back to planet surface
     public void onLeavePressed(View view) {
 
+        people.stop();
         buttonSound.start();
 
         Intent intent = new Intent(MarketActivity.this, PlanetSurfaceActivity.class);
         intent.putExtra("PLANET", ss);
         startActivity(intent);
 
-        people.stop();
-        people.release();
     }
 
     public static void move(final ImageView view){

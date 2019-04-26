@@ -42,7 +42,6 @@ public class ChestFailureActivity extends AppCompatActivity {
         intent.putExtra("PLANET", ss);
         startActivity(intent);
 
-        buttonSound.release();
     }
 
 }

@@ -32,6 +32,7 @@ public class MarketActivity extends AppCompatActivity {
     private TextView name;
 
     MediaPlayer buttonSound;
+    MediaPlayer people;
 
     //Home watcher
     HomeWatcher mHomeWatcher;
@@ -143,6 +144,9 @@ public class MarketActivity extends AppCompatActivity {
 
         //button sound effect setup
         buttonSound = MediaPlayer.create(this, R.raw.button);
+        people = MediaPlayer.create(this, R.raw.people);
+
+        people.start();
     }
 
     //button handler to go to Buy
@@ -164,7 +168,6 @@ public class MarketActivity extends AppCompatActivity {
         Intent intent = new Intent(MarketActivity.this, MarketSellActivity.class);
         intent.putExtra("PLANET", ss);
         startActivity(intent);
-
     }
 
     //button handler to go back to planet surface
@@ -176,7 +179,8 @@ public class MarketActivity extends AppCompatActivity {
         intent.putExtra("PLANET", ss);
         startActivity(intent);
 
-        buttonSound.release();
+        people.stop();
+        people.release();
     }
 
     public static void move(final ImageView view){

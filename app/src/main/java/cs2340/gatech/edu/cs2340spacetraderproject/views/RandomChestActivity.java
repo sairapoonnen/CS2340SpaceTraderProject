@@ -20,6 +20,7 @@ public class RandomChestActivity extends AppCompatActivity {
 
     MediaPlayer buttonSound;
     MediaPlayer pass;
+    MediaPlayer chest;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,11 +30,15 @@ public class RandomChestActivity extends AppCompatActivity {
         //button sound effect setup
         buttonSound = MediaPlayer.create(this, R.raw.button);
         pass = MediaPlayer.create(this, R.raw.flee);
+        chest = MediaPlayer.create(this, R.raw.chest);
+
+        chest.start();
 
     }
 
     public void onOpenPressed(View view) {
 
+        chest.stop();
         buttonSound.start();
 
         Random rand = new Random();
@@ -51,6 +56,7 @@ public class RandomChestActivity extends AppCompatActivity {
 
     public void onPassPressed(View view) {
 
+        chest.stop();
         pass.start();
 
         Intent intent = new Intent(RandomChestActivity.this, MarketBuyActivity.class);

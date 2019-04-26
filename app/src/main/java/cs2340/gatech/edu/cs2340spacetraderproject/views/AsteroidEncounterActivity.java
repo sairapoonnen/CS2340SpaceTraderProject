@@ -18,6 +18,7 @@ public class AsteroidEncounterActivity extends AppCompatActivity {
     private SolarSystem planet;
 
     MediaPlayer buttonSound;
+    MediaPlayer warning;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,9 @@ public class AsteroidEncounterActivity extends AppCompatActivity {
 
         //button sound effect setup
         buttonSound = MediaPlayer.create(this, R.raw.button);
+        warning = MediaPlayer.create(this, R.raw.warning);
+
+        warning.start();
     }
 
     public void onAvoidPressed(View view) {

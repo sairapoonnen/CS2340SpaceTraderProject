@@ -22,6 +22,7 @@ public class PirateEncounterActivity extends AppCompatActivity {
 
     MediaPlayer fight;
     MediaPlayer flee;
+    MediaPlayer grand;
 
 
     @Override
@@ -34,6 +35,9 @@ public class PirateEncounterActivity extends AppCompatActivity {
         //button sound effect setup
         fight = MediaPlayer.create(this, R.raw.fight);
         flee = MediaPlayer.create(this, R.raw.flee);
+        grand = MediaPlayer.create(this, R.raw.grand);
+
+        grand.start();
     }
 
     public void onFightPressed(View view) {

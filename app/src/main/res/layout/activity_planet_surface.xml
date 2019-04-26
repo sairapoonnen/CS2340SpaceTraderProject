@@ -82,7 +82,7 @@
 
     <TextView
         android:id="@+id/planet_name"
-        android:layout_width="300dp"
+        android:layout_width="376dp"
         android:layout_height="48dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
@@ -91,7 +91,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:elevation="2dp"
-        android:gravity="center"
+        android:gravity="right"
         android:textColor="@color/AliceBlue"
         android:textSize="40sp"
         app:fontFamily="@font/alegreya_sans_sc"

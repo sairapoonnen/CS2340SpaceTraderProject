@@ -32,7 +32,7 @@ public class AsteroidFail extends AppCompatActivity {
 
         //button sound effect setup
         buttonSound = MediaPlayer.create(this, R.raw.button);
-        fail = MediaPlayer.create(this, R.raw.fail);
+        fail = MediaPlayer.create(this, R.raw.asteroidfail);
 
         fail.start();
 

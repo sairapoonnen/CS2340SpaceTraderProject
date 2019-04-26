@@ -41,6 +41,7 @@ public class PlanetSurfaceActivity extends AppCompatActivity {
     private Market market = Market.Market();
 
     MediaPlayer bt;
+    MediaPlayer surface;
 
     //Home watcher
     HomeWatcher mHomeWatcher;
@@ -154,11 +155,15 @@ public class PlanetSurfaceActivity extends AppCompatActivity {
 
         //button sound effect setup
         bt = MediaPlayer.create(this, R.raw.button2);
+        surface = MediaPlayer.create(this, R.raw.surface);
+
+        surface.start();
     }
 
     //button handler to go back to Map
     public void onMapPressed(View view) {
 
+        surface.stop();
         bt.start();
 
         Intent intent = new Intent(PlanetSurfaceActivity.this, TravelActivity.class);
@@ -169,6 +174,7 @@ public class PlanetSurfaceActivity extends AppCompatActivity {
     //button handler to go to Market
     public void onMarketPressed(View view) {
 
+        surface.stop();
         bt.start();
 
         int randomAct = rand.nextInt(4);

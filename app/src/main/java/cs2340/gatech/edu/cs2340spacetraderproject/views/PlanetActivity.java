@@ -216,35 +216,6 @@ public class PlanetActivity extends AppCompatActivity {
     }
 
     //add to profile page when done
-    public void onSavePressed(View view) {
-
-        List<TradeGood> items = player.getSpaceship().getCargo();
-        player.getSpaceship().setCargoEmpty();
-        mDatabase.child("Player").setValue(player);
-        mDatabase.child("SolarSystem").setValue(ss.getName());
-        //mDatabase.child("Universe").removeValue();
-
-        HashMap<TradeGood, Integer> itemList = new HashMap<>();
-        for (TradeGood item: items) {
-
-            if (itemList.get(item) == null) {
-                itemList.put(item, 1);
-            } else {
-                int curr = itemList.get(item);
-                itemList.put(item, curr + 1);
-            }
-
-        }
-
-        for (TradeGood item : items) {
-            //Log.d("item", item.getName() + itemList.get(item));
-            //mDatabase.child("Items").child(item.getName()).setValue(item.getName());
-            mDatabase.child("Items").child(item.getName()).setValue(itemList.get(item));
-        }
-
-
-        player.getSpaceship().cargo = items;
-    }
 
 
 

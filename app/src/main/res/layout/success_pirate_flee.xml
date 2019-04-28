@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/MistyRose">
+    android:background="@drawable/starrynight">
 
     <ImageView
         android:id="@+id/imageView23"
@@ -34,10 +33,10 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        android:background="@color/Lavender"
+        android:background="@drawable/button"
         android:onClick="onBackPress"
         android:text="Go back"
-        android:textColor="@color/SlateBlue"
+        android:textColor="@color/AliceBlue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -57,6 +56,7 @@
         android:layout_marginBottom="8dp"
         android:gravity="center"
         android:text="You successfully fled the scene!"
+        android:textColor="@color/AliceBlue"
         android:textSize="24sp"
         app:fontFamily="@font/alegreya_sans_sc_medium"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -77,7 +77,7 @@
         android:layout_marginBottom="8dp"
         android:gravity="center"
         android:text="Action Successful"
-        android:textColor="@color/Salmon"
+        android:textColor="@color/AliceBlue"
         android:textSize="30sp"
         app:fontFamily="@font/alegreya_sans_sc_bold"
         app:layout_constraintBottom_toTopOf="@+id/imageView23"

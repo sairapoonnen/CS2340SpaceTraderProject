@@ -9,7 +9,7 @@
     <LinearLayout
         android:layout_width="414dp"
         android:layout_height="match_parent"
-        android:background="@color/DarkSalmon"
+        android:background="@drawable/starrynight"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp"><![CDATA[>
@@ -37,7 +37,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.468"
+        app:layout_constraintVertical_bias="0.525"
         app:srcCompat="@drawable/asteroid" />
 
     <TextView
@@ -98,10 +98,11 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:layout_weight="1"
-        android:background="@color/Bisque"
+        android:background="@drawable/button"
         android:gravity="center"
         android:onClick="onAvoidPressed"
         android:text="avoid"
+        android:textColor="@color/AliceBlue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

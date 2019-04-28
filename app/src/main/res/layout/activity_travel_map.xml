@@ -1,0 +1,515 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/scrollViewZoom"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true"
+    android:layout_centerVertical="true" >
+
+    <LinearLayout
+        android:id="@+id/wd_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/starmap"
+                android:layout_width="1500dp"
+                android:layout_height="800dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:background="@drawable/starrynight"
+                android:contentDescription="TODO" />
+
+            <ImageView
+                android:id="@+id/nix"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginStart="100dp"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="129dp"
+                android:layout_marginEnd="189dp"
+                android:layout_marginRight="189dp"
+                android:onClick="onNixPressed"
+                app:srcCompat="@drawable/planet1map" />
+
+            <ImageView
+                android:id="@+id/tuzi"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginStart="175dp"
+                android:layout_marginLeft="175dp"
+                android:layout_marginTop="22dp"
+                android:layout_marginEnd="113dp"
+                android:layout_marginRight="113dp"
+                android:onClick="onTuziPressed"
+                app:srcCompat="@drawable/planet1map" />
+
+            <ImageView
+                android:id="@+id/relva"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginStart="273dp"
+                android:layout_marginLeft="273dp"
+                android:layout_marginTop="597dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginRight="15dp"
+                android:onClick="onRelvaPressed"
+                app:srcCompat="@drawable/planet1map" />
+
+            <ImageView
+                android:id="@+id/brax"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginStart="130dp"
+                android:layout_marginLeft="130dp"
+                android:layout_marginTop="645dp"
+                android:layout_marginEnd="158dp"
+                android:layout_marginRight="158dp"
+                android:onClick="onBraxPressed"
+                app:srcCompat="@drawable/planet1map" />
+
+            <ImageView
+                android:id="@+id/hades"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="213dp"
+                android:layout_marginEnd="106dp"
+                android:layout_marginRight="106dp"
+                android:onClick="onHadesPressed"
+                app:srcCompat="@drawable/planet3map" />
+
+            <ImageView
+                android:id="@+id/malcoria"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="386dp"
+                android:layout_marginEnd="300dp"
+                android:layout_marginRight="300dp"
+                android:onClick="onMalcoriaPressed"
+                app:srcCompat="@drawable/planet3map" />
+
+            <ImageView
+                android:id="@+id/sol"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="297dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:onClick="onSolPressed"
+                app:srcCompat="@drawable/planet3map" />
+
+            <TextView
+                android:id="@+id/nix_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="147dp"
+                android:layout_marginLeft="147dp"
+                android:layout_marginTop="205dp"
+                android:fontFamily="@font/alegreya_sans_sc"
+                android:text="Nix"
+                android:textColor="@color/AliceBlue"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/nix_here"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="113dp"
+                android:layout_marginLeft="113dp"
+                android:layout_marginTop="122dp"
+                android:fontFamily="@font/alegreya_sans_sc"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:textColor="@color/Crimson"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tuzi_here"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="191dp"
+                android:layout_marginLeft="191dp"
+                android:layout_marginTop="17dp"
+                android:fontFamily="@font/alegreya_sans_sc"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:textColor="@color/Crimson"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/hades_here"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="201dp"
+                android:layout_marginLeft="201dp"
+                android:layout_marginTop="203dp"
+                android:fontFamily="@font/alegreya_sans_sc"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:textColor="@color/Crimson"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/gypsophil_here"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="35dp"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="178dp"
+                android:fontFamily="@font/alegreya_sans_sc"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:textColor="@color/Crimson"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/malcoria_here"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="9dp"
+                android:layout_marginLeft="9dp"
+                android:layout_marginTop="374dp"
+                android:fontFamily="@font/alegreya_sans_sc"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:textColor="@color/Crimson"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/terosa_here"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="49dp"
+                android:layout_marginLeft="49dp"
+                android:layout_marginTop="520dp"
+                android:fontFamily="@font/alegreya_sans_sc"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:textColor="@color/Crimson"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/brax_here"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="142dp"
+                android:layout_marginLeft="142dp"
+                android:layout_marginTop="637dp"
+                android:fontFamily="@font/alegreya_sans_sc"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:textColor="@color/Crimson"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/relva_here"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="292dp"
+                android:layout_marginLeft="292dp"
+                android:layout_marginTop="590dp"
+                android:fontFamily="@font/alegreya_sans_sc"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:textColor="@color/Crimson"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/andevian_here"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="290dp"
+                android:layout_marginLeft="290dp"
+                android:layout_marginTop="427dp"
+                android:fontFamily="@font/alegreya_sans_sc"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:textColor="@color/Crimson"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/sol_here"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="294dp"
+                android:layout_marginLeft="294dp"
+                android:layout_marginTop="284dp"
+                android:fontFamily="@font/alegreya_sans_sc"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:textColor="@color/Crimson"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/nix_label3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="59dp"
+                android:layout_marginLeft="59dp"
+                android:layout_marginTop="261dp"
+                android:fontFamily="@font/alegreya_sans_sc"
+                android:text="Gypsophil"
+                android:textColor="@color/AliceBlue"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/nix_label4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="458dp"
+                android:fontFamily="@font/alegreya_sans_sc"
+                android:text="Malcoria"
+                android:textColor="@color/AliceBlue"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/nix_label5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="79dp"
+                android:layout_marginLeft="79dp"
+                android:layout_marginTop="607dp"
+                android:fontFamily="@font/alegreya_sans_sc"
+                android:text="Terosa"
+                android:textColor="@color/AliceBlue"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/hades_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="234dp"
+                android:layout_marginLeft="234dp"
+                android:layout_marginTop="295dp"
+                android:fontFamily="@font/alegreya_sans_sc"
+                android:text="Hades"
+                android:textColor="@color/AliceBlue"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/hades_label2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="333dp"
+                android:layout_marginLeft="333dp"
+                android:layout_marginTop="377dp"
+                android:fontFamily="@font/alegreya_sans_sc"
+                android:text="Sol"
+                android:textColor="@color/AliceBlue"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/hades_label3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="308dp"
+                android:layout_marginLeft="308dp"
+                android:layout_marginTop="513dp"
+                android:fontFamily="@font/alegreya_sans_sc"
+                android:text="Andevian"
+                android:textColor="@color/AliceBlue"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/hades_label6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="221dp"
+                android:layout_marginLeft="221dp"
+                android:layout_marginTop="99dp"
+                android:fontFamily="@font/alegreya_sans_sc"
+                android:text="Tuzi"
+                android:textColor="@color/AliceBlue"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/hades_label4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="312dp"
+                android:layout_marginLeft="312dp"
+                android:layout_marginTop="674dp"
+                android:fontFamily="@font/alegreya_sans_sc"
+                android:text="Relva"
+                android:textColor="@color/AliceBlue"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/hades_label5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="176dp"
+                android:layout_marginLeft="176dp"
+                android:layout_marginTop="721dp"
+                android:fontFamily="@font/alegreya_sans_sc"
+                android:text="Brax"
+                android:textColor="@color/AliceBlue"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/gypsophil"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="43dp"
+                android:layout_marginLeft="43dp"
+                android:layout_marginTop="178dp"
+                android:onClick="onGypsophilPressed"
+                app:srcCompat="@drawable/planet2map" />
+
+            <ImageView
+                android:id="@+id/terosa"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="53dp"
+                android:layout_marginLeft="53dp"
+                android:layout_marginTop="525dp"
+                android:onClick="onTerosaPressed"
+                app:srcCompat="@drawable/planet2map" />
+
+            <ImageView
+                android:id="@+id/andevian"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="295dp"
+                android:layout_marginLeft="295dp"
+                android:layout_marginTop="433dp"
+                android:onClick="onAndevianPressed"
+                app:srcCompat="@drawable/planet2map" />
+
+            <Button
+                android:id="@+id/back"
+                android:layout_width="120dp"
+                android:layout_height="48dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="29dp"
+                android:layout_marginLeft="29dp"
+                android:layout_marginTop="741dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/button"
+                android:onClick="onBackPressed"
+                android:text="Back"
+                android:textColor="@color/AliceBlue"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.089"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.967" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</ScrollView>

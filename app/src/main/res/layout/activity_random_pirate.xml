@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/CadetBlue">
+    android:background="@drawable/starrynight">
 
     <Button
         android:id="@+id/fight_button"
@@ -16,9 +16,10 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        android:background="@color/LightBlue"
+        android:background="@drawable/button"
         android:onClick="onFightPressed"
         android:text="fight"
+        android:textColor="@color/AliceBlue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/flee_button"
         app:layout_constraintHorizontal_bias="0.47"
@@ -36,9 +37,10 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        android:background="@color/LightBlue"
+        android:background="@drawable/button"
         android:onClick="onFleePressed"
         android:text="flee"
+        android:textColor="@color/AliceBlue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.826"

@@ -75,6 +75,9 @@
         <activity android:name=".views.EditItemActivity"/>
         <activity android:name=".views.TravelActivity" />
         <activity android:name=".views.FlyingCutsceneActivity" />
+        <activity android:name=".views.FlyingCutsceneActivity2" />
+        <activity android:name=".views.TravelMapActivity" />
+        <activity android:name=".views.ViewPlanetActivity" />
         <activity
             android:name=".views.ConfigurationActivity" />
 

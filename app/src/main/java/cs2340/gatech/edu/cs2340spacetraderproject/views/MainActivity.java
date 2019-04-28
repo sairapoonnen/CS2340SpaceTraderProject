@@ -156,7 +156,6 @@ public class MainActivity extends AppCompatActivity {
         mDatabase.setValue(null);
         Intent intent = new Intent(MainActivity.this, ConfigurationActivity.class);
         startActivity(intent);
-
     }
 
     public void loadPressed(View view)  {

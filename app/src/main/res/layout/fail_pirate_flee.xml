@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/Silver">
+    android:background="@drawable/starrynight">
 
     <TextView
         android:id="@+id/textView24"
@@ -19,7 +18,7 @@
         android:layout_marginBottom="8dp"
         android:gravity="center"
         android:text="You failed to flee the scene!"
-        android:textColor="@color/BlueViolet"
+        android:textColor="@color/AliceBlue"
         android:textSize="24sp"
         app:fontFamily="@font/alegreya_sans_sc_medium"
         app:layout_constraintBottom_toTopOf="@+id/back_button12"
@@ -41,7 +40,7 @@
         android:layout_marginBottom="8dp"
         android:gravity="center"
         android:text="You lost a trade good item!"
-        android:textColor="@color/BlueViolet"
+        android:textColor="@color/AliceBlue"
         android:textSize="24sp"
         app:fontFamily="@font/alegreya_sans_sc_medium"
         app:layout_constraintBottom_toTopOf="@+id/back_button12"
@@ -60,7 +59,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="112dp"
-        android:background="@color/LightSeaGreen"
+        android:background="@drawable/button"
         android:onClick="onBackPress"
         android:text="Go back"
         android:textColor="@color/Seashell"

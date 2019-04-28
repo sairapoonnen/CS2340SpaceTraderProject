@@ -178,24 +178,10 @@ public class TravelActivity extends AppCompatActivity {
                                 market.getSS().getY(), planet.getX(), planet.getY());
 
                 player.getSpaceship().setFuel(subtract);
-                int randomAct = rand.nextInt(5);
-                Log.d("Random", "rand int: " + randomAct);
-                if (randomAct == 0) {
-                    Intent intent = new Intent(TravelActivity.this, PirateEncounterActivity.class);
-                    intent.putExtra("PLANET", planet);
-                    startActivity(intent);
-                } else if (randomAct == 1) {
-                    Intent intent = new Intent(TravelActivity.this, AsteroidEncounterActivity.class);
-                    intent.putExtra("PLANET", planet);
-                    startActivity(intent);
-                } else {
-                    Intent intent = new Intent(TravelActivity.this,
-                            PlanetActivity.class);
-                    //Log.d("itemHashBefore", item.toString());
-                    intent.putExtra("PLANET", planet);
-                    startActivity(intent);
-                    //startActivityForResult(intent, EDIT_REQUEST);
-                }
+
+                Intent intent = new Intent(TravelActivity.this, FlyingCutsceneActivity.class);
+                intent.putExtra("PLANET", planet);
+                startActivity(intent);
 
 
             }

@@ -1,6 +1,5 @@
 package cs2340.gatech.edu.cs2340spacetraderproject.views;
 
-import android.animation.ValueAnimator;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -10,29 +9,35 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.os.PowerManager;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
-import android.view.animation.AnimationUtils;
-import android.widget.Button;
-import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
-import java.util.Random;
+import com.google.firebase.database.ThrowOnExtraProperties;
 
 import cs2340.gatech.edu.cs2340spacetraderproject.HomeWatcher;
 import cs2340.gatech.edu.cs2340spacetraderproject.MusicService;
 import cs2340.gatech.edu.cs2340spacetraderproject.R;
+import cs2340.gatech.edu.cs2340spacetraderproject.model.Market;
+import cs2340.gatech.edu.cs2340spacetraderproject.model.Player;
 import cs2340.gatech.edu.cs2340spacetraderproject.model.SolarSystem;
+import cs2340.gatech.edu.cs2340spacetraderproject.model.Universe;
 
-public class FlyingCutsceneActivity extends AppCompatActivity {
+public class ViewPlanetActivity extends AppCompatActivity {
 
-    private ImageView background;
-    private ImageView ship;
-    private Button next;
     private SolarSystem ss;
-    private Random rand = new Random();
+    private SolarSystem returnSS;
+    private Player player = Player.Player();
+    private Market market = Market.Market();
+    private Universe universe = Universe.Universe();
+
+    private TextView planetName;
+    private TextView planetTech;
+    private TextView planetResource;
 
     MediaPlayer buttonSound;
     MediaPlayer travel;
+
 
     //Home watcher
     HomeWatcher mHomeWatcher;
@@ -69,30 +74,17 @@ public class FlyingCutsceneActivity extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_travel_cutscene1);
+        setContentView(R.layout.activity_viewplanet);
         ss = (SolarSystem) getIntent().getSerializableExtra("PLANET");
+        returnSS = (SolarSystem) getIntent().getSerializableExtra("RETURN");
 
-        background = findViewById(R.id.background);
-        ship = findViewById(R.id.ship);
-        next = findViewById(R.id.next);
+        planetName = findViewById(R.id.planet_name);
+        planetResource = findViewById(R.id.planet_resource);
+        planetTech = findViewById(R.id.planet_tech);
 
-        next.setVisibility(View.INVISIBLE);
-        next.postDelayed(new Runnable() {
-            public void run() {
-                next.setVisibility(View.VISIBLE);
-                next.startAnimation(AnimationUtils.loadAnimation(FlyingCutsceneActivity.this, R.anim.fade_in));
-            }
-        }, 4500);
-
-        ship.postDelayed(new Runnable() {
-            public void run() {
-                ship.startAnimation(AnimationUtils.loadAnimation(FlyingCutsceneActivity.this, R.anim.rotate90));
-            }
-        }, 750);
-        moveShip(ship);
-        move(background);
-        moveShipDown(ship);
-        moveShipOut(ship);
+        planetName.setText(ss.getName());
+        planetTech.setText(ss.getTechArray()[ss.getTech()]);
+        planetResource.setText(ss.getResourceArray()[ss.getResource()]);
 
         //BIND music service
         doBindService();
@@ -117,6 +109,7 @@ public class FlyingCutsceneActivity extends AppCompatActivity {
             }
         });
 
+
         mHomeWatcher.startWatch();
 
         //button sound effect setup
@@ -124,62 +117,33 @@ public class FlyingCutsceneActivity extends AppCompatActivity {
         travel = MediaPlayer.create(this, R.raw.travelbutton);
 
         travel.start();
+
     }
 
-    public void onNextPressed(View view)  {
-        Intent intent = new Intent(FlyingCutsceneActivity.this, FlyingCutsceneActivity2.class);
-        intent.putExtra("PLANET", ss);
+    public void onTravelPressed(View view) {
+        int subtract = player.getSpaceship().getFuel() -
+                player.getSpaceship().calculateDistance(returnSS.getX(),
+                        returnSS.getY(), ss.getX(), ss.getY());
+        if (subtract >= 0) {
+            player.getSpaceship().setFuel(subtract);
+
+            Intent intent = new Intent(ViewPlanetActivity.this, FlyingCutsceneActivity.class);
+            intent.putExtra("PLANET", ss);
+            startActivity(intent);
+        } else {
+            Toast.makeText(getApplicationContext(),
+                    "Cannot travel to this planet because not enough fuel.",
+                Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void onBackPressed(View view) {
+
+        buttonSound.start();
+
+        Intent intent = new Intent(ViewPlanetActivity.this, TravelMapActivity.class);
+        intent.putExtra("PLANET", returnSS);
         startActivity(intent);
-    }
-
-    public static void move(final ImageView view){
-        ValueAnimator va = ValueAnimator.ofFloat(-2000f, 0f);
-        int mDuration = 6000; //in millis
-        va.setDuration(mDuration);
-        va.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            public void onAnimationUpdate(ValueAnimator animation) {
-                view.setTranslationY((float)animation.getAnimatedValue());
-            }
-        });
-        va.start();
-    }
-
-    public static void moveShip(final ImageView view){
-        ValueAnimator va = ValueAnimator.ofFloat(0f,-200f);
-        int mDuration = 1000; //in millis
-        va.setDuration(mDuration);
-        va.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            public void onAnimationUpdate(ValueAnimator animation) {
-                view.setTranslationY((float)animation.getAnimatedValue());
-            }
-        });
-        va.start();
-    }
-
-    public static void moveShipDown(final ImageView view){
-        ValueAnimator va = ValueAnimator.ofFloat(0f,-200f);
-        int mDuration = 2500; //in millis
-        va.setStartDelay(1500);
-        va.setDuration(mDuration);
-        va.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            public void onAnimationUpdate(ValueAnimator animation) {
-                view.setTranslationX((float)animation.getAnimatedValue());
-            }
-        });
-        va.start();
-    }
-
-    public static void moveShipOut(final ImageView view){
-        ValueAnimator va = ValueAnimator.ofFloat(-200f,2000f);
-        int mDuration = 2000; //in millis
-        va.setStartDelay(4000);
-        va.setDuration(mDuration);
-        va.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            public void onAnimationUpdate(ValueAnimator animation) {
-                view.setTranslationX((float)animation.getAnimatedValue());
-            }
-        });
-        va.start();
     }
 
     @Override
@@ -214,5 +178,4 @@ public class FlyingCutsceneActivity extends AppCompatActivity {
         stopService(music);
 
     }
-
 }

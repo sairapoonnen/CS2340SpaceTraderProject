@@ -21,24 +21,35 @@ import android.widget.TextView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.HashMap;
+import java.util.List;
 import java.util.Random;
 
 import cs2340.gatech.edu.cs2340spacetraderproject.HomeWatcher;
 import cs2340.gatech.edu.cs2340spacetraderproject.MusicService;
 import cs2340.gatech.edu.cs2340spacetraderproject.R;
 import cs2340.gatech.edu.cs2340spacetraderproject.model.Market;
+import cs2340.gatech.edu.cs2340spacetraderproject.model.Player;
 import cs2340.gatech.edu.cs2340spacetraderproject.model.SolarSystem;
+import cs2340.gatech.edu.cs2340spacetraderproject.model.Universe;
+import cs2340.gatech.edu.cs2340spacetraderproject.model.tradegoods.TradeGood;
 
 public class PlanetSurfaceActivity extends AppCompatActivity {
 
+    private Universe universe = Universe.Universe();
+    private Market market = Market.Market();
     private SolarSystem ss;
+
+    private Player player = Player.Player();
+
+    private DatabaseReference mDatabase;
     private TextView name;
     private ImageView background;
     private Random rand = new Random();
     private Button marketButton;
     private Button mapButton;
     private Button shipYardButton;
-    private Market market = Market.Market();
+    private Button save;
 
     MediaPlayer bt;
     MediaPlayer surface;
@@ -99,9 +110,11 @@ public class PlanetSurfaceActivity extends AppCompatActivity {
         marketButton = findViewById(R.id.to_market);
         mapButton = findViewById(R.id.to_map);
         shipYardButton = findViewById(R.id.to_shipyard);
+        save = findViewById(R.id.save);
         marketButton.setVisibility(View.INVISIBLE);
         mapButton.setVisibility(View.INVISIBLE);
         shipYardButton.setVisibility(View.INVISIBLE);
+        save.setVisibility(View.INVISIBLE);
         name.setVisibility(View.INVISIBLE);
         shipYardButton.postDelayed(new Runnable() {
             public void run() {
@@ -121,6 +134,12 @@ public class PlanetSurfaceActivity extends AppCompatActivity {
                 mapButton.startAnimation(AnimationUtils.loadAnimation(PlanetSurfaceActivity.this, R.anim.fade_in));
             }
         }, 2250);
+        save.postDelayed(new Runnable() {
+            public void run() {
+                save.setVisibility(View.VISIBLE);
+                save.startAnimation(AnimationUtils.loadAnimation(PlanetSurfaceActivity.this, R.anim.fade_in));
+            }
+        }, 2500);
         name.postDelayed(new Runnable() {
             public void run() {
                 name.setVisibility(View.VISIBLE);
@@ -166,7 +185,7 @@ public class PlanetSurfaceActivity extends AppCompatActivity {
         surface.stop();
         bt.start();
 
-        Intent intent = new Intent(PlanetSurfaceActivity.this, TravelActivity.class);
+        Intent intent = new Intent(PlanetSurfaceActivity.this, TravelMapActivity.class);
         intent.putExtra("PLANET", ss);
         startActivity(intent);
     }
@@ -188,6 +207,36 @@ public class PlanetSurfaceActivity extends AppCompatActivity {
             startActivity(intent);
         }
 
+    }
+
+    public void onSavePressed(View view) {
+
+        List<TradeGood> items = player.getSpaceship().getCargo();
+        player.getSpaceship().setCargoEmpty();
+        mDatabase.child("Player").setValue(player);
+        mDatabase.child("SolarSystem").setValue(ss.getName());
+        //mDatabase.child("Universe").removeValue();
+
+        HashMap<TradeGood, Integer> itemList = new HashMap<>();
+        for (TradeGood item: items) {
+
+            if (itemList.get(item) == null) {
+                itemList.put(item, 1);
+            } else {
+                int curr = itemList.get(item);
+                itemList.put(item, curr + 1);
+            }
+
+        }
+
+        for (TradeGood item : items) {
+            //Log.d("item", item.getName() + itemList.get(item));
+            //mDatabase.child("Items").child(item.getName()).setValue(item.getName());
+            mDatabase.child("Items").child(item.getName()).setValue(itemList.get(item));
+        }
+
+
+        player.getSpaceship().cargo = items;
     }
 
     public static void move(final ImageView view){
